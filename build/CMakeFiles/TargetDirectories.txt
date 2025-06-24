@@ -1,0 +1,3 @@
+/home/ranlen/maturitni_prace/build/CMakeFiles/pozdrav.dir
+/home/ranlen/maturitni_prace/build/CMakeFiles/edit_cache.dir
+/home/ranlen/maturitni_prace/build/CMakeFiles/rebuild_cache.dir

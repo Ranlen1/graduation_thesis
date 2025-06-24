@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/ranlen/maturitni_prace
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ranlen/maturitni_prace
+CMAKE_BINARY_DIR = /home/ranlen/maturitni_prace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ranlen/maturitni_prace/CMakeFiles /home/ranlen/maturitni_prace//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ranlen/maturitni_prace/build/CMakeFiles /home/ranlen/maturitni_prace/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ranlen/maturitni_prace/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ranlen/maturitni_prace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
