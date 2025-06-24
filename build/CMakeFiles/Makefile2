@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /home/ranlen/maturitni_prace/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/pozdrav.dir/all
+all: CMakeFiles/main.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/pozdrav.dir/codegen
+codegen: CMakeFiles/main.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/pozdrav.dir/clean
+clean: CMakeFiles/main.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/pozdrav.dir
+# Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/pozdrav.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pozdrav.dir/build.make CMakeFiles/pozdrav.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pozdrav.dir/build.make CMakeFiles/pozdrav.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=1,2 "Built target pozdrav"
-.PHONY : CMakeFiles/pozdrav.dir/all
+CMakeFiles/main.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=1,2 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/pozdrav.dir/rule: cmake_check_build_system
+CMakeFiles/main.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ranlen/maturitni_prace/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pozdrav.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ranlen/maturitni_prace/build/CMakeFiles 0
-.PHONY : CMakeFiles/pozdrav.dir/rule
+.PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
-pozdrav: CMakeFiles/pozdrav.dir/rule
-.PHONY : pozdrav
+main: CMakeFiles/main.dir/rule
+.PHONY : main
 
 # codegen rule for target.
-CMakeFiles/pozdrav.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pozdrav.dir/build.make CMakeFiles/pozdrav.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=1,2 "Finished codegen for target pozdrav"
-.PHONY : CMakeFiles/pozdrav.dir/codegen
+CMakeFiles/main.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=1,2 "Finished codegen for target main"
+.PHONY : CMakeFiles/main.dir/codegen
 
 # clean rule for target.
-CMakeFiles/pozdrav.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pozdrav.dir/build.make CMakeFiles/pozdrav.dir/clean
-.PHONY : CMakeFiles/pozdrav.dir/clean
+CMakeFiles/main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

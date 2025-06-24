@@ -1,4 +1,4 @@
-CMakeFiles/pozdrav.dir/test.cpp.o: /home/ranlen/maturitni_prace/test.cpp \
+CMakeFiles/main.dir/main.cpp.o: /home/ranlen/maturitni_prace/main.cpp \
  /usr/include/stdc-predef.h \
  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/stdc++.h \
  /usr/include/c++/15.1.1/cassert \
@@ -318,4 +318,6 @@ CMakeFiles/pozdrav.dir/test.cpp.o: /home/ranlen/maturitni_prace/test.cpp \
  /usr/include/c++/15.1.1/bits/fs_path.h \
  /usr/include/c++/15.1.1/bits/fs_dir.h \
  /usr/include/c++/15.1.1/bits/fs_ops.h \
- /usr/include/c++/15.1.1/memory_resource
+ /usr/include/c++/15.1.1/memory_resource /usr/include/GLFW/glfw3.h \
+ /usr/include/GL/gl.h /usr/include/GL/glext.h \
+ /usr/include/KHR/khrplatform.h
