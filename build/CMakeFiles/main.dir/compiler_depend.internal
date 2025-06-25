@@ -3,10 +3,10 @@
 
 CMakeFiles/main.dir/main.cpp.o
  /home/ranlen/maturitni_prace/main.cpp
+ /home/ranlen/maturitni_prace/plugins/glad/include/KHR/khrplatform.h
  /usr/include/GL/gl.h
  /usr/include/GL/glext.h
  /usr/include/GLFW/glfw3.h
- /usr/include/KHR/khrplatform.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
@@ -454,10 +454,24 @@ main
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/libgcc.a
  /usr/lib/ld-linux-x86-64.so.2
+ /usr/lib/libGL.so
+ /usr/lib/libGLX.so.0
+ /usr/lib/libGLdispatch.so.0
+ /usr/lib/libX11.so.6
+ /usr/lib/libXau.so.6
+ /usr/lib/libXdmcp.so.6
  /usr/lib/libc.so.6
  /usr/lib/libc_nonshared.a
  /usr/lib/libglfw.so.3.4
  /usr/lib/libm.so.6
  /usr/lib/libmvec.so.1
+ /usr/lib/libxcb.so.1
+ /usr/lib32/libGLX.so.0
+ /usr/lib32/libGLdispatch.so.0
+ /usr/lib32/libX11.so.6
+ /usr/lib32/libXau.so.6
+ /usr/lib32/libXdmcp.so.6
+ /usr/lib32/libxcb.so.1
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/main.cpp.o
+ /home/ranlen/maturitni_prace/build/libglad.a
 

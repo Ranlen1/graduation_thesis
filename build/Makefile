@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named glad
+
+# Build rule for target.
+glad: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glad
+.PHONY : glad
+
+# fast build rule for target.
+glad/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/build
+.PHONY : glad/fast
+
+#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -153,6 +166,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+plugins/glad/src/glad.o: plugins/glad/src/glad.c.o
+.PHONY : plugins/glad/src/glad.o
+
+# target to build an object file
+plugins/glad/src/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/plugins/glad/src/glad.c.o
+.PHONY : plugins/glad/src/glad.c.o
+
+plugins/glad/src/glad.i: plugins/glad/src/glad.c.i
+.PHONY : plugins/glad/src/glad.i
+
+# target to preprocess a source file
+plugins/glad/src/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/plugins/glad/src/glad.c.i
+.PHONY : plugins/glad/src/glad.c.i
+
+plugins/glad/src/glad.s: plugins/glad/src/glad.c.s
+.PHONY : plugins/glad/src/glad.s
+
+# target to generate assembly for a file
+plugins/glad/src/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/plugins/glad/src/glad.c.s
+.PHONY : plugins/glad/src/glad.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... glad"
 	@echo "... main"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... plugins/glad/src/glad.o"
+	@echo "... plugins/glad/src/glad.i"
+	@echo "... plugins/glad/src/glad.s"
 .PHONY : help
 
 

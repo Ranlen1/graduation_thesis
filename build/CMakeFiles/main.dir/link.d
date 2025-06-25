@@ -3,6 +3,7 @@ main: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o \
   CMakeFiles/main.dir/main.cpp.o \
+  libglad.a \
   /usr/lib/libglfw.so.3.4 \
   /usr/lib/libGL.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/libstdc++.so \
@@ -52,6 +53,8 @@ main: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o:
 
 CMakeFiles/main.dir/main.cpp.o:
+
+libglad.a:
 
 /usr/lib/libglfw.so.3.4:
 

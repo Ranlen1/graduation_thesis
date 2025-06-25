@@ -96,6 +96,7 @@ main_EXTERNAL_OBJECTS =
 main: CMakeFiles/main.dir/main.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/compiler_depend.ts
+main: libglad.a
 main: /usr/lib/libglfw.so.3.4
 main: /usr/lib/libGL.so
 main: CMakeFiles/main.dir/link.txt
