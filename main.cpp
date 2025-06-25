@@ -1,5 +1,6 @@
-#include<bits/stdc++.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
 
 int main() {
     if (!glfwInit()) {
@@ -7,20 +8,24 @@ int main() {
         return -1;
     }
 
-    GLFWwindow* window = glfwCreateWindow(640, 480, "GLFW Test", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "GLAD Test", nullptr, nullptr);
     if (!window) {
-        std::cerr << "Failed to create GLFW window\n";
+        std::cerr << "Failed to create window\n";
         glfwTerminate();
         return -1;
     }
 
     glfwMakeContextCurrent(window);
 
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cerr << "Failed to initialize GLAD\n";
+        return -1;
+    }
+
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
-
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
