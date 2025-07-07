@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/cc  -I/home/ranlen/maturitni_prace/plugins/glad/include  -o CMakeFiles/glad.dir/plugins/glad/src/glad.c.o -c /home/ranlen/maturitni_prace/plugins/glad/src/glad.c",
+  "file": "/home/ranlen/maturitni_prace/plugins/glad/src/glad.c",
+  "output": "CMakeFiles/glad.dir/plugins/glad/src/glad.c.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/main.cpp.o -c /home/ranlen/maturitni_prace/main.cpp",
+  "file": "/home/ranlen/maturitni_prace/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+}
+]

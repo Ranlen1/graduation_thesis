@@ -4,6 +4,7 @@ project(graduation_thesis VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(glad plugins/glad/src/glad.c)
 target_include_directories(glad PUBLIC plugins/glad/include)
