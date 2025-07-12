@@ -12,6 +12,9 @@ target_include_directories(glad PUBLIC plugins/glad/include)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
-add_executable(main main.cpp)
+add_executable(main code/main.cpp)
+add_executable(triangle code/triangle.cpp)
 
 target_link_libraries(main PRIVATE glad glfw OpenGL::GL)
+target_link_libraries(triangle PRIVATE glad glfw OpenGL::GL)
+

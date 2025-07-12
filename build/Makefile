@@ -142,29 +142,66 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+#=============================================================================
+# Target rules for targets named triangle
+
+# Build rule for target.
+triangle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 triangle
+.PHONY : triangle
+
+# fast build rule for target.
+triangle/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/build
+.PHONY : triangle/fast
+
+code/main.o: code/main.cpp.o
+.PHONY : code/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+code/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.o
+.PHONY : code/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+code/main.i: code/main.cpp.i
+.PHONY : code/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+code/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.i
+.PHONY : code/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+code/main.s: code/main.cpp.s
+.PHONY : code/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+code/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
+.PHONY : code/main.cpp.s
+
+code/triangle.o: code/triangle.cpp.o
+.PHONY : code/triangle.o
+
+# target to build an object file
+code/triangle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/code/triangle.cpp.o
+.PHONY : code/triangle.cpp.o
+
+code/triangle.i: code/triangle.cpp.i
+.PHONY : code/triangle.i
+
+# target to preprocess a source file
+code/triangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/code/triangle.cpp.i
+.PHONY : code/triangle.cpp.i
+
+code/triangle.s: code/triangle.cpp.s
+.PHONY : code/triangle.s
+
+# target to generate assembly for a file
+code/triangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/code/triangle.cpp.s
+.PHONY : code/triangle.cpp.s
 
 plugins/glad/src/glad.o: plugins/glad/src/glad.c.o
 .PHONY : plugins/glad/src/glad.o
@@ -200,9 +237,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... triangle"
+	@echo "... code/main.o"
+	@echo "... code/main.i"
+	@echo "... code/main.s"
+	@echo "... code/triangle.o"
+	@echo "... code/triangle.i"
+	@echo "... code/triangle.s"
 	@echo "... plugins/glad/src/glad.o"
 	@echo "... plugins/glad/src/glad.i"
 	@echo "... plugins/glad/src/glad.s"
