@@ -16,5 +16,11 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/triangle.dir/code/triangle.cpp.o -c /home/ranlen/maturitni_prace/code/triangle.cpp",
   "file": "/home/ranlen/maturitni_prace/code/triangle.cpp",
   "output": "CMakeFiles/triangle.dir/code/triangle.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/rectangle.dir/code/rectangle.cpp.o -c /home/ranlen/maturitni_prace/code/rectangle.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/rectangle.cpp",
+  "output": "CMakeFiles/rectangle.dir/code/rectangle.cpp.o"
 }
 ]

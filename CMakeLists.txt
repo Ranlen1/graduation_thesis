@@ -14,7 +14,11 @@ find_package(OpenGL REQUIRED)
 
 add_executable(main code/main.cpp)
 add_executable(triangle code/triangle.cpp)
+add_executable(rectangle code/rectangle.cpp)
 
 target_link_libraries(main PRIVATE glad glfw OpenGL::GL)
 target_link_libraries(triangle PRIVATE glad glfw OpenGL::GL)
+target_link_libraries(rectangle PRIVATE glad glfw OpenGL::GL)
+
+
 

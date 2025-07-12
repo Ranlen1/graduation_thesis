@@ -155,6 +155,19 @@ triangle/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/build
 .PHONY : triangle/fast
 
+#=============================================================================
+# Target rules for targets named rectangle
+
+# Build rule for target.
+rectangle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rectangle
+.PHONY : rectangle
+
+# fast build rule for target.
+rectangle/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/build
+.PHONY : rectangle/fast
+
 code/main.o: code/main.cpp.o
 .PHONY : code/main.o
 
@@ -178,6 +191,30 @@ code/main.s: code/main.cpp.s
 code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
+
+code/rectangle.o: code/rectangle.cpp.o
+.PHONY : code/rectangle.o
+
+# target to build an object file
+code/rectangle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/code/rectangle.cpp.o
+.PHONY : code/rectangle.cpp.o
+
+code/rectangle.i: code/rectangle.cpp.i
+.PHONY : code/rectangle.i
+
+# target to preprocess a source file
+code/rectangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/code/rectangle.cpp.i
+.PHONY : code/rectangle.cpp.i
+
+code/rectangle.s: code/rectangle.cpp.s
+.PHONY : code/rectangle.s
+
+# target to generate assembly for a file
+code/rectangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/code/rectangle.cpp.s
+.PHONY : code/rectangle.cpp.s
 
 code/triangle.o: code/triangle.cpp.o
 .PHONY : code/triangle.o
@@ -237,10 +274,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
+	@echo "... rectangle"
 	@echo "... triangle"
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/rectangle.o"
+	@echo "... code/rectangle.i"
+	@echo "... code/rectangle.s"
 	@echo "... code/triangle.o"
 	@echo "... code/triangle.i"
 	@echo "... code/triangle.s"
