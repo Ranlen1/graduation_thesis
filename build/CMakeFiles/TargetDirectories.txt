@@ -1,6 +1,5 @@
 /home/ranlen/maturitni_prace/build/CMakeFiles/glad.dir
 /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir
-/home/ranlen/maturitni_prace/build/CMakeFiles/triangle.dir
-/home/ranlen/maturitni_prace/build/CMakeFiles/rectangle.dir
+/home/ranlen/maturitni_prace/build/CMakeFiles/test.dir
 /home/ranlen/maturitni_prace/build/CMakeFiles/edit_cache.dir
 /home/ranlen/maturitni_prace/build/CMakeFiles/rebuild_cache.dir

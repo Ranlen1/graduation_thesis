@@ -143,30 +143,17 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named triangle
+# Target rules for targets named test
 
 # Build rule for target.
-triangle: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 triangle
-.PHONY : triangle
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-triangle/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/build
-.PHONY : triangle/fast
-
-#=============================================================================
-# Target rules for targets named rectangle
-
-# Build rule for target.
-rectangle: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rectangle
-.PHONY : rectangle
-
-# fast build rule for target.
-rectangle/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/build
-.PHONY : rectangle/fast
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 code/main.o: code/main.cpp.o
 .PHONY : code/main.o
@@ -192,53 +179,29 @@ code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
 
-code/rectangle.o: code/rectangle.cpp.o
-.PHONY : code/rectangle.o
+code/test.o: code/test.cpp.o
+.PHONY : code/test.o
 
 # target to build an object file
-code/rectangle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/code/rectangle.cpp.o
-.PHONY : code/rectangle.cpp.o
+code/test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/code/test.cpp.o
+.PHONY : code/test.cpp.o
 
-code/rectangle.i: code/rectangle.cpp.i
-.PHONY : code/rectangle.i
-
-# target to preprocess a source file
-code/rectangle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/code/rectangle.cpp.i
-.PHONY : code/rectangle.cpp.i
-
-code/rectangle.s: code/rectangle.cpp.s
-.PHONY : code/rectangle.s
-
-# target to generate assembly for a file
-code/rectangle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rectangle.dir/build.make CMakeFiles/rectangle.dir/code/rectangle.cpp.s
-.PHONY : code/rectangle.cpp.s
-
-code/triangle.o: code/triangle.cpp.o
-.PHONY : code/triangle.o
-
-# target to build an object file
-code/triangle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/code/triangle.cpp.o
-.PHONY : code/triangle.cpp.o
-
-code/triangle.i: code/triangle.cpp.i
-.PHONY : code/triangle.i
+code/test.i: code/test.cpp.i
+.PHONY : code/test.i
 
 # target to preprocess a source file
-code/triangle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/code/triangle.cpp.i
-.PHONY : code/triangle.cpp.i
+code/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/code/test.cpp.i
+.PHONY : code/test.cpp.i
 
-code/triangle.s: code/triangle.cpp.s
-.PHONY : code/triangle.s
+code/test.s: code/test.cpp.s
+.PHONY : code/test.s
 
 # target to generate assembly for a file
-code/triangle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/triangle.dir/build.make CMakeFiles/triangle.dir/code/triangle.cpp.s
-.PHONY : code/triangle.cpp.s
+code/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/code/test.cpp.s
+.PHONY : code/test.cpp.s
 
 plugins/glad/src/glad.o: plugins/glad/src/glad.c.o
 .PHONY : plugins/glad/src/glad.o
@@ -274,17 +237,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
-	@echo "... rectangle"
-	@echo "... triangle"
+	@echo "... test"
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
-	@echo "... code/rectangle.o"
-	@echo "... code/rectangle.i"
-	@echo "... code/rectangle.s"
-	@echo "... code/triangle.o"
-	@echo "... code/triangle.i"
-	@echo "... code/triangle.s"
+	@echo "... code/test.o"
+	@echo "... code/test.i"
+	@echo "... code/test.s"
 	@echo "... plugins/glad/src/glad.o"
 	@echo "... plugins/glad/src/glad.i"
 	@echo "... plugins/glad/src/glad.s"

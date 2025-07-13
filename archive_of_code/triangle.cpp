@@ -1,6 +1,5 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -39,22 +38,10 @@ int main()
     
     float verticies[] = {-0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f};
 
-    if (window == NULL)
-    {
-        std::cout << "Failed to create GLFW window\n";
-        glfwTerminate();
-        return -1;
-    }
-
     glfwMakeContextCurrent(window);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD\n";
-        return -1;
-    }
+    gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
-    glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -85,10 +72,6 @@ int main()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    glBindVertexArray(0);
-
     while(!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -104,7 +87,7 @@ int main()
         glfwPollEvents();
     }    
     glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VAO);
+    glDeleteBuffers(1, &VBO);
     glDeleteProgram(shaderProgram);
 
     glfwTerminate();

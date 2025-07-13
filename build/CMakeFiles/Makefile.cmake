@@ -69,6 +69,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/glad.dir/DependInfo.cmake"
   "CMakeFiles/main.dir/DependInfo.cmake"
-  "CMakeFiles/triangle.dir/DependInfo.cmake"
-  "CMakeFiles/rectangle.dir/DependInfo.cmake"
+  "CMakeFiles/test.dir/DependInfo.cmake"
   )
