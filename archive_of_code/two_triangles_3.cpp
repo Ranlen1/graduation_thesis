@@ -82,7 +82,6 @@ int main()
     unsigned int shaderProgram2 = glCreateProgram();
     glAttachShader(shaderProgram2, vertexShader);
     glAttachShader(shaderProgram2, fragmentShader2);
-    glLinkProgram(shaderProgram2);
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader1);

@@ -20,18 +20,11 @@ const char *vertexShaderSource = "#version 330 core\n"
     "{\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
     "}\0";
-const char *fragmentShaderSource1 = "#version 330 core\n"
+const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main()\n"
     "{\n"
     "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}\n\0";
-
-const char *fragmentShaderSource2 = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(0.7f, 0.2f, 0.6f, 1.0f);\n"
     "}\n\0";
 
 const unsigned int screenWidth = 800;
@@ -66,27 +59,17 @@ int main()
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
 
-    unsigned int fragmentShader1 = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader1, 1, &fragmentShaderSource1, NULL);
-    glCompileShader(fragmentShader1);
+    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+    glCompileShader(fragmentShader);
 
-    unsigned int fragmentShader2 = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader2, 1, &fragmentShaderSource2, NULL);
-    glCompileShader(fragmentShader2);
-
-    unsigned int shaderProgram1 = glCreateProgram();
-    glAttachShader(shaderProgram1, vertexShader);
-    glAttachShader(shaderProgram1, fragmentShader1);
-    glLinkProgram(shaderProgram1);
-
-    unsigned int shaderProgram2 = glCreateProgram();
-    glAttachShader(shaderProgram2, vertexShader);
-    glAttachShader(shaderProgram2, fragmentShader2);
-    glLinkProgram(shaderProgram2);
+    unsigned int shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
 
     glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader1);
-    glDeleteShader(fragmentShader2);
+    glDeleteShader(fragmentShader);
 
     unsigned int VBO[2], VAO[2];
 
@@ -114,23 +97,20 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        glUseProgram(shaderProgram1);
+        glUseProgram(shaderProgram);
 
         glBindVertexArray(VAO[0]);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
-        glUseProgram(shaderProgram2);
-
+        
         glBindVertexArray(VAO[1]);
         glDrawArrays(GL_TRIANGLES, 0, 3);
-
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
     glDeleteVertexArrays(2, VAO);
     glDeleteBuffers(2, VBO);
-    glDeleteProgram(shaderProgram1);
-    glDeleteProgram(shaderProgram2);
+    glDeleteProgram(shaderProgram);
 
     glfwTerminate();
     return 0;
