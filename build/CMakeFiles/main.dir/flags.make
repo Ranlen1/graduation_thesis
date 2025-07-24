@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ranlen/maturitni_prace/plugins/glad/include
+CXX_INCLUDES = -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include
 
 CXX_FLAGS = -std=gnu++17
 

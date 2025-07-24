@@ -179,6 +179,30 @@ code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
 
+code/stb_image.o: code/stb_image.cpp.o
+.PHONY : code/stb_image.o
+
+# target to build an object file
+code/stb_image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/stb_image.cpp.o
+.PHONY : code/stb_image.cpp.o
+
+code/stb_image.i: code/stb_image.cpp.i
+.PHONY : code/stb_image.i
+
+# target to preprocess a source file
+code/stb_image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/stb_image.cpp.i
+.PHONY : code/stb_image.cpp.i
+
+code/stb_image.s: code/stb_image.cpp.s
+.PHONY : code/stb_image.s
+
+# target to generate assembly for a file
+code/stb_image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/stb_image.cpp.s
+.PHONY : code/stb_image.cpp.s
+
 code/test.o: code/test.cpp.o
 .PHONY : code/test.o
 
@@ -241,6 +265,9 @@ help:
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/stb_image.o"
+	@echo "... code/stb_image.i"
+	@echo "... code/stb_image.s"
 	@echo "... code/test.o"
 	@echo "... code/test.i"
 	@echo "... code/test.s"

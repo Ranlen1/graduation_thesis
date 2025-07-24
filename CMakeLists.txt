@@ -12,7 +12,9 @@ target_include_directories(glad PUBLIC plugins/glad/include)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
-add_executable(main code/main.cpp)
+include_directories(plugins/stb)
+
+add_executable(main code/main.cpp code/stb_image.cpp)
 add_executable(test code/test.cpp)
 
 target_link_libraries(main PRIVATE glad glfw OpenGL::GL)

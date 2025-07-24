@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/ranlen/maturitni_prace/plugins/glad/include
+C_INCLUDES = -I/home/ranlen/maturitni_prace/plugins/glad/include -I/home/ranlen/maturitni_prace/plugins/stb
 
 C_FLAGS = 
 
