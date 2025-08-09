@@ -16,10 +16,8 @@ find_package(glm REQUIRED)
 include_directories(plugins/stb)
 
 add_executable(main code/main.cpp code/stb_image.cpp)
-add_executable(test code/test.cpp)
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)
-target_link_libraries(test PRIVATE glad glfw glm OpenGL::GL)
 
 
 
