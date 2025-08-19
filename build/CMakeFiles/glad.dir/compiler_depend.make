@@ -66,14 +66,14 @@ CMakeFiles/glad.dir/plugins/glad/src/glad.c.o: /home/ranlen/maturitni_prace/plug
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdint.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
 
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdint.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
 
 /usr/include/sys/types.h:
 
@@ -88,8 +88,6 @@ CMakeFiles/glad.dir/plugins/glad/src/glad.c.o: /home/ranlen/maturitni_prace/plug
 /usr/include/bits/types/FILE.h:
 
 /usr/include/bits/types.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h:
 
 /usr/include/string.h:
 
@@ -194,6 +192,8 @@ CMakeFiles/glad.dir/plugins/glad/src/glad.c.o: /home/ranlen/maturitni_prace/plug
 /usr/include/bits/types/cookie_io_functions_t.h:
 
 /usr/include/endian.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
 
 /usr/include/bits/waitstatus.h:
 

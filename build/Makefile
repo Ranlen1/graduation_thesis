@@ -142,42 +142,101 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-#=============================================================================
-# Target rules for targets named test
-
-# Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
-
-# fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
-
-code/main.o: code/main.cpp.o
-.PHONY : code/main.o
+code/game.o: code/game.cpp.o
+.PHONY : code/game.o
 
 # target to build an object file
-code/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.o
-.PHONY : code/main.cpp.o
+code/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game.cpp.o
+.PHONY : code/game.cpp.o
 
-code/main.i: code/main.cpp.i
-.PHONY : code/main.i
+code/game.i: code/game.cpp.i
+.PHONY : code/game.i
 
 # target to preprocess a source file
-code/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.i
-.PHONY : code/main.cpp.i
+code/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game.cpp.i
+.PHONY : code/game.cpp.i
 
-code/main.s: code/main.cpp.s
-.PHONY : code/main.s
+code/game.s: code/game.cpp.s
+.PHONY : code/game.s
 
 # target to generate assembly for a file
-code/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
-.PHONY : code/main.cpp.s
+code/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game.cpp.s
+.PHONY : code/game.cpp.s
+
+code/program.o: code/program.cpp.o
+.PHONY : code/program.o
+
+# target to build an object file
+code/program.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/program.cpp.o
+.PHONY : code/program.cpp.o
+
+code/program.i: code/program.cpp.i
+.PHONY : code/program.i
+
+# target to preprocess a source file
+code/program.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/program.cpp.i
+.PHONY : code/program.cpp.i
+
+code/program.s: code/program.cpp.s
+.PHONY : code/program.s
+
+# target to generate assembly for a file
+code/program.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/program.cpp.s
+.PHONY : code/program.cpp.s
+
+code/resource_manager.o: code/resource_manager.cpp.o
+.PHONY : code/resource_manager.o
+
+# target to build an object file
+code/resource_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/resource_manager.cpp.o
+.PHONY : code/resource_manager.cpp.o
+
+code/resource_manager.i: code/resource_manager.cpp.i
+.PHONY : code/resource_manager.i
+
+# target to preprocess a source file
+code/resource_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/resource_manager.cpp.i
+.PHONY : code/resource_manager.cpp.i
+
+code/resource_manager.s: code/resource_manager.cpp.s
+.PHONY : code/resource_manager.s
+
+# target to generate assembly for a file
+code/resource_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/resource_manager.cpp.s
+.PHONY : code/resource_manager.cpp.s
+
+code/shader.o: code/shader.cpp.o
+.PHONY : code/shader.o
+
+# target to build an object file
+code/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/shader.cpp.o
+.PHONY : code/shader.cpp.o
+
+code/shader.i: code/shader.cpp.i
+.PHONY : code/shader.i
+
+# target to preprocess a source file
+code/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/shader.cpp.i
+.PHONY : code/shader.cpp.i
+
+code/shader.s: code/shader.cpp.s
+.PHONY : code/shader.s
+
+# target to generate assembly for a file
+code/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/shader.cpp.s
+.PHONY : code/shader.cpp.s
 
 code/stb_image.o: code/stb_image.cpp.o
 .PHONY : code/stb_image.o
@@ -203,29 +262,29 @@ code/stb_image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/stb_image.cpp.s
 .PHONY : code/stb_image.cpp.s
 
-code/test.o: code/test.cpp.o
-.PHONY : code/test.o
+code/texture.o: code/texture.cpp.o
+.PHONY : code/texture.o
 
 # target to build an object file
-code/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/code/test.cpp.o
-.PHONY : code/test.cpp.o
+code/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.o
+.PHONY : code/texture.cpp.o
 
-code/test.i: code/test.cpp.i
-.PHONY : code/test.i
+code/texture.i: code/texture.cpp.i
+.PHONY : code/texture.i
 
 # target to preprocess a source file
-code/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/code/test.cpp.i
-.PHONY : code/test.cpp.i
+code/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.i
+.PHONY : code/texture.cpp.i
 
-code/test.s: code/test.cpp.s
-.PHONY : code/test.s
+code/texture.s: code/texture.cpp.s
+.PHONY : code/texture.s
 
 # target to generate assembly for a file
-code/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/code/test.cpp.s
-.PHONY : code/test.cpp.s
+code/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.s
+.PHONY : code/texture.cpp.s
 
 plugins/glad/src/glad.o: plugins/glad/src/glad.c.o
 .PHONY : plugins/glad/src/glad.o
@@ -261,16 +320,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
-	@echo "... test"
-	@echo "... code/main.o"
-	@echo "... code/main.i"
-	@echo "... code/main.s"
+	@echo "... code/game.o"
+	@echo "... code/game.i"
+	@echo "... code/game.s"
+	@echo "... code/program.o"
+	@echo "... code/program.i"
+	@echo "... code/program.s"
+	@echo "... code/resource_manager.o"
+	@echo "... code/resource_manager.i"
+	@echo "... code/resource_manager.s"
+	@echo "... code/shader.o"
+	@echo "... code/shader.i"
+	@echo "... code/shader.s"
 	@echo "... code/stb_image.o"
 	@echo "... code/stb_image.i"
 	@echo "... code/stb_image.s"
-	@echo "... code/test.o"
-	@echo "... code/test.i"
-	@echo "... code/test.s"
+	@echo "... code/texture.o"
+	@echo "... code/texture.i"
+	@echo "... code/texture.s"
 	@echo "... plugins/glad/src/glad.o"
 	@echo "... plugins/glad/src/glad.i"
 	@echo "... plugins/glad/src/glad.s"
