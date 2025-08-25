@@ -16,12 +16,8 @@ find_package(glm REQUIRED)
 include_directories(plugins/stb)
 
 add_executable(main
-    code/game.cpp
-    code/program.cpp
-    code/resource_manager.cpp
-    code/shader.cpp
+    code/main.cpp
     code/stb_image.cpp
-    code/texture.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)
