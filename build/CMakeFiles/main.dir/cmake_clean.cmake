@@ -1,7 +1,13 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/link.d"
+  "CMakeFiles/main.dir/code/game.cpp.o"
+  "CMakeFiles/main.dir/code/game.cpp.o.d"
+  "CMakeFiles/main.dir/code/game_menu.cpp.o"
+  "CMakeFiles/main.dir/code/game_menu.cpp.o.d"
   "CMakeFiles/main.dir/code/main.cpp.o"
   "CMakeFiles/main.dir/code/main.cpp.o.d"
+  "CMakeFiles/main.dir/code/shader.cpp.o"
+  "CMakeFiles/main.dir/code/shader.cpp.o.d"
   "CMakeFiles/main.dir/code/stb_image.cpp.o"
   "CMakeFiles/main.dir/code/stb_image.cpp.o.d"
   "main"

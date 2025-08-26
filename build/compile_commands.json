@@ -16,5 +16,23 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/stb_image.cpp.o -c /home/ranlen/maturitni_prace/code/stb_image.cpp",
   "file": "/home/ranlen/maturitni_prace/code/stb_image.cpp",
   "output": "CMakeFiles/main.dir/code/stb_image.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/game.cpp.o -c /home/ranlen/maturitni_prace/code/game.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/game.cpp",
+  "output": "CMakeFiles/main.dir/code/game.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/game_menu.cpp.o -c /home/ranlen/maturitni_prace/code/game_menu.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/game_menu.cpp",
+  "output": "CMakeFiles/main.dir/code/game_menu.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/shader.cpp.o -c /home/ranlen/maturitni_prace/code/shader.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/shader.cpp",
+  "output": "CMakeFiles/main.dir/code/shader.cpp.o"
 }
 ]

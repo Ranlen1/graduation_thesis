@@ -4,9 +4,11 @@
 #include <iostream>
 
 #include "stb_image.h"
+#include "game.h"
+#include "game_menu.h"
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
-void processInput(GLFWwindow *window);
+void shouldWindowClose(GLFWwindow *window);
 
 int main()
 {
@@ -20,9 +22,9 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    const int screenWidth = 600, screenHeight = 800;
+    const int screenWidth = 800, screenHeight = 600;
 
-    GLFWwindow *window = glfwCreateWindow(screenWidth, screenHeight, "", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(screenWidth, screenHeight, "AppleCatch", NULL, NULL);
     if(window == NULL)
     {
         std::cout << "failed to create GLFW window" << std::endl;
@@ -39,10 +41,15 @@ int main()
     }
     
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
+    
+    Game game;
+    GameMenu gameMenu;
 
     while(!glfwWindowShouldClose(window))
     {
-        processInput(window);
+        shouldWindowClose(window);
+
+        gameMenu.Draw();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -57,7 +64,7 @@ void framebufferSizeCallback(GLFWwindow *window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow *window)
+void shouldWindowClose(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);

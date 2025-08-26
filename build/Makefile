@@ -142,6 +142,54 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+code/game.o: code/game.cpp.o
+.PHONY : code/game.o
+
+# target to build an object file
+code/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game.cpp.o
+.PHONY : code/game.cpp.o
+
+code/game.i: code/game.cpp.i
+.PHONY : code/game.i
+
+# target to preprocess a source file
+code/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game.cpp.i
+.PHONY : code/game.cpp.i
+
+code/game.s: code/game.cpp.s
+.PHONY : code/game.s
+
+# target to generate assembly for a file
+code/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game.cpp.s
+.PHONY : code/game.cpp.s
+
+code/game_menu.o: code/game_menu.cpp.o
+.PHONY : code/game_menu.o
+
+# target to build an object file
+code/game_menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_menu.cpp.o
+.PHONY : code/game_menu.cpp.o
+
+code/game_menu.i: code/game_menu.cpp.i
+.PHONY : code/game_menu.i
+
+# target to preprocess a source file
+code/game_menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_menu.cpp.i
+.PHONY : code/game_menu.cpp.i
+
+code/game_menu.s: code/game_menu.cpp.s
+.PHONY : code/game_menu.s
+
+# target to generate assembly for a file
+code/game_menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_menu.cpp.s
+.PHONY : code/game_menu.cpp.s
+
 code/main.o: code/main.cpp.o
 .PHONY : code/main.o
 
@@ -165,6 +213,30 @@ code/main.s: code/main.cpp.s
 code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
+
+code/shader.o: code/shader.cpp.o
+.PHONY : code/shader.o
+
+# target to build an object file
+code/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/shader.cpp.o
+.PHONY : code/shader.cpp.o
+
+code/shader.i: code/shader.cpp.i
+.PHONY : code/shader.i
+
+# target to preprocess a source file
+code/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/shader.cpp.i
+.PHONY : code/shader.cpp.i
+
+code/shader.s: code/shader.cpp.s
+.PHONY : code/shader.s
+
+# target to generate assembly for a file
+code/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/shader.cpp.s
+.PHONY : code/shader.cpp.s
 
 code/stb_image.o: code/stb_image.cpp.o
 .PHONY : code/stb_image.o
@@ -224,9 +296,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
+	@echo "... code/game.o"
+	@echo "... code/game.i"
+	@echo "... code/game.s"
+	@echo "... code/game_menu.o"
+	@echo "... code/game_menu.i"
+	@echo "... code/game_menu.s"
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/shader.o"
+	@echo "... code/shader.i"
+	@echo "... code/shader.s"
 	@echo "... code/stb_image.o"
 	@echo "... code/stb_image.i"
 	@echo "... code/stb_image.s"

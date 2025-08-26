@@ -8,7 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ranlen/maturitni_prace/code/game.cpp" "CMakeFiles/main.dir/code/game.cpp.o" "gcc" "CMakeFiles/main.dir/code/game.cpp.o.d"
+  "/home/ranlen/maturitni_prace/code/game_menu.cpp" "CMakeFiles/main.dir/code/game_menu.cpp.o" "gcc" "CMakeFiles/main.dir/code/game_menu.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/main.cpp" "CMakeFiles/main.dir/code/main.cpp.o" "gcc" "CMakeFiles/main.dir/code/main.cpp.o.d"
+  "/home/ranlen/maturitni_prace/code/shader.cpp" "CMakeFiles/main.dir/code/shader.cpp.o" "gcc" "CMakeFiles/main.dir/code/shader.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/stb_image.cpp" "CMakeFiles/main.dir/code/stb_image.cpp.o" "gcc" "CMakeFiles/main.dir/code/stb_image.cpp.o.d"
   "" "main" "gcc" "CMakeFiles/main.dir/link.d"
   )

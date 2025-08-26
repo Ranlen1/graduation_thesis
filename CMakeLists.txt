@@ -18,6 +18,9 @@ include_directories(plugins/stb)
 add_executable(main
     code/main.cpp
     code/stb_image.cpp
+    code/game.cpp
+    code/game_menu.cpp
+    code/shader.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)
