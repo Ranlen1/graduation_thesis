@@ -5,7 +5,6 @@
 
 #include "stb_image.h"
 #include "game.h"
-#include "game_menu.h"
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
 void shouldWindowClose(GLFWwindow *window);
@@ -49,7 +48,7 @@ int main()
     {
         shouldWindowClose(window);
 
-        gameMenu.Draw();
+        game.DrawGameMenu(&gameMenu);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

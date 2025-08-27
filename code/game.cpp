@@ -13,3 +13,9 @@ Game::gameState Game::GetGameState() const
 {
     return _gameState;
 }
+
+void Game::DrawGameMenu(GameMenu *menu)
+{
+    if(_gameState == gameStateMenu)
+       menu->Draw();
+}

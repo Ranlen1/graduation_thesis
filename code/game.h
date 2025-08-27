@@ -1,4 +1,5 @@
 #pragma once
+#include "game_menu.h"
 
 class Game
 {
@@ -17,6 +18,8 @@ public:
     void SetGameState(gameState state);
 
     gameState GetGameState() const;
+
+    void DrawGameMenu(GameMenu *menu);
 };
 
 
