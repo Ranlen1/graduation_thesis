@@ -149,8 +149,6 @@ CMakeFiles/main.dir/code/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/basic_ios.tcc \
  /usr/include/c++/15.2.1/bits/ostream.tcc /usr/include/c++/15.2.1/istream \
  /usr/include/c++/15.2.1/bits/istream.tcc \
- /home/ranlen/maturitni_prace/plugins/stb/stb_image.h \
- /usr/include/c++/15.2.1/stdlib.h \
  /home/ranlen/maturitni_prace/code/game.h \
  /home/ranlen/maturitni_prace/code/game_menu.h \
  /home/ranlen/maturitni_prace/code/shader.h /usr/include/glm/glm.hpp \
@@ -340,4 +338,7 @@ CMakeFiles/main.dir/code/main.cpp.o: \
  /usr/include/glm/ext/vector_uint1.hpp \
  /usr/include/glm/ext/vector_uint1_sized.hpp \
  /usr/include/c++/15.2.1/cstring /usr/include/string.h \
- /usr/include/strings.h /usr/include/glm/gtc/type_ptr.inl
+ /usr/include/strings.h /usr/include/glm/gtc/type_ptr.inl \
+ /home/ranlen/maturitni_prace/code/texture.h \
+ /home/ranlen/maturitni_prace/plugins/stb/stb_image.h \
+ /usr/include/c++/15.2.1/stdlib.h

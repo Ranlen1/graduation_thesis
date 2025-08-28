@@ -7,6 +7,7 @@ main: \
   CMakeFiles/main.dir/code/game.cpp.o \
   CMakeFiles/main.dir/code/game_menu.cpp.o \
   CMakeFiles/main.dir/code/shader.cpp.o \
+  CMakeFiles/main.dir/code/texture.cpp.o \
   libglad.a \
   /usr/lib/libglfw.so.3.4 \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libglm.a \
@@ -65,6 +66,8 @@ CMakeFiles/main.dir/code/game.cpp.o:
 CMakeFiles/main.dir/code/game_menu.cpp.o:
 
 CMakeFiles/main.dir/code/shader.cpp.o:
+
+CMakeFiles/main.dir/code/texture.cpp.o:
 
 libglad.a:
 

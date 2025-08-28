@@ -295,7 +295,10 @@ CMakeFiles/main.dir/code/game_menu.cpp.o: \
  /usr/include/c++/15.2.1/bits/memory_resource.h \
  /usr/include/c++/15.2.1/bits/uses_allocator.h \
  /usr/include/c++/15.2.1/bits/uses_allocator_args.h \
- /usr/include/c++/15.2.1/tuple /usr/include/c++/15.2.1/iostream \
+ /usr/include/c++/15.2.1/tuple \
+ /home/ranlen/maturitni_prace/code/texture.h \
+ /home/ranlen/maturitni_prace/plugins/stb/stb_image.h \
+ /usr/include/c++/15.2.1/stdlib.h /usr/include/c++/15.2.1/iostream \
  /usr/include/c++/15.2.1/ostream /usr/include/c++/15.2.1/bits/ostream.h \
  /usr/include/c++/15.2.1/ios /usr/include/c++/15.2.1/exception \
  /usr/include/c++/15.2.1/bits/exception_ptr.h \

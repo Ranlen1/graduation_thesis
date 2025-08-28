@@ -262,6 +262,30 @@ code/stb_image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/stb_image.cpp.s
 .PHONY : code/stb_image.cpp.s
 
+code/texture.o: code/texture.cpp.o
+.PHONY : code/texture.o
+
+# target to build an object file
+code/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.o
+.PHONY : code/texture.cpp.o
+
+code/texture.i: code/texture.cpp.i
+.PHONY : code/texture.i
+
+# target to preprocess a source file
+code/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.i
+.PHONY : code/texture.cpp.i
+
+code/texture.s: code/texture.cpp.s
+.PHONY : code/texture.s
+
+# target to generate assembly for a file
+code/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.s
+.PHONY : code/texture.cpp.s
+
 plugins/glad/src/glad.o: plugins/glad/src/glad.c.o
 .PHONY : plugins/glad/src/glad.o
 
@@ -311,6 +335,9 @@ help:
 	@echo "... code/stb_image.o"
 	@echo "... code/stb_image.i"
 	@echo "... code/stb_image.s"
+	@echo "... code/texture.o"
+	@echo "... code/texture.i"
+	@echo "... code/texture.s"
 	@echo "... plugins/glad/src/glad.o"
 	@echo "... plugins/glad/src/glad.i"
 	@echo "... plugins/glad/src/glad.s"

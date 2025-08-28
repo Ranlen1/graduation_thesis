@@ -21,6 +21,7 @@ add_executable(main
     code/game.cpp
     code/game_menu.cpp
     code/shader.cpp
+    code/texture.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)

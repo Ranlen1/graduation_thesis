@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-#include "stb_image.h"
 #include "game.h"
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);

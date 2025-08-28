@@ -34,5 +34,11 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/shader.cpp.o -c /home/ranlen/maturitni_prace/code/shader.cpp",
   "file": "/home/ranlen/maturitni_prace/code/shader.cpp",
   "output": "CMakeFiles/main.dir/code/shader.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/texture.cpp.o -c /home/ranlen/maturitni_prace/code/texture.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/texture.cpp",
+  "output": "CMakeFiles/main.dir/code/texture.cpp.o"
 }
 ]
