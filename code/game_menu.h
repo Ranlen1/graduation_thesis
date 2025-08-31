@@ -1,8 +1,8 @@
 #pragma once
-#include <glad/glad.h>
+#include "shader.h"
+
 #include <GLFW/glfw3.h>
 
-#include "shader.h"
 #include "texture.h"
 #include "stb_image.h"
 

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "game_menu.h"
 
 class Game
