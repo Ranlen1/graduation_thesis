@@ -15,11 +15,15 @@ public:
     void Draw();
 
 private:
-    unsigned int _VAO, _VBO;
+    unsigned int _backgroundVAO, _backgroundVBO, _playButtonVAO, _playButtonVBO;
     Shader _shader;
-    Texture _texture;
+    Texture _backgroundTexture, _playButtonTexture;
 
     std::string loadShaderSource(const char* filePath);
+
+    void shaderBinding(unsigned int &VAO, unsigned int &VBO, float *vertices, size_t size);
+
+    void loadTexture(const char *filePath, Texture &texture);
 };
 
 
