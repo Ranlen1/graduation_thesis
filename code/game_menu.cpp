@@ -1,5 +1,6 @@
 #include "game_menu.h"
 
+#include <iostream>
 #include <fstream>
 #include <sstream>
 

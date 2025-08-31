@@ -286,6 +286,30 @@ code/texture.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.s
 .PHONY : code/texture.cpp.s
 
+code/window.o: code/window.cpp.o
+.PHONY : code/window.o
+
+# target to build an object file
+code/window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/window.cpp.o
+.PHONY : code/window.cpp.o
+
+code/window.i: code/window.cpp.i
+.PHONY : code/window.i
+
+# target to preprocess a source file
+code/window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/window.cpp.i
+.PHONY : code/window.cpp.i
+
+code/window.s: code/window.cpp.s
+.PHONY : code/window.s
+
+# target to generate assembly for a file
+code/window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/window.cpp.s
+.PHONY : code/window.cpp.s
+
 plugins/glad/src/glad.o: plugins/glad/src/glad.c.o
 .PHONY : plugins/glad/src/glad.o
 
@@ -338,6 +362,9 @@ help:
 	@echo "... code/texture.o"
 	@echo "... code/texture.i"
 	@echo "... code/texture.s"
+	@echo "... code/window.o"
+	@echo "... code/window.i"
+	@echo "... code/window.s"
 	@echo "... plugins/glad/src/glad.o"
 	@echo "... plugins/glad/src/glad.i"
 	@echo "... plugins/glad/src/glad.s"

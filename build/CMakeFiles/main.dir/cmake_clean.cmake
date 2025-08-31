@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/code/stb_image.cpp.o.d"
   "CMakeFiles/main.dir/code/texture.cpp.o"
   "CMakeFiles/main.dir/code/texture.cpp.o.d"
+  "CMakeFiles/main.dir/code/window.cpp.o"
+  "CMakeFiles/main.dir/code/window.cpp.o.d"
   "main"
   "main.pdb"
 )

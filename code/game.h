@@ -1,6 +1,7 @@
 #pragma once
 
 #include "game_menu.h"
+#include "window.h"
 
 class Game
 {
@@ -12,7 +13,8 @@ public:
 
 private:
     gameState _gameState;
-
+    Window _gameWindow;
+    GameMenu _gameMenu;
 public:
     Game();
 
@@ -20,7 +22,11 @@ public:
 
     gameState GetGameState() const;
 
-    void DrawGameMenu(GameMenu *menu);
+    void DrawGameMenu();
+
+    void Run();
+private:
+    void shouldWindowClose();
 };
 
 
