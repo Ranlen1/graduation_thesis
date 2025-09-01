@@ -5,6 +5,7 @@
 #include <sstream>
 
 GameMenu::GameMenu()
+    : _playButtonLeftBorder(350), _playButtonRightBorder(450), _playButtonTopBorder(250), _playButtonBotBorder(350)
 {
     float backgroundVertices[] = {
         -1.0f, -1.0f, 0.0f, 0.0f, 0.0f,
@@ -65,6 +66,17 @@ void GameMenu::Draw()
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     glBindVertexArray(0);
+}
+
+bool GameMenu::PlayButtonClicked(GLFWwindow *window)
+{
+    double cursorX, cursorY;
+    glfwGetCursorPos(window, &cursorX, &cursorY);
+
+    if((cursorX > _playButtonLeftBorder && cursorX < _playButtonRightBorder) && (cursorY > _playButtonTopBorder && cursorY < _playButtonBotBorder))
+        return true;
+    else
+        return false;
 }
 
 std::string GameMenu::loadShaderSource(const char* filePath)

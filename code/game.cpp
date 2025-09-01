@@ -1,7 +1,5 @@
 #include "game.h"
 
-#include <iostream>
-
 #include <GLFW/glfw3.h>
 
 Game::Game()
@@ -29,6 +27,10 @@ void Game::Run()
     while(!glfwWindowShouldClose(_gameWindow.GetWindow()))
     {
         shouldWindowClose();
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        if(_gameMenu.PlayButtonClicked(_gameWindow.GetWindow()) && leftButtonPressed())
+            SetGameState(gameStateRunning);
 
         DrawGameMenu();
 
@@ -42,3 +44,12 @@ void Game::shouldWindowClose()
     if(glfwGetKey(_gameWindow.GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(_gameWindow.GetWindow(), true);
 }
+
+bool Game::leftButtonPressed()
+{
+    if(glfwGetMouseButton(_gameWindow.GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+        return true;
+    else
+        return false;
+}
+

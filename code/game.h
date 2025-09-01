@@ -27,6 +27,8 @@ public:
     void Run();
 private:
     void shouldWindowClose();
+
+    bool leftButtonPressed();
 };
 
 
