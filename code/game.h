@@ -11,9 +11,10 @@ public:
         gameStateRunning = 0, gameStatePaused = 1, gameStateMenu = 2
     };
 
+    Window gameWindow;
+
 private:
     gameState _gameState;
-    Window _gameWindow;
     GameMenu _gameMenu;
 public:
     Game();

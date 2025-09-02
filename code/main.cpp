@@ -4,9 +4,10 @@
 int main()
 {
     Game game;
-
-    game.Run();
-    
+    while(!glfwWindowShouldClose(game.gameWindow.GetWindow()))
+    {
+        game.Run();
+    }
     return 0;
 }
 

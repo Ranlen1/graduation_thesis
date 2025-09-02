@@ -32,13 +32,13 @@ GameMenu::GameMenu()
     shaderBinding(_backgroundVAO, _backgroundVBO, backgroundVertices, sizeof(backgroundVertices));
     shaderBinding(_playButtonVAO, _playButtonVBO, playButtonVertices, sizeof(playButtonVertices));
 
-    std::string vertexCode = loadShaderSource("../shaders/game_menu.vs");
-    std::string fragmentCode = loadShaderSource("../shaders/game_menu.fs");
+    std::string vertexCode = loadShaderSource("../resources/shaders/game_menu.vs");
+    std::string fragmentCode = loadShaderSource("../resources/shaders/game_menu.fs");
     
     _shader.Compile(vertexCode.c_str(), fragmentCode.c_str());
 
-    loadTexture("../textures/menu_background.png", _backgroundTexture);
-    loadTexture("../textures/menu_play_button.png", _playButtonTexture);
+    loadTexture("../resources/textures/menu_background.png", _backgroundTexture);
+    loadTexture("../resources/textures/menu_play_button.png", _playButtonTexture);
 }
 
 GameMenu::~GameMenu()

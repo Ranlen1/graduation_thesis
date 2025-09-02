@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 
 Game::Game()
-    : _gameState(gameStateMenu), _gameWindow(800, 600, "FruitCatch")
+    : gameWindow(800, 600, "FruitCatch"), _gameState(gameStateMenu)
 {}
 
 void Game::SetGameState(gameState state)
@@ -24,30 +24,27 @@ void Game::DrawGameMenu()
 
 void Game::Run()
 {
-    while(!glfwWindowShouldClose(_gameWindow.GetWindow()))
-    {
-        shouldWindowClose();
-        glClear(GL_COLOR_BUFFER_BIT);
+    shouldWindowClose();
+    glClear(GL_COLOR_BUFFER_BIT);
 
-        if(_gameMenu.PlayButtonClicked(_gameWindow.GetWindow()) && leftButtonPressed())
-            SetGameState(gameStateRunning);
+    if(_gameMenu.PlayButtonClicked(gameWindow.GetWindow()) && leftButtonPressed())
+        SetGameState(gameStateRunning);
 
-        DrawGameMenu();
+    DrawGameMenu();
 
-        glfwSwapBuffers(_gameWindow.GetWindow());
-        glfwPollEvents();
-    }
+    glfwSwapBuffers(gameWindow.GetWindow());
+    glfwPollEvents();
 }
 
 void Game::shouldWindowClose()
 {
-    if(glfwGetKey(_gameWindow.GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(_gameWindow.GetWindow(), true);
+    if(glfwGetKey(gameWindow.GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(gameWindow.GetWindow(), true);
 }
 
 bool Game::leftButtonPressed()
 {
-    if(glfwGetMouseButton(_gameWindow.GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+    if(glfwGetMouseButton(gameWindow.GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
         return true;
     else
         return false;
