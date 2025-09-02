@@ -9,11 +9,11 @@ GameMenu::GameMenu()
 {
     float backgroundVertices[] = {
         -1.0f, -1.0f, 0.0f, 0.0f, 0.0f,
-        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
          1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
 
-        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
          1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
          1.0f,  1.0f, 0.0f, 1.0f, 1.0f
     };
 
@@ -113,6 +113,7 @@ void GameMenu::shaderBinding(unsigned int &VAO, unsigned int &VBO, float *vertic
 void GameMenu::loadTexture(const char *filePath, Texture &texture)
 {
     int width, height, nrChannels;
+    stbi_set_flip_vertically_on_load(true);
     unsigned char *data = stbi_load(filePath, &width, &height, &nrChannels, 4);
     if(data == nullptr)
         std::cout << "texture " << filePath << " did not load" << std::endl;

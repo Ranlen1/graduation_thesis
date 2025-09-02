@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 
 Game::Game()
-    : _gameState(gameStateMenu), _gameWindow(800, 600, "AppleCatch")
+    : _gameState(gameStateMenu), _gameWindow(800, 600, "FruitCatch")
 {}
 
 void Game::SetGameState(gameState state)
