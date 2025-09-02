@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ranlen/maturitni_prace/code/shader.cpp" "CMakeFiles/main.dir/code/shader.cpp.o" "gcc" "CMakeFiles/main.dir/code/shader.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/stb_image.cpp" "CMakeFiles/main.dir/code/stb_image.cpp.o" "gcc" "CMakeFiles/main.dir/code/stb_image.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/texture.cpp" "CMakeFiles/main.dir/code/texture.cpp.o" "gcc" "CMakeFiles/main.dir/code/texture.cpp.o.d"
+  "/home/ranlen/maturitni_prace/code/vertices.cpp" "CMakeFiles/main.dir/code/vertices.cpp.o" "gcc" "CMakeFiles/main.dir/code/vertices.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/window.cpp" "CMakeFiles/main.dir/code/window.cpp.o" "gcc" "CMakeFiles/main.dir/code/window.cpp.o.d"
   "" "main" "gcc" "CMakeFiles/main.dir/link.d"
   )

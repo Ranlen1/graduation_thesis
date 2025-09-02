@@ -286,6 +286,30 @@ code/texture.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/texture.cpp.s
 .PHONY : code/texture.cpp.s
 
+code/vertices.o: code/vertices.cpp.o
+.PHONY : code/vertices.o
+
+# target to build an object file
+code/vertices.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/vertices.cpp.o
+.PHONY : code/vertices.cpp.o
+
+code/vertices.i: code/vertices.cpp.i
+.PHONY : code/vertices.i
+
+# target to preprocess a source file
+code/vertices.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/vertices.cpp.i
+.PHONY : code/vertices.cpp.i
+
+code/vertices.s: code/vertices.cpp.s
+.PHONY : code/vertices.s
+
+# target to generate assembly for a file
+code/vertices.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/vertices.cpp.s
+.PHONY : code/vertices.cpp.s
+
 code/window.o: code/window.cpp.o
 .PHONY : code/window.o
 
@@ -362,6 +386,9 @@ help:
 	@echo "... code/texture.o"
 	@echo "... code/texture.i"
 	@echo "... code/texture.s"
+	@echo "... code/vertices.o"
+	@echo "... code/vertices.i"
+	@echo "... code/vertices.s"
 	@echo "... code/window.o"
 	@echo "... code/window.i"
 	@echo "... code/window.s"

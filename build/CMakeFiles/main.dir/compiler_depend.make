@@ -387,6 +387,7 @@ CMakeFiles/main.dir/code/game_menu.cpp.o: /home/ranlen/maturitni_prace/code/game
   /home/ranlen/maturitni_prace/code/game_menu.h \
   /home/ranlen/maturitni_prace/code/shader.h \
   /home/ranlen/maturitni_prace/code/texture.h \
+  /home/ranlen/maturitni_prace/code/vertices.h \
   /home/ranlen/maturitni_prace/plugins/glad/include/KHR/khrplatform.h \
   /home/ranlen/maturitni_prace/plugins/glad/include/glad/glad.h \
   /home/ranlen/maturitni_prace/plugins/stb/stb_image.h \
@@ -1865,6 +1866,25 @@ CMakeFiles/main.dir/code/texture.cpp.o: /home/ranlen/maturitni_prace/code/textur
   /usr/include/sys/cdefs.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
 
+CMakeFiles/main.dir/code/vertices.cpp.o: /home/ranlen/maturitni_prace/code/vertices.cpp \
+  /home/ranlen/maturitni_prace/code/vertices.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/c++/15.2.1/bits/version.h \
+  /usr/include/c++/15.2.1/cstddef \
+  /usr/include/c++/15.2.1/pstl/pstl_config.h \
+  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
+  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/sys/cdefs.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
+
 CMakeFiles/main.dir/code/window.cpp.o: /home/ranlen/maturitni_prace/code/window.cpp \
   /home/ranlen/maturitni_prace/code/window.h \
   /home/ranlen/maturitni_prace/plugins/glad/include/KHR/khrplatform.h \
@@ -2111,6 +2131,7 @@ main: /usr/lib/Scrt1.o \
   CMakeFiles/main.dir/code/shader.cpp.o \
   CMakeFiles/main.dir/code/stb_image.cpp.o \
   CMakeFiles/main.dir/code/texture.cpp.o \
+  CMakeFiles/main.dir/code/vertices.cpp.o \
   CMakeFiles/main.dir/code/window.cpp.o \
   libglad.a
 
@@ -2159,7 +2180,11 @@ CMakeFiles/main.dir/code/main.cpp.o:
 
 /usr/lib/Scrt1.o:
 
+/home/ranlen/maturitni_prace/code/vertices.cpp:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xmmintrin.h:
+
+CMakeFiles/main.dir/code/vertices.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h:
 
@@ -2480,6 +2505,8 @@ libglad.a:
 /usr/include/c++/15.2.1/ext/string_conversions.h:
 
 /usr/include/c++/15.2.1/bits/refwrap.h:
+
+/home/ranlen/maturitni_prace/code/vertices.h:
 
 /usr/include/c++/15.2.1/bits/postypes.h:
 

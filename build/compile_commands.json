@@ -46,5 +46,11 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/window.cpp.o -c /home/ranlen/maturitni_prace/code/window.cpp",
   "file": "/home/ranlen/maturitni_prace/code/window.cpp",
   "output": "CMakeFiles/main.dir/code/window.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/vertices.cpp.o -c /home/ranlen/maturitni_prace/code/vertices.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/vertices.cpp",
+  "output": "CMakeFiles/main.dir/code/vertices.cpp.o"
 }
 ]

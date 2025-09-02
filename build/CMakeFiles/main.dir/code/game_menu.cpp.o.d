@@ -346,4 +346,5 @@ CMakeFiles/main.dir/code/game_menu.cpp.o: \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/15.2.1/bits/fstream.tcc /usr/include/c++/15.2.1/sstream \
- /usr/include/c++/15.2.1/bits/sstream.tcc
+ /usr/include/c++/15.2.1/bits/sstream.tcc \
+ /home/ranlen/maturitni_prace/code/vertices.h

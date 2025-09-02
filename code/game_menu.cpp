@@ -4,33 +4,13 @@
 #include <fstream>
 #include <sstream>
 
+#include "vertices.h"
+
 GameMenu::GameMenu()
     : _playButtonLeftBorder(350), _playButtonRightBorder(450), _playButtonTopBorder(250), _playButtonBotBorder(350)
 {
-    float backgroundVertices[] = {
-        -1.0f, -1.0f, 0.0f, 0.0f, 0.0f,
-         1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
-        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
-
-         1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
-        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
-         1.0f,  1.0f, 0.0f, 1.0f, 1.0f
-    };
-
-    float playButtonXCoordinate = 50.0f/400.0f, playButtonYCoordinate = 50.0f/300.0f;
-
-    float playButtonVertices[] = {
-        -playButtonXCoordinate, -playButtonYCoordinate, 0.0f, 0.0f, 0.0f,
-        playButtonXCoordinate, -playButtonYCoordinate, 0.0f, 1.0f, 0.0f,
-        -playButtonXCoordinate, playButtonYCoordinate, 0.0f, 0.0f, 1.0f,
- 
-        playButtonXCoordinate, -playButtonYCoordinate, 0.0f, 1.0f, 0.0f,
-        -playButtonXCoordinate, playButtonYCoordinate, 0.0f, 0.0f, 1.0f,
-        playButtonXCoordinate, playButtonYCoordinate, 0.0f, 1.0f, 1.0f
-    };
-    
-    shaderBinding(_backgroundVAO, _backgroundVBO, backgroundVertices, sizeof(backgroundVertices));
-    shaderBinding(_playButtonVAO, _playButtonVBO, playButtonVertices, sizeof(playButtonVertices));
+    shaderBinding(_backgroundVAO, _backgroundVBO, backgroundVertices, backgroundVerticesSize);
+    shaderBinding(_playButtonVAO, _playButtonVBO, playButtonVertices, playButtonVerticesSize);
 
     std::string vertexCode = loadShaderSource("../resources/shaders/game_menu.vs");
     std::string fragmentCode = loadShaderSource("../resources/shaders/game_menu.fs");

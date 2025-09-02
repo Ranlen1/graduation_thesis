@@ -23,6 +23,7 @@ add_executable(main
     code/shader.cpp
     code/texture.cpp
     code/window.cpp
+    code/vertices.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)
