@@ -52,5 +52,17 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/vertices.cpp.o -c /home/ranlen/maturitni_prace/code/vertices.cpp",
   "file": "/home/ranlen/maturitni_prace/code/vertices.cpp",
   "output": "CMakeFiles/main.dir/code/vertices.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/game_running.cpp.o -c /home/ranlen/maturitni_prace/code/game_running.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/game_running.cpp",
+  "output": "CMakeFiles/main.dir/code/game_running.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/rendering_functions.cpp.o -c /home/ranlen/maturitni_prace/code/rendering_functions.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/rendering_functions.cpp",
+  "output": "CMakeFiles/main.dir/code/rendering_functions.cpp.o"
 }
 ]

@@ -184,6 +184,34 @@ CMakeFiles/main.dir/code/vertices.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/code/vertices.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ranlen/maturitni_prace/code/vertices.cpp -o CMakeFiles/main.dir/code/vertices.cpp.s
 
+CMakeFiles/main.dir/code/game_running.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/code/game_running.cpp.o: /home/ranlen/maturitni_prace/code/game_running.cpp
+CMakeFiles/main.dir/code/game_running.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/code/game_running.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/code/game_running.cpp.o -MF CMakeFiles/main.dir/code/game_running.cpp.o.d -o CMakeFiles/main.dir/code/game_running.cpp.o -c /home/ranlen/maturitni_prace/code/game_running.cpp
+
+CMakeFiles/main.dir/code/game_running.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/code/game_running.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ranlen/maturitni_prace/code/game_running.cpp > CMakeFiles/main.dir/code/game_running.cpp.i
+
+CMakeFiles/main.dir/code/game_running.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/code/game_running.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ranlen/maturitni_prace/code/game_running.cpp -o CMakeFiles/main.dir/code/game_running.cpp.s
+
+CMakeFiles/main.dir/code/rendering_functions.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/code/rendering_functions.cpp.o: /home/ranlen/maturitni_prace/code/rendering_functions.cpp
+CMakeFiles/main.dir/code/rendering_functions.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/code/rendering_functions.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/code/rendering_functions.cpp.o -MF CMakeFiles/main.dir/code/rendering_functions.cpp.o.d -o CMakeFiles/main.dir/code/rendering_functions.cpp.o -c /home/ranlen/maturitni_prace/code/rendering_functions.cpp
+
+CMakeFiles/main.dir/code/rendering_functions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/code/rendering_functions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ranlen/maturitni_prace/code/rendering_functions.cpp > CMakeFiles/main.dir/code/rendering_functions.cpp.i
+
+CMakeFiles/main.dir/code/rendering_functions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/code/rendering_functions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ranlen/maturitni_prace/code/rendering_functions.cpp -o CMakeFiles/main.dir/code/rendering_functions.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/code/main.cpp.o" \
@@ -193,7 +221,9 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/code/shader.cpp.o" \
 "CMakeFiles/main.dir/code/texture.cpp.o" \
 "CMakeFiles/main.dir/code/window.cpp.o" \
-"CMakeFiles/main.dir/code/vertices.cpp.o"
+"CMakeFiles/main.dir/code/vertices.cpp.o" \
+"CMakeFiles/main.dir/code/game_running.cpp.o" \
+"CMakeFiles/main.dir/code/rendering_functions.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -206,6 +236,8 @@ main: CMakeFiles/main.dir/code/shader.cpp.o
 main: CMakeFiles/main.dir/code/texture.cpp.o
 main: CMakeFiles/main.dir/code/window.cpp.o
 main: CMakeFiles/main.dir/code/vertices.cpp.o
+main: CMakeFiles/main.dir/code/game_running.cpp.o
+main: CMakeFiles/main.dir/code/rendering_functions.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/compiler_depend.ts
 main: libglad.a
@@ -213,7 +245,7 @@ main: /usr/lib/libglfw.so.3.4
 main: /usr/lib/libGLX.so
 main: /usr/lib/libOpenGL.so
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ranlen/maturitni_prace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

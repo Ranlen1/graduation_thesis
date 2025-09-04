@@ -10,7 +10,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ranlen/maturitni_prace/code/game.cpp" "CMakeFiles/main.dir/code/game.cpp.o" "gcc" "CMakeFiles/main.dir/code/game.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/game_menu.cpp" "CMakeFiles/main.dir/code/game_menu.cpp.o" "gcc" "CMakeFiles/main.dir/code/game_menu.cpp.o.d"
+  "/home/ranlen/maturitni_prace/code/game_running.cpp" "CMakeFiles/main.dir/code/game_running.cpp.o" "gcc" "CMakeFiles/main.dir/code/game_running.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/main.cpp" "CMakeFiles/main.dir/code/main.cpp.o" "gcc" "CMakeFiles/main.dir/code/main.cpp.o.d"
+  "/home/ranlen/maturitni_prace/code/rendering_functions.cpp" "CMakeFiles/main.dir/code/rendering_functions.cpp.o" "gcc" "CMakeFiles/main.dir/code/rendering_functions.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/shader.cpp" "CMakeFiles/main.dir/code/shader.cpp.o" "gcc" "CMakeFiles/main.dir/code/shader.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/stb_image.cpp" "CMakeFiles/main.dir/code/stb_image.cpp.o" "gcc" "CMakeFiles/main.dir/code/stb_image.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/texture.cpp" "CMakeFiles/main.dir/code/texture.cpp.o" "gcc" "CMakeFiles/main.dir/code/texture.cpp.o.d"

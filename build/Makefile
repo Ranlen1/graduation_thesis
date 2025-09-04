@@ -190,6 +190,30 @@ code/game_menu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_menu.cpp.s
 .PHONY : code/game_menu.cpp.s
 
+code/game_running.o: code/game_running.cpp.o
+.PHONY : code/game_running.o
+
+# target to build an object file
+code/game_running.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_running.cpp.o
+.PHONY : code/game_running.cpp.o
+
+code/game_running.i: code/game_running.cpp.i
+.PHONY : code/game_running.i
+
+# target to preprocess a source file
+code/game_running.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_running.cpp.i
+.PHONY : code/game_running.cpp.i
+
+code/game_running.s: code/game_running.cpp.s
+.PHONY : code/game_running.s
+
+# target to generate assembly for a file
+code/game_running.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/game_running.cpp.s
+.PHONY : code/game_running.cpp.s
+
 code/main.o: code/main.cpp.o
 .PHONY : code/main.o
 
@@ -213,6 +237,30 @@ code/main.s: code/main.cpp.s
 code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
+
+code/rendering_functions.o: code/rendering_functions.cpp.o
+.PHONY : code/rendering_functions.o
+
+# target to build an object file
+code/rendering_functions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/rendering_functions.cpp.o
+.PHONY : code/rendering_functions.cpp.o
+
+code/rendering_functions.i: code/rendering_functions.cpp.i
+.PHONY : code/rendering_functions.i
+
+# target to preprocess a source file
+code/rendering_functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/rendering_functions.cpp.i
+.PHONY : code/rendering_functions.cpp.i
+
+code/rendering_functions.s: code/rendering_functions.cpp.s
+.PHONY : code/rendering_functions.s
+
+# target to generate assembly for a file
+code/rendering_functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/rendering_functions.cpp.s
+.PHONY : code/rendering_functions.cpp.s
 
 code/shader.o: code/shader.cpp.o
 .PHONY : code/shader.o
@@ -374,9 +422,15 @@ help:
 	@echo "... code/game_menu.o"
 	@echo "... code/game_menu.i"
 	@echo "... code/game_menu.s"
+	@echo "... code/game_running.o"
+	@echo "... code/game_running.i"
+	@echo "... code/game_running.s"
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/rendering_functions.o"
+	@echo "... code/rendering_functions.i"
+	@echo "... code/rendering_functions.s"
 	@echo "... code/shader.o"
 	@echo "... code/shader.i"
 	@echo "... code/shader.s"

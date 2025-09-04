@@ -1,6 +1,7 @@
 #pragma once
 
 #include "game_menu.h"
+#include "game_running.h"
 #include "window.h"
 
 class Game
@@ -16,6 +17,7 @@ public:
 private:
     gameState _gameState;
     GameMenu _gameMenu;
+    GameRunning _gameRunning;
 public:
     Game();
 

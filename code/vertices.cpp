@@ -25,3 +25,15 @@ float playButtonVertices[] = {
 };
 
 size_t playButtonVerticesSize = sizeof(playButtonVertices);
+
+float fruitXCoordinate = -1.0f + 64.0f/800.0f, fruitYCoordinate = 1.0f + 64.0f/600.0f;
+float fruitVertices[] = {
+    -1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+    -1.0f, fruitYCoordinate, 0.0f, 0.0f, 1.0f,
+    fruitXCoordinate, 1.0f, 0.0f, 1.0f, 0.0f,
+
+    fruitXCoordinate, fruitYCoordinate, 0.0f, 1.0f, 1.0f,
+    -1.0f, fruitYCoordinate, 0.0f, 0.0f, 1.0f,
+    fruitXCoordinate, 1.0f, 0.0f, 1.0f, 0.0f
+};
+size_t fruitVerticesSize = sizeof(fruitVertices);

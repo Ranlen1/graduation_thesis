@@ -1,10 +1,16 @@
 #include "game.h"
 
 #include <GLFW/glfw3.h>
+#include "stb_image.h"
 
 Game::Game()
     : gameWindow(800, 600, "FruitCatch"), _gameState(gameStateMenu)
-{}
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    stbi_set_flip_vertically_on_load(true);
+}
 
 void Game::SetGameState(gameState state)
 {
@@ -20,6 +26,8 @@ void Game::DrawGameMenu()
 {
     if(_gameState == gameStateMenu)
        _gameMenu.Draw();
+    else if(_gameState == gameStateRunning)
+      _gameRunning.Draw();  
 }
 
 void Game::Run()

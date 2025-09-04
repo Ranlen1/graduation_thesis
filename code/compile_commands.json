@@ -1,0 +1,68 @@
+[
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/cc  -I/home/ranlen/maturitni_prace/plugins/glad/include -I/home/ranlen/maturitni_prace/plugins/stb  -o CMakeFiles/glad.dir/plugins/glad/src/glad.c.o -c /home/ranlen/maturitni_prace/plugins/glad/src/glad.c",
+  "file": "/home/ranlen/maturitni_prace/plugins/glad/src/glad.c",
+  "output": "CMakeFiles/glad.dir/plugins/glad/src/glad.c.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/main.cpp.o -c /home/ranlen/maturitni_prace/code/main.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/stb_image.cpp.o -c /home/ranlen/maturitni_prace/code/stb_image.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/stb_image.cpp",
+  "output": "CMakeFiles/main.dir/stb_image.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/game.cpp.o -c /home/ranlen/maturitni_prace/code/game.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/game.cpp",
+  "output": "CMakeFiles/main.dir/game.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/game_menu.cpp.o -c /home/ranlen/maturitni_prace/code/game_menu.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/game_menu.cpp",
+  "output": "CMakeFiles/main.dir/game_menu.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/shader.cpp.o -c /home/ranlen/maturitni_prace/code/shader.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/shader.cpp",
+  "output": "CMakeFiles/main.dir/shader.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/texture.cpp.o -c /home/ranlen/maturitni_prace/code/texture.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/texture.cpp",
+  "output": "CMakeFiles/main.dir/texture.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/window.cpp.o -c /home/ranlen/maturitni_prace/code/window.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/window.cpp",
+  "output": "CMakeFiles/main.dir/window.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/vertices.cpp.o -c /home/ranlen/maturitni_prace/code/vertices.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/vertices.cpp",
+  "output": "CMakeFiles/main.dir/vertices.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/game_running.cpp.o -c /home/ranlen/maturitni_prace/code/game_running.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/game_running.cpp",
+  "output": "CMakeFiles/main.dir/game_running.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/code",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/rendering_functions.cpp.o -c /home/ranlen/maturitni_prace/code/rendering_functions.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/rendering_functions.cpp",
+  "output": "CMakeFiles/main.dir/rendering_functions.cpp.o"
+}
+]
