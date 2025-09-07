@@ -2,10 +2,12 @@
 
 #include "vertices.h"
 #include "rendering_functions.h"
+
 #include <GLFW/glfw3.h>
 
 GameRunning::GameRunning()
 {
+    stbi_set_flip_vertically_on_load(true);
     rectangleShaderBinding(_backgroundVAO, _backgroundVBO, backgroundVertices, backgroundVerticesSize);
     rectangleShaderBinding(_fruitVAO, _fruitVBO, fruitVertices, fruitVerticesSize);
 
@@ -40,16 +42,19 @@ void GameRunning::Draw()
     glBindVertexArray(_backgroundVAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    glm::mat4 trans = glm::mat4(1.0f);
-    trans = glm::translate(trans, glm::vec3(0.0f, -0.1f * float(glfwGetTime()), 0.0f));
+    _fruit.Move();
+    _fruit.Spawn();
+    _fruit.Delete();
 
     _fruitShader.Use();
-    _fruitShader.SetMatrix4("transform", trans);
     _fruitShader.SetInteger("myTexture", 0);
-
     _appleTexture.Bind();
     glBindVertexArray(_fruitVAO);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
 
+    for(auto &[fruitType, trans] : _fruit.fruitList)
+    {
+        _fruitShader.SetMatrix4("transform", trans);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+    }
     glBindVertexArray(0);
 }

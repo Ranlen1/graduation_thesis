@@ -343,4 +343,21 @@ CMakeFiles/main.dir/code/main.cpp.o: \
  /home/ranlen/maturitni_prace/code/rendering_functions.h \
  /home/ranlen/maturitni_prace/code/texture.h /usr/include/GLFW/glfw3.h \
  /home/ranlen/maturitni_prace/code/game_running.h \
+ /home/ranlen/maturitni_prace/code/fruit.h /usr/include/c++/15.2.1/deque \
+ /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/15.2.1/bits/stl_deque.h \
+ /usr/include/c++/15.2.1/bits/deque.tcc /usr/include/c++/15.2.1/utility \
+ /usr/include/c++/15.2.1/bits/stl_relops.h /usr/include/c++/15.2.1/random \
+ /usr/include/c++/15.2.1/bits/random.h /usr/include/c++/15.2.1/vector \
+ /usr/include/c++/15.2.1/bits/stl_vector.h \
+ /usr/include/c++/15.2.1/bits/stl_bvector.h \
+ /usr/include/c++/15.2.1/bits/vector.tcc \
+ /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
+ /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h \
+ /usr/include/c++/15.2.1/bits/random.tcc /usr/include/c++/15.2.1/numeric \
+ /usr/include/c++/15.2.1/bits/stl_numeric.h \
+ /usr/include/c++/15.2.1/pstl/glue_numeric_defs.h \
+ /usr/include/c++/15.2.1/pstl/execution_defs.h \
+ /home/ranlen/maturitni_prace/plugins/stb/stb_image.h \
+ /usr/include/c++/15.2.1/stdlib.h \
  /home/ranlen/maturitni_prace/code/window.h

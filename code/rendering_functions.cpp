@@ -21,7 +21,6 @@ std::string loadShaderSource(const char *filePath)
 void loadTexture(const char *filePath, Texture &texture)
 {
     int width, height, nrChannels;
-    stbi_set_flip_vertically_on_load(true);
     unsigned char *data = stbi_load(filePath, &width, &height, &nrChannels, 4);
     if(data == nullptr)
         std::cout << "texture " << filePath << " did not load" << std::endl;

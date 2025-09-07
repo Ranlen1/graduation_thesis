@@ -26,6 +26,7 @@ add_executable(main
     code/vertices.cpp
     code/game_running.cpp
     code/rendering_functions.cpp
+    code/fruit.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)

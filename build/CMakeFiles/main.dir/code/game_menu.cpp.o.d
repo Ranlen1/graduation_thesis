@@ -300,4 +300,6 @@ CMakeFiles/main.dir/code/game_menu.cpp.o: \
  /usr/include/strings.h /usr/include/glm/gtc/type_ptr.inl \
  /home/ranlen/maturitni_prace/code/rendering_functions.h \
  /home/ranlen/maturitni_prace/code/texture.h /usr/include/GLFW/glfw3.h \
- /home/ranlen/maturitni_prace/code/vertices.h
+ /home/ranlen/maturitni_prace/code/vertices.h \
+ /home/ranlen/maturitni_prace/plugins/stb/stb_image.h \
+ /usr/include/c++/15.2.1/stdlib.h

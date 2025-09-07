@@ -1,10 +1,13 @@
 #include "game_menu.h"
 
 #include "vertices.h"
+#include "stb_image.h"
 
 GameMenu::GameMenu()
     : _playButtonLeftBorder(350), _playButtonRightBorder(450), _playButtonTopBorder(250), _playButtonBotBorder(350)
 {
+
+    stbi_set_flip_vertically_on_load(true);
     rectangleShaderBinding(_backgroundVAO, _backgroundVBO, backgroundVertices, backgroundVerticesSize);
     rectangleShaderBinding(_playButtonVAO, _playButtonVBO, playButtonVertices, playButtonVerticesSize);
 

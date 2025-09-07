@@ -142,6 +142,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+code/fruit.o: code/fruit.cpp.o
+.PHONY : code/fruit.o
+
+# target to build an object file
+code/fruit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/fruit.cpp.o
+.PHONY : code/fruit.cpp.o
+
+code/fruit.i: code/fruit.cpp.i
+.PHONY : code/fruit.i
+
+# target to preprocess a source file
+code/fruit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/fruit.cpp.i
+.PHONY : code/fruit.cpp.i
+
+code/fruit.s: code/fruit.cpp.s
+.PHONY : code/fruit.s
+
+# target to generate assembly for a file
+code/fruit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/fruit.cpp.s
+.PHONY : code/fruit.cpp.s
+
 code/game.o: code/game.cpp.o
 .PHONY : code/game.o
 
@@ -416,6 +440,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
+	@echo "... code/fruit.o"
+	@echo "... code/fruit.i"
+	@echo "... code/fruit.s"
 	@echo "... code/game.o"
 	@echo "... code/game.i"
 	@echo "... code/game.s"
