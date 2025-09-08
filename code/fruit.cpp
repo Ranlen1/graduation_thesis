@@ -4,7 +4,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 Fruit::Fruit()
-    : _currentTime(0.0), _lastTime(glfwGetTime()),_spawnTime(0.0), _spawn(true), gen(rd()), dis(0.0f, 2.0f - 64.0f/800.0f)
+    : _currentTime(0.0), _lastTimeMoved(glfwGetTime()),_spawnTime(0.0), _seed(_rd()),
+    _fruitXCoordinate(0.0f, 2.0f - 64.0f/800.0f), _appleSpawnGenerator(3.0, 5.0),
+    _appleSpawnTime(_appleSpawnGenerator(_seed)), _timeFromLastApple(0.0)
 {}
 
 void Fruit::Move()
@@ -12,24 +14,22 @@ void Fruit::Move()
     _currentTime = glfwGetTime();
     for(auto &[fruitType, trans] : fruitList)
     {
-        trans = glm::translate(trans, glm::vec3(0.0f, -0.5f * float(_currentTime - _lastTime), 0.0f));
+        trans = glm::translate(trans, glm::vec3(0.0f, -0.5f * float(_currentTime - _lastTimeMoved), 0.0f));
     }
-    _lastTime = _currentTime;
+    _lastTimeMoved = _currentTime;
 }
 
 void Fruit::Spawn()
 {
-    _spawnTime = glfwGetTime();
-    double mod = fmod(_spawnTime, 4);
-    if(mod > 3 && _spawn)
+    _currentTime = glfwGetTime();
+    if(_currentTime - _timeFromLastApple > _appleSpawnTime)
     {
         glm::mat4 trans = glm::mat4(1.0f);
-        trans = glm::translate(trans, glm::vec3(dis(gen), 0.0f, 0.0f));
+        trans = glm::translate(trans, glm::vec3(_fruitXCoordinate(_seed), 0.0f, 0.0f));
         fruitList.push_back({1, trans});
-        _spawn = false;
+        _timeFromLastApple = _currentTime;
+        _appleSpawnTime = _appleSpawnGenerator(_seed);
     }
-    else if(mod < 3 && !_spawn)
-        _spawn = true;
 }
 
 void Fruit::Delete()
