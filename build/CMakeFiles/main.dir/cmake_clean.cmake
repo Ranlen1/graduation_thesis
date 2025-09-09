@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/code/game_running.cpp.o.d"
   "CMakeFiles/main.dir/code/main.cpp.o"
   "CMakeFiles/main.dir/code/main.cpp.o.d"
+  "CMakeFiles/main.dir/code/random.cpp.o"
+  "CMakeFiles/main.dir/code/random.cpp.o.d"
   "CMakeFiles/main.dir/code/rendering_functions.cpp.o"
   "CMakeFiles/main.dir/code/rendering_functions.cpp.o.d"
   "CMakeFiles/main.dir/code/shader.cpp.o"

@@ -262,6 +262,30 @@ code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
 
+code/random.o: code/random.cpp.o
+.PHONY : code/random.o
+
+# target to build an object file
+code/random.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/random.cpp.o
+.PHONY : code/random.cpp.o
+
+code/random.i: code/random.cpp.i
+.PHONY : code/random.i
+
+# target to preprocess a source file
+code/random.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/random.cpp.i
+.PHONY : code/random.cpp.i
+
+code/random.s: code/random.cpp.s
+.PHONY : code/random.s
+
+# target to generate assembly for a file
+code/random.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/random.cpp.s
+.PHONY : code/random.cpp.s
+
 code/rendering_functions.o: code/rendering_functions.cpp.o
 .PHONY : code/rendering_functions.o
 
@@ -455,6 +479,9 @@ help:
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/random.o"
+	@echo "... code/random.i"
+	@echo "... code/random.s"
 	@echo "... code/rendering_functions.o"
 	@echo "... code/rendering_functions.i"
 	@echo "... code/rendering_functions.s"

@@ -70,5 +70,11 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/fruit.cpp.o -c /home/ranlen/maturitni_prace/code/fruit.cpp",
   "file": "/home/ranlen/maturitni_prace/code/fruit.cpp",
   "output": "CMakeFiles/main.dir/code/fruit.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/random.cpp.o -c /home/ranlen/maturitni_prace/code/random.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/random.cpp",
+  "output": "CMakeFiles/main.dir/code/random.cpp.o"
 }
 ]

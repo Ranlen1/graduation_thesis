@@ -359,11 +359,11 @@ CMakeFiles/main.dir/code/fruit.cpp.o: /home/ranlen/maturitni_prace/code/fruit.cp
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 CMakeFiles/main.dir/code/game.cpp.o: /home/ranlen/maturitni_prace/code/game.cpp \
+  /home/ranlen/maturitni_prace/code/extra_functions.h \
   /home/ranlen/maturitni_prace/code/fruit.h \
   /home/ranlen/maturitni_prace/code/game.h \
   /home/ranlen/maturitni_prace/code/game_menu.h \
   /home/ranlen/maturitni_prace/code/game_running.h \
-  /home/ranlen/maturitni_prace/code/rendering_functions.h \
   /home/ranlen/maturitni_prace/code/shader.h \
   /home/ranlen/maturitni_prace/code/texture.h \
   /home/ranlen/maturitni_prace/code/window.h \
@@ -763,8 +763,8 @@ CMakeFiles/main.dir/code/game.cpp.o: /home/ranlen/maturitni_prace/code/game.cpp 
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 CMakeFiles/main.dir/code/game_menu.cpp.o: /home/ranlen/maturitni_prace/code/game_menu.cpp \
+  /home/ranlen/maturitni_prace/code/extra_functions.h \
   /home/ranlen/maturitni_prace/code/game_menu.h \
-  /home/ranlen/maturitni_prace/code/rendering_functions.h \
   /home/ranlen/maturitni_prace/code/shader.h \
   /home/ranlen/maturitni_prace/code/texture.h \
   /home/ranlen/maturitni_prace/code/vertices.h \
@@ -1145,9 +1145,9 @@ CMakeFiles/main.dir/code/game_menu.cpp.o: /home/ranlen/maturitni_prace/code/game
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 CMakeFiles/main.dir/code/game_running.cpp.o: /home/ranlen/maturitni_prace/code/game_running.cpp \
+  /home/ranlen/maturitni_prace/code/extra_functions.h \
   /home/ranlen/maturitni_prace/code/fruit.h \
   /home/ranlen/maturitni_prace/code/game_running.h \
-  /home/ranlen/maturitni_prace/code/rendering_functions.h \
   /home/ranlen/maturitni_prace/code/shader.h \
   /home/ranlen/maturitni_prace/code/texture.h \
   /home/ranlen/maturitni_prace/code/vertices.h \
@@ -1547,11 +1547,11 @@ CMakeFiles/main.dir/code/game_running.cpp.o: /home/ranlen/maturitni_prace/code/g
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 CMakeFiles/main.dir/code/main.cpp.o: /home/ranlen/maturitni_prace/code/main.cpp \
+  /home/ranlen/maturitni_prace/code/extra_functions.h \
   /home/ranlen/maturitni_prace/code/fruit.h \
   /home/ranlen/maturitni_prace/code/game.h \
   /home/ranlen/maturitni_prace/code/game_menu.h \
   /home/ranlen/maturitni_prace/code/game_running.h \
-  /home/ranlen/maturitni_prace/code/rendering_functions.h \
   /home/ranlen/maturitni_prace/code/shader.h \
   /home/ranlen/maturitni_prace/code/texture.h \
   /home/ranlen/maturitni_prace/code/window.h \
@@ -3082,12 +3082,12 @@ main: /usr/lib/Scrt1.o \
   /usr/lib32/libXau.so.6 \
   /usr/lib32/libXdmcp.so.6 \
   /usr/lib32/libxcb.so.1 \
+  CMakeFiles/main.dir/code/extra_functions.cpp.o \
   CMakeFiles/main.dir/code/fruit.cpp.o \
   CMakeFiles/main.dir/code/game.cpp.o \
   CMakeFiles/main.dir/code/game_menu.cpp.o \
   CMakeFiles/main.dir/code/game_running.cpp.o \
   CMakeFiles/main.dir/code/main.cpp.o \
-  CMakeFiles/main.dir/code/rendering_functions.cpp.o \
   CMakeFiles/main.dir/code/shader.cpp.o \
   CMakeFiles/main.dir/code/stb_image.cpp.o \
   CMakeFiles/main.dir/code/texture.cpp.o \
@@ -3099,6 +3099,8 @@ main: /usr/lib/Scrt1.o \
 CMakeFiles/main.dir/code/shader.cpp.o:
 
 CMakeFiles/main.dir/code/game_running.cpp.o:
+
+CMakeFiles/main.dir/code/extra_functions.cpp.o:
 
 /usr/lib32/libxcb.so.1:
 
@@ -3155,6 +3157,8 @@ CMakeFiles/main.dir/code/vertices.cpp.o:
 /usr/include/c++/15.2.1/fstream:
 
 /usr/include/c++/15.2.1/bits/sstream.tcc:
+
+/home/ranlen/maturitni_prace/code/rendering_functions.h:
 
 /home/ranlen/maturitni_prace/code/rendering_functions.cpp:
 
@@ -3252,8 +3256,6 @@ CMakeFiles/main.dir/code/fruit.cpp.o:
 
 /usr/include/glm/ext/vector_float1_precision.hpp:
 
-CMakeFiles/main.dir/code/rendering_functions.cpp.o:
-
 /usr/include/bits/wctype-wchar.h:
 
 /usr/include/glm/ext/vector_float1.hpp:
@@ -3283,8 +3285,6 @@ CMakeFiles/main.dir/code/rendering_functions.cpp.o:
 /home/ranlen/maturitni_prace/code/texture.h:
 
 /home/ranlen/maturitni_prace/code/shader.h:
-
-/home/ranlen/maturitni_prace/code/rendering_functions.h:
 
 /home/ranlen/maturitni_prace/code/game_running.h:
 
@@ -3643,6 +3643,8 @@ libglad.a:
 /usr/include/c++/15.2.1/tr1/ell_integral.tcc:
 
 /usr/include/bits/libm-simd-decl-stubs.h:
+
+/home/ranlen/maturitni_prace/code/extra_functions.h:
 
 /usr/include/bits/floatn.h:
 

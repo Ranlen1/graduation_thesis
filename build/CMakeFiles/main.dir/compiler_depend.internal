@@ -361,11 +361,11 @@ CMakeFiles/main.dir/code/fruit.cpp.o
 
 CMakeFiles/main.dir/code/game.cpp.o
  /home/ranlen/maturitni_prace/code/game.cpp
+ /home/ranlen/maturitni_prace/code/extra_functions.h
  /home/ranlen/maturitni_prace/code/fruit.h
  /home/ranlen/maturitni_prace/code/game.h
  /home/ranlen/maturitni_prace/code/game_menu.h
  /home/ranlen/maturitni_prace/code/game_running.h
- /home/ranlen/maturitni_prace/code/rendering_functions.h
  /home/ranlen/maturitni_prace/code/shader.h
  /home/ranlen/maturitni_prace/code/texture.h
  /home/ranlen/maturitni_prace/code/window.h
@@ -766,8 +766,8 @@ CMakeFiles/main.dir/code/game.cpp.o
 
 CMakeFiles/main.dir/code/game_menu.cpp.o
  /home/ranlen/maturitni_prace/code/game_menu.cpp
+ /home/ranlen/maturitni_prace/code/extra_functions.h
  /home/ranlen/maturitni_prace/code/game_menu.h
- /home/ranlen/maturitni_prace/code/rendering_functions.h
  /home/ranlen/maturitni_prace/code/shader.h
  /home/ranlen/maturitni_prace/code/texture.h
  /home/ranlen/maturitni_prace/code/vertices.h
@@ -1149,9 +1149,9 @@ CMakeFiles/main.dir/code/game_menu.cpp.o
 
 CMakeFiles/main.dir/code/game_running.cpp.o
  /home/ranlen/maturitni_prace/code/game_running.cpp
+ /home/ranlen/maturitni_prace/code/extra_functions.h
  /home/ranlen/maturitni_prace/code/fruit.h
  /home/ranlen/maturitni_prace/code/game_running.h
- /home/ranlen/maturitni_prace/code/rendering_functions.h
  /home/ranlen/maturitni_prace/code/shader.h
  /home/ranlen/maturitni_prace/code/texture.h
  /home/ranlen/maturitni_prace/code/vertices.h
@@ -1552,11 +1552,11 @@ CMakeFiles/main.dir/code/game_running.cpp.o
 
 CMakeFiles/main.dir/code/main.cpp.o
  /home/ranlen/maturitni_prace/code/main.cpp
+ /home/ranlen/maturitni_prace/code/extra_functions.h
  /home/ranlen/maturitni_prace/code/fruit.h
  /home/ranlen/maturitni_prace/code/game.h
  /home/ranlen/maturitni_prace/code/game_menu.h
  /home/ranlen/maturitni_prace/code/game_running.h
- /home/ranlen/maturitni_prace/code/rendering_functions.h
  /home/ranlen/maturitni_prace/code/shader.h
  /home/ranlen/maturitni_prace/code/texture.h
  /home/ranlen/maturitni_prace/code/window.h
@@ -3094,12 +3094,12 @@ main
  /usr/lib32/libXau.so.6
  /usr/lib32/libXdmcp.so.6
  /usr/lib32/libxcb.so.1
+ /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/extra_functions.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/fruit.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/game.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/game_menu.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/game_running.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/main.cpp.o
- /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/rendering_functions.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/shader.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/stb_image.cpp.o
  /home/ranlen/maturitni_prace/build/CMakeFiles/main.dir/code/texture.cpp.o
