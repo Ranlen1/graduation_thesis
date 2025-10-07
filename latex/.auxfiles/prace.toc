@@ -1,0 +1,17 @@
+\babel@toc {czech}{}\relax 
+\contentsline {part}{I\hspace {1em}Teoretická část}{2}{part.1}%
+\contentsline {chapter}{\numberline {1}Název úvodní kapitoly}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}O-notace}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}X-krát Abeceda}{4}{section.1.2}%
+\contentsline {part}{II\hspace {1em}Praktická část}{5}{part.2}%
+\contentsline {section}{\numberline {1.3}Výpisy použitých programů}{6}{section.1.3}%
+\babel@toc {czech}{}\relax 
+\babel@toc {czech}{}\relax 
+\babel@toc {czech}{}\relax 
+\babel@toc {czech}{}\relax 
+\babel@toc {czech}{}\relax 
+\babel@toc {czech}{}\relax 
+\contentsline {chapter}{Bibliografie}{9}{chapter*.9}%
+\contentsline {chapter}{Přílohy}{12}{section*.12}%
+\contentsline {chapter}{\numberline {A}Fotky z pokusů}{13}{appendix.1.A}%
+\contentsline {chapter}{\numberline {B}Příloha další }{14}{appendix.1.B}%

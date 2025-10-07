@@ -1,0 +1,143 @@
+% Šablona pro maturitní práci Gymnázia Jírovcova 8, České Budějovice
+% Autoři šablony: Jonáš Havelka, Michal Kočer, Daniel Sýkora
+% Typ dokumentu: report
+% veškeré úpravy v soubor MP.sty (styl maturitní práce)
+\documentclass[12pt]{report}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{config}						  % Import stylu maturitní práce
+\author{Arnošt Thor}                  % AUTOR PRÁCE
+\title{Jak psát práci v \LaTeX{}u}    % NÁZEV PRÁCE
+\date{14. února 2025}                 % DATUM ODEVZDÁNÍ PRÁCE
+\vedouci{Mgr. František Kantor, PhD.} % VEDOUCÍ PRÁCE
+\place{V Českých Budějovicích}
+\skolnirok{2024/2025}                  % ŠKOLNí ROK
+\logo{\includegraphics[scale=1.25]{GJ8_logotyp}} %Logo školy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} %%%%%%% začátek dokumentu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Titulní stránka + úvodní povinné stránky
+\pagenumbering{roman}                   % číslování stránek římskými číslicemi
+	\mytitlepage						% Vygenerování titulní strany
+	
+	\prohlaseni{
+		Prohlašuji, že jsem tuto práci vypracoval samostatně s vyznačením všech použitých pramenů.
+	}	
+	
+	\abstrakt{
+		\lipsum[1]						% Abstrakt 
+	}{
+		\lipsum[1]						% Klíčová slova
+	}
+	
+	\podekovani{
+		\lipsum[2]						% Poděkování
+	}
+	
+   {\tableofcontents\newpage}			% Obsah
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% VLASTNÍ PRÁCE
+\addtocounter{page}{1}		% Posunutí countru stránek
+\pagenumbering{arabic}		% Číslování stránek arabskými číslicemi
+\chapter*{Úvod}     % úvod práce 
+	
+\lipsum[1]	
+	
+%%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
+\part{Teoretická část}  % název teoretické části (nenechávejte Teoretická část)
+	
+\chapter{Programovací jazyky}
+			
+\section{Programovací jazyk C}
+    Céčko je fakt mrdka
+    \cite{the_c_programming_language, programming_in_c, c:_a_reference_manual, the_c_book:_featuring_the_ansi_c_standart}\\
+
+\section{O-notace}
+	Odkaz v závorkách: \parencite[see][page 900]{programming_in_c}\\
+	Odkaz: \cite{programming_in_c}\\
+	A odkaz pod čarou: \footcite[see][s. 42]{programming_in_c}\\
+	Dobrý den, ahoj, \gls{atd}\\
+	Praha, \gls{tj} hlavní město ČR
+	
+	\begin{table}
+ 		\caption{Testovací tabulka}
+		\label{tab:test2}
+			\begin{tabular}{ccccc}
+				1 & 1 & 1  & 1  & 1  \\
+				1 & 2 & 3  & 4  & 5  \\
+				1 & 3 & 6  & 10 & 15 \\
+				1 & 4 & 10 & 30 & 45
+				\end{tabular}
+	\end{table}
+
+\lipsum[2]
+
+\section[X-krát Abeceda]{Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda }
+%%% v obsahu se objeví jen to co je v hranatých závorkách
+\begin{figure}
+  \includegraphics[width=\linewidth]{test.jpg}
+  \caption{Testovací}
+  \label{fig:test}
+\end{figure}
+Obrázek \ref{fig:test} ukazuje Shangai z Pixabay.\\
+Tabulka \ref{tab:test2} ukazuje hádejte, co.
+	
+\lipsum[3]
+
+%%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
+\part{Praktická část} % název praktické části (nenechávejte název Praktická část)
+
+\section{Výpisy použitých programů}
+
+\lipsum[1]	
+
+Výpis programu \nameref{lst:hello_world}  naleznete ve výpise \ref{lst:hello_world}.
+
+\begin{lstlisting}[title={Program hello.c}, caption={hello.c}, label={lst:hello_world}]
+#include <stdio.h>
+#define CISLO 10
+
+int main(void) {
+	int i = CISLO;
+
+	print("Hello World!\n");
+	print("%d", i);
+
+	return (0);
+}
+\end{lstlisting}
+
+\lipsum[1]	
+
+\begin{lstlisting}[numbers=none, title={Příklad výstupního souboru}]
+11.0524
+5.5954
+6.7996
+13.8584
+15.1357
+Soucet: 52.4415
+\end{lstlisting}
+
+%%%%%%%%%%%%% ZÁVĚR
+\chapter*{Závěr}
+	
+\lipsum[1]
+	
+\nocite{*}
+\printbibliography					% Vytvoří seznam literatury
+\addcontentsline{toc}{chapter}{Bibliografie}
+\printglossary[title={Zkratky}]		% Vytvoří seznam zkratek
+\listoffigures						% Vytvoří seznam obrázků
+\listoftables						% Vytvoří seznam tabulek
+
+%%%%%%%%%%%%% PŘÍLOHY - APPENDIX 	
+\begin{appendices}
+	\chapter{Fotky z pokusů}	
+	\lipsum[1]
+    	%\pitem{Fotky z pokusů}
+    	%\eitem{Vlastní program}
+    	%\eitem{Dokumentace}
+    	%\eitem{Testovací data}
+	\chapter{Příloha další }
+\end{appendices}
+%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%% KONEC %%%%%%%%%%%%%%%%%%%%%%%%%
