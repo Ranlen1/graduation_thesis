@@ -1,4 +1,4 @@
-% Šablona pro maturitní práci Gymnázia Jírovcova 8, České Budějovice
+%ablona pro maturitní práci Gymnázia Jírovcova 8, České Budějovice
 % Autoři šablony: Jonáš Havelka, Michal Kočer, Daniel Sýkora
 % Typ dokumentu: report
 % veškeré úpravy v soubor MP.sty (styl maturitní práce)
@@ -10,7 +10,7 @@
 \date{14. února 2025}                 % DATUM ODEVZDÁNÍ PRÁCE
 \vedouci{Mgr. František Kantor, PhD.} % VEDOUCÍ PRÁCE
 \place{V Českých Budějovicích}
-\skolnirok{2024/2025}                  % ŠKOLNí ROK
+\skolnirok{2025/2026}                  % ŠKOLNí ROK
 \logo{\includegraphics[scale=1.25]{GJ8_logotyp}} %Logo školy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document} %%%%%%% začátek dokumentu
@@ -23,41 +23,97 @@
 	}	
 	
 	\abstrakt{
-		\lipsum[1]						% Abstrakt 
 	}{
-		\lipsum[1]						% Klíčová slova
 	}
 	
 	\podekovani{
-		\lipsum[2]						% Poděkování
 	}
 	
    {\tableofcontents\newpage}			% Obsah
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% VLASTNÍ PRÁCE
 \addtocounter{page}{1}		% Posunutí countru stránek
 \pagenumbering{arabic}		% Číslování stránek arabskými číslicemi
 \chapter*{Úvod}     % úvod práce 
 	
-\lipsum[1]	
-	
 %%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
-\part{Teoretická část}  % název teoretické části (nenechávejte Teoretická část)
+\part{Teorie k vývoji hry v OpenGL}  % název teoretické části (nenechávejte Teoretická část)
 	
 \chapter{Programovací jazyky}
 			
 \section{Programovací jazyk C}
-    Céčko je fakt mrdka
-    \cite{the_c_programming_language, programming_in_c, c:_a_reference_manual, the_c_book:_featuring_the_ansi_c_standart}\\
+    C je středněúrovňový programovací jazyk, tedy jazyk, který je podobou blízko strojovému kódu,
+    ale má už prvky vyššího programovacího jazyka jako jsou funkce, datové struktury nebo to že je
+    strukturovaný. Je kompilovaný a statický, což znamená, že se program musí nejdříve přeložit do
+    strojového kódu a až pak se může spustit. Datové typy jsou známy v čase kompilace, proto všechny
+    proměnné musí být v kódu deklarovány, jelikož vkládání vstupních dat do programu probíhá až při
+    běhu programu. C nemá automatický správce paměti, takže je potřeba uvolňovat paměť manuálně. C
+    má střídmou standardní knihovnu, která obsahuje základní matematické operace a funkce pro
+    práci s pamětí a soubory, takže jakékoliv složitější datové struktury či funkce si člověk musí
+    naprogramovat sám. Tato strohost a blízkost ke strojovému kódu z C dělá jeden z nejrychlejších
+    programovacích jazyků.
+    \cite{programming_in_c, the_c_programming_language, features_of_C,
+    what_is_difference_between_a_low-level_midlvel_and_high-level_language}\\ \\
+    C bylo vytvořeno Dennisem Ritchiem na počátku 70. let 20. století v AT\&T Bellových 
+    laboratořích. Jeho předchůdci byly jazyky ALGOL, CPL, BCPL a B. Jeho prvotním účelem bylo
+    přepsat operační systém UNIX do použitelnějšího jazyka než Assembly a B. Už koncem 70. let bylo
+    C populární, ale nebylo standardizované a vznikalo mnoho různých variant. Na začátku 80. let
+    tedy Americký národní institut pro standardy(ANSI) zahájil práci na formální standardizované
+    verzi. Tu dokončili v roce 1989 a je známa pod jménem C89. V průběhu let vycházely další verze,
+    které jazyk zlepšovaly a modernizovali. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
+    nedávno schválena a teď se implementuje do kompilátorů. V součastnosti mezi nejpoužívanější
+    kompilátory patří GCC a Clang. Jelikož bylo C velice populární,
+    ovlivnilo řadu jiných programovacích jazyků, jako C++, C#, Java, Rust, Go {\gls{atd}}
+    \cite{the_c_book:_featuring_the_ansi_c_standart, c:_a_reference_manual,
+    programming_in_c, the_c_programming_language}\\ \\
+    C je univerzální programovací jazyk, má tedy širokou škálu využití. Jeho první využití bylo k
+    napsání UNIXu, který později ovlivnil operační systémy jako Linux, macOS, iOS a Android.
+    Používá se v programování softwaru s omezenou pamětí a výkonem, jako je firmware aut či v
+    zařízeních chytrých domácností. Dále se využívá pro tvoření kompilátorů a interpreterů jako je
+    GCC nebo interpreter Pythonu. Také jsou v něm napsané systémové databáze MySQL a Oracle
+    Database. Kvůli jeho rychlosti jsou v něm napsané knihovny pro jiné programovací jazyky jako je
+    NumPy, OpenGL či stb\_image.
+    \cite{the_c_book:_featuring_the_ansi_c_standart, programming_in_c,
+    top_applications_of_c_programming}\\ \\
+    Jednoduchý program, který načte ze vstupu počet čísel, která chce uživatel setřídit. Následně
+    daná čísla načte a vytiskne je seřazená:
 
-\section{O-notace}
+\begin{lstlisting}[caption={sort\_n\_numbers.c},s label={lst:sort_n_numbers}, ref={lst:sort_n_numbers}]
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void *a, const void *b)
+{
+    return (*(int *)a - *(int *)b);
+}
+
+int main(void)
+{
+    int sizeOfArray;
+    scanf("%d", &sizeOfArray);
+    int *array = malloc(sizeOfArray *sizeof(int));
+
+    for(int i = 0; i < sizeOfArray; ++i)
+        scanf("%d", &array[i]);
+
+    qsort(array, sizeOfArray, sizeof(int), compare);
+
+    for(int i = 0; i < sizeOfArray; ++i)
+        printf("%d\n", array[i]);
+
+    free(array);
+    return 0;
+}
+\end{lstlisting}
+
+\section{Programovací jazyk C++}
+    work in progress \\
 	Odkaz v závorkách: \parencite[see][page 900]{programming_in_c}\\
 	Odkaz: \cite{programming_in_c}\\
 	A odkaz pod čarou: \footcite[see][s. 42]{programming_in_c}\\
 	Dobrý den, ahoj, \gls{atd}\\
 	Praha, \gls{tj} hlavní město ČR
 	
-	\begin{table}
+	\begin{table} [h!]
  		\caption{Testovací tabulka}
 		\label{tab:test2}
 			\begin{tabular}{ccccc}
@@ -68,11 +124,9 @@
 				\end{tabular}
 	\end{table}
 
-\lipsum[2]
 
-\section[X-krát Abeceda]{Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda }
 %%% v obsahu se objeví jen to co je v hranatých závorkách
-\begin{figure}
+    \begin{figure} [h!]
   \includegraphics[width=\linewidth]{test.jpg}
   \caption{Testovací}
   \label{fig:test}
@@ -80,14 +134,19 @@
 Obrázek \ref{fig:test} ukazuje Shangai z Pixabay.\\
 Tabulka \ref{tab:test2} ukazuje hádejte, co.
 	
-\lipsum[3]
+\clearpage
+\chapter{Grafická karta}			
+
+\section{Grafická pipeline}
+
+\section{Transformace a lineární algebra}
+
+\section{Historie grafických karet}
 
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \part{Praktická část} % název praktické části (nenechávejte název Praktická část)
 
 \section{Výpisy použitých programů}
-
-\lipsum[1]	
 
 Výpis programu \nameref{lst:hello_world}  naleznete ve výpise \ref{lst:hello_world}.
 
@@ -105,8 +164,6 @@ int main(void) {
 }
 \end{lstlisting}
 
-\lipsum[1]	
-
 \begin{lstlisting}[numbers=none, title={Příklad výstupního souboru}]
 11.0524
 5.5954
@@ -118,8 +175,6 @@ Soucet: 52.4415
 
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
-	
-\lipsum[1]
 	
 \nocite{*}
 \printbibliography					% Vytvoří seznam literatury
