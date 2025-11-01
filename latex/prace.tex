@@ -66,12 +66,10 @@
     verzi. Tu dokončili v roce 1989 a je známa pod jménem C89. V průběhu let vycházely další verze,
     které jazyk zlepšovaly a modernizovali. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
     nedávno schválena a teď se implementuje do kompilátorů. V součastnosti mezi nejpoužívanější
-    kompilátory patří GCC a Clang. Jelikož bylo C velice populární,
+    kompilátory patří GCC, Clang a MSVC. Jelikož bylo C velice populární,
     ovlivnilo řadu jiných programovacích jazyků, jako C\+\+, C\#, Java, Rust, Go atd.
     \cite{the_c_book:_featuring_the_ansi_c_standart, c_a_reference_manual,
     programming_in_c, the_c_programming_language}
-
-    POZNAMKA pridej jeste k historii historii compileru, at tam nejsou jen soucanse.
 
     C je univerzální programovací jazyk, má tedy širokou škálu využití. Jeho první využití bylo k
     napsání UNIXu, který později ovlivnil operační systémy jako Linux, macOS, iOS a Android.
@@ -116,11 +114,12 @@ int main(void)
 
 \section{Programovací jazyk C++}
     Programovací jazyk C++ je v mnoha ohledech podobný jazyku C. Je stejně jako C středně\-úrovňový,
-    kompilovaný, statický, má datové typy známy v době kompilace a nemá automatický správce
-    paměti. V C++ se také programuje strukturovaně a procedurálně, ale na rozdíl od C také umožňuje
-    programovat objektově. Objektové programování umožňuje používat objekty, které jsou vytvořeny
-    pomocí tříd. Tyto třídy a jejich hierarchie děljí kód přehlednější a usnadňuje budoucí
-    rozšiřování a debuggování. Dalším rozdílem je standardní knihovna, kterou má C++ rozsáhlejší.
+    kompilovaný, statický, má datové typy známé v době kompilace a nemá automatický správce
+    paměti. V C++ se také programuje strukturovaně a procedurálně, ale na rozdíl od C, také umožňuje
+    programovat objektově. Objektové programování umožňuje používat objekty, které jsou instance
+    tříd. Tyto třídy umožňují dědičnost, polymorfismus a zapouzdření, což
+    dělá kód přehlednější a usnadňuje budoucí rozšiřování a debuggování. 
+    Dalším rozdílem je standardní knihovna, kterou má C++ rozsáhlejší.
     Obsahuje nové kontejnery jako vector, map, a priority\_queue, které jsou tvořeny pokročilejšími
     datovými strukturami jako binární vyhledávací strom nebo heap. Dále obsahuje nové algoritmy,
     například sort, find nebo count. Kvůli velké podobnosti C a C++ se často může C kód používat v
@@ -129,16 +128,62 @@ int main(void)
 int class(int new, int bool); 
 \end{lstlisting}
     V C tento kód vytvoří funkci class, která vrací int a má 2 parametry new a bool. V C++ jsou ale
-    class, new a bool klíčová slova, která nelze použít v názvu proměnných a funkcí. Proto se
-    doporučuje programovat v C tak, aby daný C kód byl podmnožinou C++, což umožňuje jeho použití v
-    jiném C++ programu. \cite{the_cpp_programming_language, programming_principles_and_practice_using_cpp}
+    class, new a bool klíčová slova, která nelze použít v názvu proměnných a funkcí. Pokud chce
+    programátor napsat C kód, který se bude jednoduše v C++ programech,
+    doporučuje se programovat v C tak, aby daný C kód byl podmnožinou C++.
+    \cite{the_cpp_programming_language, programming_principles_and_practice_using_cpp}
 
     C++ bylo vytvořeno Bjarnem Stroustrupem v roce 1979 v AT\&T Bellových laboratořích. Před 
     vytvořením C++ pracoval Stroustrup s programovacím jazykem Simula 67, který byl
-    oběktově-orientovaný a sloužil primárně k vytváření simulací. Stroustupovi přišlo
-    objektově-orientované velmi užitečné, ale Simula 67 byl příliš pomalý pro větší projetky. Proto
-    se rozhodl že vytvoří nadmnožina jazyka C, která by umožňovala objektově-orientované 
-    programování a zároveň si zachovalal rychlost C, s názvem C with Classes.
+    objektově orientovaný a sloužil primárně k vytváření simulací. Stroustupovi přišlo
+    objektově orientované programování
+    velmi užitečné, ale Simula 67 byl příliš pomalý pro větší projekty. Rozhodl
+    se vytvořit nadmnožinu jazyka C, která by umožňovala objektově orientované programování a zároveň
+    si zachoval rychlost C, s názvem C with Classes. V roce 1982 byl Stroustrup se stavem C with
+    Classes zklamán. Nepřišlo mu, že oproti C přináší významné zlepšení a rozhodl se jazyk dále
+    vylepšovat nad rámec objektově orientovaného programováni. V roce 1983 byl jazyk přejmenován z
+    C with Classes na C++. Dále bylo C++ v roce 1985 oficiálně 
+    vydáno a začalo se používat komerčně. V roce 1998 byla
+    vydána první standardizovaná verze s jménem C++98. Další významné verze, které jazyk
+    modernizovaly a přidávaly mu nové funkce, byly C++03, C++11, C++14, C++17, C++20 a
+    nejnovější verze C++23. C++ se kompiluje pomocí stejných kompilátorů jako C, tedy GCC, Clang
+    a MSVC.
+    \cite{programming_principles_and_practice_using_cpp, design_and_evolution_cpp, history_of_cpp, cpp_computer_language}
+
+    C++ je stejně jako C univerzální programovací jazyk, a využívá se v široké škále odvětví. První
+    využití je ve videoherním průmyslu. V C++ jsou napsané populární hrací enginy jako Unity nebo
+    Unreal Engine. Dále se v něm vytváří aplikace jako Photoshop nebo Blender. Využívá se v částech
+    operačních systémů jako Apple macOS nebo Microsoft Windows OS. Dále se využívá při vytváření 
+    internetových prohlížečů, například Firefox nebo Google Chrome. C++ se využívá i ve vědě,
+    například v CERNu nebo v NASA. 
+    \cite{the_cpp_programming_language, top_25_cpp_applications_in_real_world, what_is_cpp_used_for}
+
+    Program se stejnou funkcí jako z kapitoli o C, ale napsán v C++
+\begin{lstlisting}[caption={sort\_n\_numbers.cpp}]
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main()
+{
+    int sizeOfArray;
+    std::cin >> sizeOfArray;
+    std::vector<int> arr(sizeOfArray);
+
+    for(int i = 0; i < sizeOfArray; ++i)
+        std::cin >> arr[i];
+
+    std::sort(arr.begin(), arr.end());
+
+    for(int i : arr)
+        std::cout << i << '\n';
+
+    return 0;
+}
+\end{lstlisting}
+
+
+    
 \clearpage
 \chapter{Grafická karta}			
 
@@ -159,6 +204,9 @@ int class(int new, int bool);
 \section{Shadery}
 
 \section{Textury}
+
+\chapter{to do}
+    historie compileru C
 
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
