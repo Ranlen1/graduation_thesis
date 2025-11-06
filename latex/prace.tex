@@ -185,11 +185,32 @@ int main()
 
     
 \clearpage
-\chapter{Grafická karta}			
+\chapter{Počitačová grafka}			
 
-\section{Historie grafických karet}
+\section{Historie a architektura grafických karet}
+    Není úplně jasné, který počítač jako první využíval počítačovou grafiku, ale začnu počítačem
+    Small-Scale Experimental Machine(SSEM). Tento počítač byl vytvořen v roce 1948 na Manchesterské
+    univerzitě a jeho tvůrci byli Frederic C. Williams, Tom Kilburn a Geoff Tootill. Tento počítač
+    byl první počítač s uloženým programem, tedy počítač, který měl svůj program uložen ve stejné
+    paměti jako data, se kterými počítač pracoval. Data uchovával na katodové trubici(\gls{crt}),
+    které se později začalo říkat Williamsova trubice. Tato trubice si dokázala pamatovat až 2048
+    bitů, které byly uchovávány jako elektrické náboje. Součástí trubice byl i displej, který na
+    svém fosforovém povrchu promítal oblasti s nábojem. Takto vznikl první počítač s digitálním
+    displejem.
+    \cite{history_of_the_gpu_new_developments, the_manchester_ssem}
 
-\section{Architektura grafických karet}
+    Americký Office of Naval Research a U.S. Air Force chtěli vytvořit počítač, který by dokázal
+    běžet letecký simulátor. Tak tedy v roce 1944 začal Jay Forrester pracovat v laboratořích MIT
+    na projektu Whirlwind. Při práci vyvinul Forrester paměť s náhodným přístupem(\gls{ram}),
+    tvořenou magnetickými jádrami, skrz které proudil koindidenční proud. Počítač byl dokončen
+    v roce 1951. Využíval \gls{crt} podobně jako baby a dokázal na svém displeji řešit rovnice,
+    později i simulovat karetní hru blackjack. Následně se projekt Whirlwind stal součástí projektu
+    Semi-Automatic Ground Environment(SAGE). Ten měl za úkol vytvořit počítačový systém, který by
+    pomocí radarů dokázal odhalovat letadla a řídit obrané síly proti případným letadlům. Projekt
+    SAGE byl jeden z prvních systému, které využívaly interaktivní ovládání pomocí klávesnice či
+    speciálního laserového pera. Pokud bylo světlem z tohoto pera posvíceno na ikonu letadla, počítač
+    zobrazil informace o daném letadle jako rychlost a směr jeho letu.
+    \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system}
 
 \section{Grafická pipeline}
 
@@ -207,6 +228,7 @@ int main()
 
 \chapter{to do}
     historie compileru C
+    \gls{crt}
 
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
