@@ -189,7 +189,8 @@ int main()
 
 \section{Historie a architektura grafických karet}
     Není úplně jasné, který počítač jako první využíval počítačovou grafiku, ale začnu počítačem
-    Small-Scale Experimental Machine(SSEM). Tento počítač byl vytvořen v roce 1948 na Manchesterské
+    Small-Scale Experimental Machine(\gls{ssem}). 
+    Tento počítač byl vytvořen v roce 1948 na Manchesterské
     univerzitě a jeho tvůrci byli Frederic C. Williams, Tom Kilburn a Geoff Tootill. Tento počítač
     byl první počítač s uloženým programem, tedy počítač, který měl svůj program uložen ve stejné
     paměti jako data, se kterými počítač pracoval. Data uchovával na katodové trubici(\gls{crt}),
@@ -200,17 +201,31 @@ int main()
     \cite{history_of_the_gpu_new_developments, the_manchester_ssem}
 
     Americký Office of Naval Research a U.S. Air Force chtěli vytvořit počítač, který by dokázal
-    běžet letecký simulátor. Tak tedy v roce 1944 začal Jay Forrester pracovat v laboratořích MIT
+    běžet letecký simulátor. Tak tedy v roce 1947 začal Jay Forrester pracovat v laboratořích MIT
     na projektu Whirlwind. Při práci vyvinul Forrester paměť s náhodným přístupem(\gls{ram}),
-    tvořenou magnetickými jádrami, skrz které proudil koindidenční proud. Počítač byl dokončen
-    v roce 1951. Využíval \gls{crt} podobně jako baby a dokázal na svém displeji řešit rovnice,
+    tvořenou magnetickými jádrami, skrz které proudil koincidenční proud. Počítač byl dokončen
+    v roce 1951. Využíval \gls{crt} na zobrazování výsledků podobně jako \gls{ssem} a
+    dokázal na svém displeji řešit rovnice,
     později i simulovat karetní hru blackjack. Následně se projekt Whirlwind stal součástí projektu
     Semi-Automatic Ground Environment(SAGE). Ten měl za úkol vytvořit počítačový systém, který by
-    pomocí radarů dokázal odhalovat letadla a řídit obrané síly proti případným letadlům. Projekt
-    SAGE byl jeden z prvních systému, které využívaly interaktivní ovládání pomocí klávesnice či
-    speciálního laserového pera. Pokud bylo světlem z tohoto pera posvíceno na ikonu letadla, počítač
-    zobrazil informace o daném letadle jako rychlost a směr jeho letu.
-    \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system}
+    pomocí radarů dokázal odhalovat letadla a řídit obranné síly proti případným letadlům. Projekt
+    SAGE byl jeden z prvních systémů, které využívaly interaktivní ovládání pomocí klávesnice či
+    speciálního světelného pera. Pokud bylo perem namířeno na ikonu letadla, zachytilo světlo
+    z displeje a počítač zobrazil informace o daném letadle jako rychlost a směr jeho letu.
+    Další počítač, který navazoval
+    na projekt Whirlwind a SAGE, byl počítač TX-2, který byl vytvořen Wesem Clarkem na MIT. Ten byl
+    na rozdíl od Whirlwindu tranzistorový. Zajímavým projektem, který tento počítač umožnil, byl
+    Sketchpad vytvořen Ivanem Sutherlandem. Tento program byl první, který umožnil interaktivně
+    kreslit na obrazovku. Obrazovka byla velká 7x7 palců s rastrem 1024x1024 bodů
+    a psalo se na ní perem, které
+    zachytávalo světlo z obrazovky. Poloha pera se poté poslala do počítače a na daném místě se
+    vybarvil bod. Druhou rukou ovládal uživatel box s přibližně 40 tlačítky, které měly funkce jako
+    mazaní, zoomování či ukládání. Tím vznikl první počítač s interaktivní počítačovou grafikou.
+    \begin{figure}
+        \includegraphics[width=\linewidth]{sketchpad.jpg}
+        \caption{Skatchpad Ivana Sutherlanda \cite{vision_and_reality_of_hypertext_and_graphical_user_interfaces}}
+    \end{figure}
+    \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system, a_critical_history_of_computer_graphics_and_animation, vision_and_reality_of_hypertext_and_graphical_user_interfaces}
 
 \section{Grafická pipeline}
 
