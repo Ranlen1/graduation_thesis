@@ -58,11 +58,11 @@
     \cite{programming_in_c, the_c_programming_language, features_of_C,
     low-level_midlvel_and_high-level_language, structured_programming}
 
-    C bylo vytvořeno Dennisem Ritchiem na počátku 70. let 20. století v AT\&T Bellových 
-    laboratořích. Jeho předchůdci byly jazyky ALGOL, CPL, BCPL a B. Jeho prvotním účelem bylo
+    C bylo vytvořeno Dennisem Ritchiem na počátku 70. let 20. století v AT\&T Bell Labs 
+    Jeho předchůdci byly jazyky ALGOL, CPL, BCPL a B. Jeho prvotním účelem bylo
     přepsat operační systém UNIX do použitelnějšího jazyka než Assembly a B. Už koncem 70. let bylo
     C populární, ale nebylo standardizované a vznikalo mnoho různých variant. Na začátku 80. let
-    tedy Americký národní institut pro standardy(ANSI) zahájil práci na formální standardizované
+    tedy American National Standards Institute(ANSI) zahájil práci na formální standardizované
     verzi. Tu dokončili v roce 1989 a je známa pod jménem C89. V průběhu let vycházely další verze,
     které jazyk zlepšovaly a modernizovali. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
     nedávno schválena a teď se implementuje do kompilátorů. V součastnosti mezi nejpoužívanější
@@ -127,13 +127,13 @@ int main(void)
 \begin{lstlisting}[caption={incompatibility\_example.c}]
 int class(int new, int bool); 
 \end{lstlisting}
-    V C tento kód vytvoří funkci class, která vrací int a má 2 parametry new a bool. V C++ jsou ale
+    V C tento kód vytvoří funkci class, která vrací int a má dva parametry new a bool. V C++ jsou ale
     class, new a bool klíčová slova, která nelze použít v názvu proměnných a funkcí. Pokud chce
     programátor napsat C kód, který se bude jednoduše v C++ programech,
     doporučuje se programovat v C tak, aby daný C kód byl podmnožinou C++.
     \cite{the_cpp_programming_language, programming_principles_and_practice_using_cpp}
 
-    C++ bylo vytvořeno Bjarnem Stroustrupem v roce 1979 v AT\&T Bellových laboratořích. Před 
+    C++ bylo vytvořeno Bjarnem Stroustrupem v roce 1979 v AT\&T Bell Labs. Před 
     vytvořením C++ pracoval Stroustrup s programovacím jazykem Simula 67, který byl
     objektově orientovaný a sloužil primárně k vytváření simulací. Stroustupovi přišlo
     objektově orientované programování
@@ -185,9 +185,9 @@ int main()
 
     
 \clearpage
-\chapter{Počitačová grafka}			
+\chapter{Počitačová grafika}			
 
-\section{Historie a architektura grafických karet}
+\section{Historie počítačové grafiky}
     Není úplně jasné, který počítač jako první využíval počítačovou grafiku, ale začnu počítačem
     Small-Scale Experimental Machine(\gls{ssem}). 
     Tento počítač byl vytvořen v roce 1948 na Manchesterské
@@ -200,7 +200,8 @@ int main()
     displejem.
     \cite{history_of_the_gpu_new_developments, the_manchester_ssem}
 
-    Americký Office of Naval Research a U.S. Air Force chtěli vytvořit počítač, který by dokázal
+    Dalším zajímavým počítačem byl Whirlwind. Americký Office of Naval Research a U.S. Air Force
+    chtěli vytvořit počítač, ve kterém by dokázal
     běžet letecký simulátor. Tak tedy v roce 1947 začal Jay Forrester pracovat v laboratořích MIT
     na projektu Whirlwind. Při práci vyvinul Forrester paměť s náhodným přístupem(\gls{ram}),
     tvořenou magnetickými jádrami, skrz které proudil koincidenční proud. Počítač byl dokončen
@@ -226,6 +227,34 @@ int main()
         \caption{Skatchpad Ivana Sutherlanda \cite{vision_and_reality_of_hypertext_and_graphical_user_interfaces}}
     \end{figure}
     \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system, a_critical_history_of_computer_graphics_and_animation, vision_and_reality_of_hypertext_and_graphical_user_interfaces}
+
+    Společně s vývojem počítačové grafiky začaly vznikat i první videohry. Hra Spacewar! byla
+    jedna z prvních, která se rozšířila z laboratoře, po amerických univerzitách. Hru 
+    vytvořil na MIT Steve Russell a jeho přátelé v roce 1962. Hra byla vytvořena pro dva hráče,
+    každý ovládal svou loď a jeho cílem bylo sestřelit loď protihráče. Lodě byly ovládány speciálním
+    boxem, který se dá považovat za předchůdce moderních herních kontrolerů. Hra běžela na počítači
+    PDP-1, který namísto rasterové grafiky využíval grafiku vektorovou.
+    Věci vykreslené na osciloskopu byly definované matematickou funkcí.
+    Díky tomu, že vektorová grafika nebyla tolik náročná na CPU
+    jako rasterová, mohla ve hře být hvězda, která svojí gravitací působila na lodě.
+    \cite{spacewar, vector_graphics, spacewar_controllers}
+
+    S postupným vývojem počítačů se začaly vytvářet i grafické algoritmy. Jedním z nich je
+    Bresenhamův algoritmus. Vytvořil ho Jack Elton Bresenham v roce 1962 v International
+    Business Machines Corporation(IBM). Tento algoritmus se používá ke kreslení úsečky mezi dvěma
+    body. Jelikož počítačová obrazovka je rozdělena na pixely, pokud daná úsečka není vodorovná ani
+    svislá, nelze ji vykreslit přesně. Algoritmus determinuje, jaký z dvojice
+    pixelů se více blíží funkci požadované úsečky a tento pixel vybarví. Dalším zajímavým algoritmem
+    je ray casting. První obrázek byl vytvořen v roce 1968. Tento algoritmus funguje tak, že
+    nejdříve uživatel definuje objekty, které chce mít ve své scéně jako matematické rovnice. Pro
+    každý objekt se definuje model osvětlení, což udává jakou má barvu a jak
+    se od něj světlo odráží. Poté se z pohledu kamery vyšle na každý pixel na obrazovce paprsek. Ten
+    putuje, dokud se nezastaví o nějaký námi vytvořený objekt. Následně se z každého místa zastavení
+    vyšle stínový paprsek do zdroje světla. Pokud cestou tento paprsek potká nějaký jiný objekt, daný
+    objekt blokuje světlo, takže tento bod bude ve stínu.
+    \cite{history_of_the_gpu_new_developments, bresenhams_line_algorithm_in_computer_graphics, ray_tracing}
+
+\section{Historie a architektura grafických karet}
 
 \section{Grafická pipeline}
 
