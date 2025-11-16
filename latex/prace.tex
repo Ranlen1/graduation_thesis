@@ -49,7 +49,7 @@
     strojového kódu a až pak se může spustit. Datové typy jsou známy v čase kompilace, proto všechny
     proměnné musí být v kódu deklarovány, jelikož vkládání vstupních dat do programu probíhá až při
     běhu programu. Programuje se v něm strukturovaně a procedurálně, tedy kód se píše pomocí
-    řídících struktur(if, while, for atd.) a pomocí funkcí, které umožňují používat části
+    řídících struktur (if, while, for atd.) a pomocí funkcí, které umožňují používat části
     kódu vícekrát. C nemá automatický správce paměti, takže je potřeba uvolňovat paměť manuálně. C
     má střídmou standardní knihovnu, která obsahuje základní matematické operace a funkce pro
     práci s pamětí a soubory, takže jakékoliv složitější datové struktury či funkce si člověk musí
@@ -62,7 +62,7 @@
     Jeho předchůdci byly jazyky ALGOL, CPL, BCPL a B. Jeho prvotním účelem bylo
     přepsat operační systém UNIX do použitelnějšího jazyka než Assembly a B. Už koncem 70. let bylo
     C populární, ale nebylo standardizované a vznikalo mnoho různých variant. Na začátku 80. let
-    tedy American National Standards Institute(ANSI) zahájil práci na formální standardizované
+    tedy American National Standards Institute (ANSI) zahájil práci na formální standardizované
     verzi. Tu dokončili v roce 1989 a je známa pod jménem C89. V průběhu let vycházely další verze,
     které jazyk zlepšovaly a modernizovali. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
     nedávno schválena a teď se implementuje do kompilátorů. V součastnosti mezi nejpoužívanější
@@ -189,11 +189,11 @@ int main()
 
 \section{Historie počítačové grafiky}
     Není úplně jasné, který počítač jako první využíval počítačovou grafiku, ale začnu počítačem
-    Small-Scale Experimental Machine(\gls{ssem}). 
+    Small-Scale Experimental Machine (\gls{ssem}). 
     Tento počítač byl vytvořen v roce 1948 na Manchesterské
     univerzitě a jeho tvůrci byli Frederic C. Williams, Tom Kilburn a Geoff Tootill. Tento počítač
     byl první počítač s uloženým programem, tedy počítač, který měl svůj program uložen ve stejné
-    paměti jako data, se kterými počítač pracoval. Data uchovával na katodové trubici(\gls{crt}),
+    paměti jako data, se kterými počítač pracoval. Data uchovával na katodové trubici (\gls{crt}),
     které se později začalo říkat Williamsova trubice. Tato trubice si dokázala pamatovat až 2048
     bitů, které byly uchovávány jako elektrické náboje. Součástí trubice byl i displej, který na
     svém fosforovém povrchu promítal oblasti s nábojem. Takto vznikl první počítač s digitálním
@@ -203,12 +203,12 @@ int main()
     Dalším zajímavým počítačem byl Whirlwind. Americký Office of Naval Research a U.S. Air Force
     chtěli vytvořit počítač, ve kterém by dokázal
     běžet letecký simulátor. Tak tedy v roce 1947 začal Jay Forrester pracovat v laboratořích MIT
-    na projektu Whirlwind. Při práci vyvinul Forrester paměť s náhodným přístupem(\gls{ram}),
+    na projektu Whirlwind. Při práci vyvinul Forrester paměť s náhodným přístupem (\gls{ram}),
     tvořenou magnetickými jádrami, skrz které proudil koincidenční proud. Počítač byl dokončen
     v roce 1951. Využíval \gls{crt} na zobrazování výsledků podobně jako \gls{ssem} a
     dokázal na svém displeji řešit rovnice,
     později i simulovat karetní hru blackjack. Následně se projekt Whirlwind stal součástí projektu
-    Semi-Automatic Ground Environment(SAGE). Ten měl za úkol vytvořit počítačový systém, který by
+    Semi-Automatic Ground Environment (SAGE). Ten měl za úkol vytvořit počítačový systém, který by
     pomocí radarů dokázal odhalovat letadla a řídit obranné síly proti případným letadlům. Projekt
     SAGE byl jeden z prvních systémů, které využívaly interaktivní ovládání pomocí klávesnice či
     speciálního světelného pera. Pokud bylo perem namířeno na ikonu letadla, zachytilo světlo
@@ -229,7 +229,7 @@ int main()
     \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system, a_critical_history_of_computer_graphics_and_animation, vision_and_reality_of_hypertext_and_graphical_user_interfaces}
 
     Společně s vývojem počítačové grafiky začaly vznikat i první videohry. Hra Spacewar! byla
-    jedna z prvních, která se rozšířila z laboratoře, po amerických univerzitách. Hru 
+    jedna z prvních, která se rozšířila po laboratoř9ch na amerických univerzitách. Hru 
     vytvořil na MIT Steve Russell a jeho přátelé v roce 1962. Hra byla vytvořena pro dva hráče,
     každý ovládal svou loď a jeho cílem bylo sestřelit loď protihráče. Lodě byly ovládány speciálním
     boxem, který se dá považovat za předchůdce moderních herních kontrolerů. Hra běžela na počítači
@@ -241,7 +241,7 @@ int main()
 
     S postupným vývojem počítačů se začaly vytvářet i grafické algoritmy. Jedním z nich je
     Bresenhamův algoritmus. Vytvořil ho Jack Elton Bresenham v roce 1962 v International
-    Business Machines Corporation(IBM). Tento algoritmus se používá ke kreslení úsečky mezi dvěma
+    Business Machines Corporation (IBM). Tento algoritmus se používá ke kreslení úsečky mezi dvěma
     body. Jelikož počítačová obrazovka je rozdělena na pixely, pokud daná úsečka není vodorovná ani
     svislá, nelze ji vykreslit přesně. Algoritmus determinuje, jaký z dvojice
     pixelů se více blíží funkci požadované úsečky a tento pixel vybarví. Dalším zajímavým algoritmem
@@ -253,6 +253,28 @@ int main()
     vyšle stínový paprsek do zdroje světla. Pokud cestou tento paprsek potká nějaký jiný objekt, daný
     objekt blokuje světlo, takže tento bod bude ve stínu.
     \cite{history_of_the_gpu_new_developments, bresenhams_line_algorithm_in_computer_graphics, ray_tracing}
+
+    V průběhu 70. let se vyvíjely a vylepšovaly renderovací algoritmy. Jedním z problémů, který 
+    bylo potřeba vyřešit, byl hidden surface determination problem. 
+    Renderování částí objektů, které nejsou z pohledu
+    kamery vidět zbytečně zatěžuje CPU. Tento problém řeší více rozdílných algoritmů, jako Z-buffer
+    algorithm, Painter\'s algorithm nebo Binary Space Partitioning. Nejpopulárnější z nich je
+    Z-buffer algoritmus vytvořen Wolfgangem Straßerem v roce 1974. Depth buffer uchovává 
+    nejmenší dosud naleznutou hloubku a pokud se přidá nový fragment na daný pixel, algoritmus
+    porovná obě hloubky a pokud je blíže kameře, depth buffer se přepíše na novou hloubku.
+    Další významný pokrok byl v oblasti shadingu. Doposud se využíval k barvení flat shading,
+    takže každý polygon měl svojí vlastní barvu. V roce 1971 vytvořil Henri Gouraud gouraud shading.
+    Tato metoda ukládá barvu polygonů jen do vrcholu daného polygonu, a následně se vypočítává barva
+    každého pixelu váženým poměrem podle vzdálenosti od daného vrcholu. Dalším z důležitých techink
+    je Phong shading, kterou vytvořil Bui Tuong Phong v roce 1974. Por každý pixel se počítá, jak
+    na daný pixel dopadá světlo a jak se od něj odráží. To se následně aplikuje pro výhcozí barvu
+    polygonu. Tato technika je velice náročná a mohla se plně začít využívat až s rovojem GPU.
+    Pokrok se udělal i v realističnosti povrchů. Pokud by povrch měl mýt nějaké výstupky čí hrbolky,
+    museli by býti dodány v popisu daného polygonu. Tento problém řeší technika zvaná Bump Mapping,
+    vytvořena Jamesem Blinnem v roce 1978. Vytvoří se texturová mapa, která určuje kde je vrcholek a
+    kde prohlubeň. Poté se ve fázi počítaní světla místa s vrcholekm udělají světlejší a místa s
+    prohlubní tmavější, což dodává efekt hrbolatého povrchu na uplně rovném polygonu.
+    \cite{hidden_surface_determination, z_buffer_algorithm, mastering_gourad_shading, what_is_phong, bump_mapping}
 
 \section{Historie a architektura grafických karet}
 
