@@ -313,9 +313,7 @@ int main()
     jako rasterová, mohla ve hře být hvězda, která svojí gravitací působila na lodě.
     \cite{spacewar, vector_graphics, spacewar_controllers}
 
-    pridej pong
-
-\section{Architektura grafických karet}
+\section{Grafické karty}
 \subsection{CPU vs. GPU}
     Tradičně běžela většina apklikací sekvenčně, které běží na procesorech, které
     mají centrální výpočetní jednotku a provádí instrukce
@@ -323,10 +321,11 @@ int main()
     bilion operací za sekundu, čímž se mohli zlepšévat grafické aplikace a využívat náročnější
     funkce. Na přelomu tisíceletí se ale vývoj začal zpomalovat, kvůli problému se spotřebou
     energie a odvodem tepla. Proto výrobci začali vytvářet \gls{cpu} s více jádry, ale ani to nebylo
-    dostatečně výkonné na složíté výpočti, a proto se už sedmdesátých a osmdesátých
-    letech začali vznikat počítače které nepracovali sekvenčně, ale paralelně. V devadesátých se
+    dostatečně výkonné na složíté výpočti, a proto už v sedmdesátých a osmdesátých
+    letech začali vznikat počítače které nepracovali sekvenčně, ale paralelně. V devadesátých
+    letech se
     začali vytvářet mikroprocesory, které se soustředili na paralelní výpočty \gls{gpu}. V průběhu
-    let se počet vláken z jednotek dostal na tisíce, což vytvořilo prostor pro inovaci v grafice.
+    let se počet jader z jednotek dostal na tisíce, což vytvořilo prostor pro inovaci v grafice.
     \cite{programming_massively_parallel_processors}
 
     Prvně bylo \gls{gpu} pouze v počítačích specializovaných pro 3D hry a vizualizace, ale postupně
@@ -337,29 +336,79 @@ int main()
     pravděpodobně v budoucnisti potřeba, takže není potřeba komunikovat neustále s \gls{ram}.
     Část čipu je také pro control logiku, která dokáže instrukce z jednoho vlákna dělat paralelně
     nebo na jiném sekvenčním pořadí, ale zachovat sekvenčnost celého procesu. \gls{cpu} má také
-    menší propustnost paměti než \gls{gpu}, proto cache-friendly programy jsou výrazně rychlejší.
-    Narozdíl od toho \gls{gpu} má stovky až tisíce jader, která jsou ješte typicky rozdělena na 32
-    nebo 64 vláken. Kontrolní logika a cache jsou na jádro menší a jednodužší, 
+    menší propustnost paměti než \gls{gpu}, proto jsou cache-friendly programy výrazně rychlejší.
+    Narozdíl od toho má \gls{gpu} stovky až tisíce jader.
+    Kontrolní logika a cache jsou v jádru menší a jednodužší, 
     takže velmi pomalu reaguje na
-    události a po dokončení operaí se většinou data vrací zpět do \gls{vram}, což je díky velké
+    události a po dokončení operaí se většinou data vrací zpět do virtual random access memory
+    \gls{vram}, což je díky velké
     propustnosti i pro velmi velký objem dat rychlé.
     \cite{programming_massively_parallel_processors}
 
-\subsection{Paralelní architektura GPU}
     Do roku 2007 se \gls{gpu} pouzival prevazne pro renderovani, ale v roce 2007 prisla NVIDIA s
-    programovacim modelem pro paralelni vypocty CUDA. Tento model umoznil spousteni aplikaci
-    na \gls{cpu} a \gls{gpu}, takze narocnejsi pocetni operace mohly bezet na \gls{gpu}, a tim
+    programovacim modelem pro paralelni vypocty CUDA. Tento model umoznuje psat programy, ktere
+    bezi na \gls{gpu} a vyuzivaji \gls{cpu} na prenost dat a rizeni techto programu. 
+    Diky tomu mohli zacit vznikat aplikace, ktere normalne bezi na \gls{cpu}, ale pri potrebe
+    narocnejsich pocetnich operaci mohly bezet na \gls{gpu}, a tim
     zvysit vykon. Pro ucel vysvetleni programovacich modelu pro paralelni vypocty budu vyuzivat
-    model CUDA, ale existuji i jine, podobne fungujici modely jako OpenCL nebo SYCL.
+    model CUDA, pricemz existuji i jine podobne modely jako OpenCL nebo SYCL.
+    \cite{programming_massively_parallel_processors}
 
-    \begin{figure}
-        \includegraphics[width=\linewidth]{GPU_architecture.pdf}
-        \caption{Architektura GPU podporující CUDA \cite{programming_massively_parallel_processors}}
+\subsection{Architektura a paměťová hierarchie GPU}
+
+    \gls{gpu} s podporou CUDA je organizovano do pole paralelnich streamovacich multiprocesoru
+    \gls{sm}. Kazdy \gls{sm} se sklada z nekolika streamovacich procesoru \gls{sp}, ktere jsou
+    zakladni vypocetni jednotkou, na ktere probihaji aritmeticke operace. Dalsi soucasti jsou ridici
+    jednotky, ktere nacitaji instrukce pro dany \gls{sm}. Ridici jednotky taky obsahuji malou
+    cache na instrukce, aby se pro ne meuselo porad sahat do \gls{ram}. Dale je unvintr \gls{sm} warp
+    scheduler, ktery ridi ktere zkupiny vlaken budou v kazdem cyklu pouzity.
+    \cite{programming_massively_parallel_processors}
+
+    Vetsina grafickych karet ma svoji vlastni dynamic random access memory \gls{dram}, ktere se rika
+    globalni pamet. V grafickych kartach je specificky typ \gls{dram} zvany \gls{vram}. Tato pamet ma
+    jednotky az desitky gigabytu. Dochazi v ni k vymene dat mezi host memory. Rychla vymena dat
+    mezi host memory a \gls{vram} je zarucena velkou propustnosti, ktera je zpusobena nacitanim
+    dat blokove namisto sekvencne a take posilanim vetsiho objemu dat najednou. \gls{vram} je zdilena
+    mezi vsemy \gls{sm}, ale pristup k ni je relativne pomaly. Dalsi pameti je shared memory, ktera
+    ma vetsinou desitky kilobajtu. Tuto pamet ma kazdy \gls{sm}, a kazdy \gls{sp} si do ni muze
+    sahat. V kazdem \gls{sm} se takze vyskytuje L1 cache, ktera slouzi k uchovavani dat, ze ktercyh se
+    nedavno cetlo nebo byla zmenena. Dale existuje L2 cache, ktera je vetsi nez L1 cache, a je
+    jedna pro vsechny \gls{sm}. Pouziva se pro uchovavani dat nedavno ziskana nebo poslana do
+    \gls{vram}. Cast \gls{vram} je take urcena pro dva jine typy pameti a to texture a constant
+    memory. Obe pameti maji k sobe prirazenou svoji
+    cache a jsou read-only. Tim ze jsou read-only, muzeme casto pouzivane hodnoty uchovavat v cachi
+    bez obavy z toho, ze by se dana promena mohla v prubehu zmenit. Nejmensi, ale take nejrychlejsi
+    casti pamety jsou register files. Tato pamet primo komunikuje s \gls{sp} a ukladaji se do ni
+    docasne promene a mezivypocty.
+    \cite{programming_massively_parallel_processors, memory_hierarchy_of_gpu, memory_types_of_gpu}
+    \begin{figure}[H]
+        \includegraphics[width=\linewidth]{GPU_architecture.png}
+        \caption{Typická architektura NVIDIA GPU \cite{gpu_image_source}}
     \end{figure}
-     
 
+\subsection{Paralelismus}
+    Paralelismus je vypocetni technika, ktera umoznuje vykonavani vice operaci najednou. Paralelismus
+    se da rozdelit do dvou kategorii. Prvni z nich je ulohovy paralelismus. Tento typ nasleduje
+    Multiple Insturctions, Multiple Data (MIMD) model. Tento model rozdeli ruzne ulohy mezi vice
+    vlaken nebo i jader. Tento model se vyuziva, pokud na sobe nejsou ulohy zavisle. Pokud by se
+    napriklad chtela vypocitat suma arraye, muze kazde vlakno pocitat jednu polovinu a dva vysledky
+    secist. MIMD se vyuziva v simulacich nebo na webovych aplikacich.
+    \cite{programming_massively_parallel_processors, types_of_parallelism}
 
+    Druhou metodou je data paralelismus, ktery je definovan Single Instruction, Multiple Data (SIMD)
+    modelem. Tento model aplikuje jedno ulohu pro velke mnozstvi dat a vyuziva se v \gls{gpu}.
+    Pouziva ne napriklad pri nasobeni matic, kde se dana matice da rozdelit na mensi casti nebo
+    pri vykreslovani, kdy se jeden shader aplikuje pro kazdy pixel. V grafickych kartach se
+    jednotliva vlakna sdruzuji do warpu, ty dale do bloku, ktere planuje \gls{sm}. Do kazdeho warpu
+    jsou nactene stejne instrukce a postupne se se mu dodavaji data, na kterych dane instrukce
+    provadi. Diky tomu lze i velke mnozstvi dat zpracovat velmi rychle, protoze se dodavaji s velkou 
+    propustnosti a instrukce na nich jsou provadeny soucasne na velkem mnozstvi warpu.
+    \cite{programming_massively_parallel_processors, types_of_parallelism}
 
+    \begin{figure}[H]
+        \includegraphics[width=\linewidth]{vlakna_v_sm.png}
+        \caption{Rozělení vláken do warpu v \gls{sm} \cite{programming_massively_parallel_processors}}
+    \end{figure}
 \section{Grafická pipeline}
 
 \section{Transformace a lineární algebra}
@@ -375,9 +424,14 @@ int main()
 \section{Textury}
 
 \chapter{to do}
-    historie compileru C
+    mozna pridat trochu historie compileru u C a CPP
+
     celá část hirstorie počítačové grafiky je scuffed, chybí tam
-    části o gpu, a nejspis to bude potreba zkratit.
+    části o gpu, a nejspis to bude potreba zkratit a udelat rozdeleni do subsectionu podle let
+
+    kdyz introdusuju zkratku, dej ji velka pismena, at ctenar vi ze je to zkratka
+
+    predelat pomlcky z - na tu dinvou co pouziva chat a chce ji pazi
 
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
