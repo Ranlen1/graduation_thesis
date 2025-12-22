@@ -409,9 +409,230 @@ int main()
         \includegraphics[width=\linewidth]{vlakna_v_sm.png}
         \caption{Rozělení vláken do warpu v \gls{sm} \cite{programming_massively_parallel_processors}}
     \end{figure}
-\section{Grafická pipeline}
+\section{Grafická zobrazovací pipeline}
+    Hlavni funkci graficke zobrazovaci pipeline je vyrenderovat dvourozmerny obraz z trojrozmernych
+    objektu, pozice virtualni kamery, zdroju svetla atd., ktery je schopen byt zobrazen 
+    na napriklad monitoru. Pipeline se sklada z
+    nekolika fazi. Tyto faze probihaji paralelne v ramci jednotlivych fazi, tedy jedna faze probiha
+    pro vice dat najednou, tak i mezi jednotlivymi fazemi, takze pro pruchodu jednoho bloku dat
+    jednou fazi prechazi do dalsi faze, i kdyz pro jina data jeste predchozi faze nemusi byt 
+    ukoncena. Hlavni ctyri faze jsou aplikacni faze, geometricke zpracovani, rasterizace a zpracovani
+    pixelu.
+    \cite{real_time_rendering}
 
-\section{Transformace a lineární algebra}
+    Aplikacni faze je rizena samotnou aplikaci a je vetsinou implementovana jako software bezici
+    na \gls{cpu}. Tato faze nema zadne podprvky, a proto muze bezet paralelne na ruznych jadrech.
+    V teto casti se zpracovavaji vztupy od uzivatele, ktere napriklad pozmenuji matici k posunuti,
+    otoceni nebo zmeny velkikosti ruznych objektu. V teto casti take dochazi detekce kolizi,
+    akceleracni algoritmy, fyzikalni simulace a dalsi vypocty, ktere pripravuji data pro dalsi
+    scenu.
+    \cite{real_time_rendering}
+
+    Dalsi casti pipeliny je geometricke zpracovani. Ta jo zodpovedna za vetsinu operaci pro kazdy
+    trojuhelniky a vrcholy, ktere tvori objetky. Rozdeluje se na ctyri podfaze, vertex shading,
+    projekce, clipping a screen mapping. Vertex shading vypocitava pozici vrcholu a pripravuje jeho
+    data jako barvy a textury. Objekt je transformovan z modeloveho prostoru do svetovych souradnic,
+    tedy souradnic relevantni pro vsechny objekty ve scene. Dale se to transformuje do kameroveho
+    prosotru, ve kterym je kamera v bode nula. Pote dochazi k projekce, kdy dochazi k transformaci
+    z kameroveho prostoru do clip spacu, aby bylo mozne provezt clipping. Clipping urcuje, jaky
+    objekt se budou renderovat. 
+    Pokud by napriklad cely objekt byl mimo zorne pole sceny, neni renderovan,
+    aby zbytecne nezatezoval \gls{gpu}. Posledni casti je mapovani na obrazovku, ktera prevede
+    souradnice z clip spacu do souradnic obrazovky, pripravene pro rasterrizaci.
+    Soucasti vertex shadingu jsou take volitelne faze vertex zpracovani. Tessellation generuje
+    vhodne trojuhelniky pro zakrivene povrchy, aby vypadali
+    realisticneji. Geometry shader umoznuje podle potreby vytvaret nove vrcholy
+    z existujicich trojuhelniku nebo bodu, coz se pouziva napriklad u malych castic, aby byli
+    lepe videt na obrazovce, 
+    takze se z nej udela napriklad maly ctverec. Posledni volitelna faze je stream output,
+    ktera umoznuje namisto poslani vrcholu do dalsi faze ulozit vrcholy do bufferu, na kterych
+    \gls{cpu} muze delat dalsi vypocty ci simulace. 
+    \cite{real_time_rendering}
+
+    Nasledujici faze je restarizace, jejiz ucel je nalezt vsechny pixely uvnitr vykreslovaneho
+    trojuhelniku. Restarizace se deli na pripravu trojuhelniku a pruchod trojuhelnikem. Pri priprave
+    se vypocitavaji diferencialy, rovnice hran a jina podobna data, ktera jsou vyuzivana k zjistovani
+    zda dany pixel lezi uvnitr trojuhelniku. Pri pruchodu se zjistuje, zda stred pixelu lezi uvnitr
+    trojuhelniku a pokud ano, vytvori se pro dany pixel fragment. Vlastnosti, jako barva, hloubka atd.
+    jednotlivych fragmentu se ziskavaji interpolaci mezi vrcholy daneho trojuhelniku a
+    nasledne se ukladaji do specificych bufferu. Vysledne
+    fragmenty jsou nasledne predany do faze pixeloveho zpracovani.
+    \cite{real_time_rendering}
+
+    Pixelove zpracovani se deli na pixelove stinovani a slucovani. Ve fazi pixeloveho stinovani
+    se provadeji vypocty stinovani jednotlivych pixelu z stinovacich dat. Vysledkem je jeden nebo
+    vice barevnych vystupu. V teto fazi se pouziva hodne specifickych
+    technik, jako napriklad texturovani.
+    Pixelove stinovani je narozdil od ostatnich fazi, ktere jsou dany architekturou \gls{gpu},
+    dano programovatelnymy jadry \gls{gpu}. Pri slucovani dochazi k kombinaci vyztupu pixeloveho
+    stinovani a ulozenych barev v bufferech. V teto fazi se take resi viditelnost, aby se
+    vykreslovalal pro dany pixel fragment s nejmensi hloubkou.
+    \cite{real_time_rendering}
+
+\section{Transformace}
+    V prubehu renderovani je casto potreba s objekty ruzne pohybovat. Mohli bychom pozmenovat
+    souradnice puvodnich vrcholu a opetovne konfigurovat jejich buffery, ale to je vypocetne naroce.
+    Misto toho se vyuzivaji transformace pomoci matic. Matice jsou obdelnikove pole matematickych
+    vyrazu. Souradnice objektu se ukladaji do 4D vektoru, a transformace do 4x4 matice, ktere se
+    mezi sebou vynasobi.
+    $$
+    \begin{pmatrix}
+    m_{00} \cdot x + m_{01} \cdot y + m_{02} \cdot z + m_{03} \cdot w \\
+    m_{10} \cdot x + m_{11} \cdot y + m_{12} \cdot z + m_{13} \cdot w \\
+    m_{20} \cdot x + m_{21} \cdot y + m_{22} \cdot z + m_{23} \cdot w \\
+    m_{30} \cdot x + m_{31} \cdot y + m_{32} \cdot z + m_{33} \cdot w \\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    m_{00} & m_{01} & m_{02} & m_{03} \\
+    m_{10} & m_{11} & m_{12} & m_{13} \\
+    m_{20} & m_{21} & m_{22} & m_{23} \\
+    m_{30} & m_{31} & m_{32} & m_{33}
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    w
+    \end{pmatrix}
+    $$
+    Mezi zakladni operace patri translace, rotace a skalovani. Translace je operace, pri ktere se
+    k puvodnimu vektoru price jiny vektor, cimz se puvodni objekt posune.
+    Potrebujeme translacni hodnoty nasobit
+    slozkou w vektoru, ktera je nastavena na 1, aby neupravila tyto hodnoty. Proto pouzivame 4D
+    vektor, protoze s 3D vektorem by translace nebyla mozna.
+    $$
+    \begin{pmatrix}
+    x + T_{x} \\
+    y + T_{y} \\
+    z + T_{z} \\
+    1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    1 & 0 & 0 & T_{x} \\
+    0 & 1 & 0 & T_{y} \\
+    0 & 0 & 1 & T_{z} \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    1
+    \end{pmatrix}
+    $$
+    Dalsi operaci je skalovani. Pri teto operaci se dane souradnice nasobi konstantou, cimz se muze
+    dany objekt zmensit nebo zvetsit. 
+    $$
+    \begin{pmatrix}
+    S_{x} \cdot x \\
+    S_{y} \cdot y \\
+    S_{z} \cdot z \\
+    1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    S_{x} & 0 & 0 & 0 \\
+    0 & S_{y} & 0 & 0 \\
+    0 & 0 & S_{z} & 0 \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    1
+    \end{pmatrix}
+    $$
+    Posledni dulezita operace je otaceni. Pri teto operaci zavisi na tom, podle jake osy se ma
+    objekt otacet a o kolik radianu se ma otocit.
+
+    Rotace podle osy X:
+    $$
+    \begin{pmatrix}
+    x \\
+    \cos \theta \cdot y - \sin \theta \cdot z \\
+    \cos \theta \cdot y + \cos \theta \cdot z \\
+    1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & \cos \theta & -\sin \theta & 0 \\
+    0 & \sin \theta & \cos \theta & 0 \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    1
+    \end{pmatrix}
+    $$
+    
+    Rotace podle osy Y:
+    $$
+    \begin{pmatrix}
+    \cos \theta \cdot x + \sin \theta \cdot z \\
+    y \\
+    -\sin \theta \cdot x + \cos \theta \cdot z \\
+    1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    \cos \theta & 0 & \sin \theta & 0 \\
+    0 & 1 & 0 & 0 \\
+    -\sin \theta & 0 & \cos \theta & 0 \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    1
+    \end{pmatrix}
+    $$
+    
+    Rotace podle osy Z:
+    $$
+    \begin{pmatrix}
+    \cos \theta \cdot x - \sin \theta \cdot y \\
+    \sin \theta \cdot x + \cos \theta \cdot y \\
+    z \\
+    1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    \cos \theta & -\sin \theta & 0 & 0 \\
+    \sin \theta & \cos \theta & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    1
+    \end{pmatrix}
+    $$
+
+    Pri provadeni transformaci zalezi na poradi. Pokud je pro transformaci jednoho objektu vice
+    matic, pronasobi se matice mezi sebou, a pouziva se vysledna matice.
+    Pri tvoreni takove matice se ale postupuje v opacnem
+    poradi nasobeni. Pokud by jsme pro vektor V chteli
+    udelat operace a, b a c, tak to lze udelat nasledovne:
+    $$ \mathbf{V'} = \mathbf{C} \cdot (\mathbf{B} \cdot (\mathbf{A} \cdot \mathbf{V})) $$
+    nebo
+    $$ \mathbf{M} = \mathbf{C} \cdot \mathbf{B} \cdot \mathbf{A} $$
+    $$ \mathbf{V'} = \mathbf{M} \cdot \mathbf{V} $$
+
 
 \chapter{OpengGL}
 
@@ -433,15 +654,11 @@ int main()
 
     predelat pomlcky z - na tu dinvou co pouziva chat a chce ji pazi
 
+    odendej vsechny cislovky z textu a nahrad je slovama
+
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
 \part{Vývoj hry v OpenGL} % název praktické části (nenechávejte název Praktická část)
-
-\chapter{Grafika a zvuk}
-
-\section{Aseprite}
-
-\section{Bosca Ceoil}
 
 \chapter{Použité knihovny}
 
@@ -450,6 +667,12 @@ int main()
 \section{GLFW}
 
 \section{stb\_image}
+
+\chapter{Grafika a zvuk}
+
+\section{Aseprite}
+
+\section{Bosca Ceoil}
 
 \chapter{Herní scény}
 
