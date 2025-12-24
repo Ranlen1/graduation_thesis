@@ -51,13 +51,13 @@ void GameRunning::Draw()
     _fruitShader.SetInteger("myTexture", 0);
     glBindVertexArray(_fruitVAO);
 
-    for(auto &[type, trans] : _fruit.fruitList)
+    for(auto &fruit : _fruit.fruitList)
     {
-        if(type == fruitType::apple)
+        if(fruit.type == fruitType::apple)
             _appleTexture.Bind();
         else
             _coconutTexture.Bind();
-        _fruitShader.SetMatrix4("transform", trans);
+        _fruitShader.SetMatrix4("transform", fruit.transform);
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }
     glBindVertexArray(0);
