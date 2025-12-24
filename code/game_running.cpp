@@ -21,6 +21,7 @@ GameRunning::GameRunning()
     
     loadTexture("../resources/textures/running_background.png", _backgroundTexture);
     loadTexture("../resources/textures/apple.png", _appleTexture);
+    loadTexture("../resources/textures/coconut.png", _coconutTexture);
 }
 
 GameRunning::~GameRunning()
@@ -48,11 +49,14 @@ void GameRunning::Draw()
 
     _fruitShader.Use();
     _fruitShader.SetInteger("myTexture", 0);
-    _appleTexture.Bind();
     glBindVertexArray(_fruitVAO);
 
-    for(auto &[fruitType, trans] : _fruit.fruitList)
+    for(auto &[type, trans] : _fruit.fruitList)
     {
+        if(type == fruitType::apple)
+            _appleTexture.Bind();
+        else
+            _coconutTexture.Bind();
         _fruitShader.SetMatrix4("transform", trans);
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }

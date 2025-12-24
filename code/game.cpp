@@ -4,7 +4,7 @@
 #include "stb_image.h"
 
 Game::Game()
-    : gameWindow(800, 600, "FruitCatch"), _gameState(gameStateMenu)
+    : gameWindow(800, 600, "FruitCatch"), _gameState(gameState::Menu)
 {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -17,16 +17,11 @@ void Game::SetGameState(gameState state)
     _gameState = state;
 }
 
-Game::gameState Game::GetGameState() const
-{
-    return _gameState;
-}
-
 void Game::DrawGameMenu()
 {
-    if(_gameState == gameStateMenu)
+    if(_gameState == gameState::Menu)
        _gameMenu.Draw();
-    else if(_gameState == gameStateRunning)
+    else if(_gameState == gameState::Running)
       _gameRunning.Draw();  
 }
 
@@ -36,7 +31,7 @@ void Game::Run()
     glClear(GL_COLOR_BUFFER_BIT);
 
     if(_gameMenu.PlayButtonClicked(gameWindow.GetWindow()) && leftButtonPressed())
-        SetGameState(gameStateRunning);
+        SetGameState(gameState::Running);
 
     DrawGameMenu();
 

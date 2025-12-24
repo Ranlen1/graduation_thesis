@@ -4,14 +4,12 @@
 #include "game_running.h"
 #include "window.h"
 
+enum class gameState {
+    Running = 0, Menu = 1
+};
 class Game
 {
 public:
-    enum gameState
-    {
-        gameStateRunning = 0, gameStatePaused = 1, gameStateMenu = 2
-    };
-
     Window gameWindow;
 
 private:
@@ -23,8 +21,6 @@ public:
 
     void SetGameState(gameState state);
 
-    gameState GetGameState() const;
-
     void DrawGameMenu();
 
     void Run();
@@ -33,6 +29,3 @@ private:
 
     bool leftButtonPressed();
 };
-
-
-

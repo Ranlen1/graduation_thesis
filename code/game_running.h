@@ -10,7 +10,7 @@ class GameRunning
 private:
     unsigned int _backgroundVAO, _backgroundVBO, _fruitVAO, _fruitVBO;
     Shader _backgroundShader, _fruitShader;
-    Texture _backgroundTexture, _appleTexture;
+    Texture _backgroundTexture, _appleTexture, _coconutTexture;
     Fruit _fruit;
 
     float _lastTime, _currentTime;
