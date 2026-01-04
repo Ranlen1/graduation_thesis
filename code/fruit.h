@@ -24,8 +24,8 @@ class Fruit
 {
 public:
     std::deque<fruitAttributes> fruitList;
-    Random random;
 private:
+    Random random;
     double _currentTime, _lastTimeMoved, _lastCoconutSpawnIntervalDecrease;
     std::map<fruitType, double> _lastSpawnTime;
     std::map<fruitType, double> _spawnInterval;

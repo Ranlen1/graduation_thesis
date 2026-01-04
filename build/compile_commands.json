@@ -76,5 +76,17 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/random.cpp.o -c /home/ranlen/maturitni_prace/code/random.cpp",
   "file": "/home/ranlen/maturitni_prace/code/random.cpp",
   "output": "CMakeFiles/main.dir/code/random.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/text.cpp.o -c /home/ranlen/maturitni_prace/code/text.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/text.cpp",
+  "output": "CMakeFiles/main.dir/code/text.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/player.cpp.o -c /home/ranlen/maturitni_prace/code/player.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/player.cpp",
+  "output": "CMakeFiles/main.dir/code/player.cpp.o"
 }
 ]

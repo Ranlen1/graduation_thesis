@@ -5,6 +5,7 @@
 #include <sstream>
 
 #include "stb_image.h"
+#include "texture.h"
 
 std::string loadShaderSource(const char *filePath)
 {
@@ -46,3 +47,25 @@ void rectangleShaderBinding(unsigned int &VAO, unsigned int &VBO, float *vertice
     glBindVertexArray(0);
 }
     
+void textShaderBinding(unsigned int &VAO, unsigned int &VBO, float *leftVertices, size_t leftSize, float *rightVertices, size_t rightSize)
+{
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    size_t sumSize = leftSize + rightSize;
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sumSize, nullptr, GL_STATIC_DRAW);
+
+    glBufferSubData(GL_ARRAY_BUFFER, 0, leftSize, leftVertices);
+    glBufferSubData(GL_ARRAY_BUFFER, leftSize, rightSize, rightVertices);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    glBindVertexArray(0);
+}

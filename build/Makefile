@@ -262,6 +262,30 @@ code/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
 
+code/player.o: code/player.cpp.o
+.PHONY : code/player.o
+
+# target to build an object file
+code/player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/player.cpp.o
+.PHONY : code/player.cpp.o
+
+code/player.i: code/player.cpp.i
+.PHONY : code/player.i
+
+# target to preprocess a source file
+code/player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/player.cpp.i
+.PHONY : code/player.cpp.i
+
+code/player.s: code/player.cpp.s
+.PHONY : code/player.s
+
+# target to generate assembly for a file
+code/player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/player.cpp.s
+.PHONY : code/player.cpp.s
+
 code/random.o: code/random.cpp.o
 .PHONY : code/random.o
 
@@ -357,6 +381,30 @@ code/stb_image.s: code/stb_image.cpp.s
 code/stb_image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/stb_image.cpp.s
 .PHONY : code/stb_image.cpp.s
+
+code/text.o: code/text.cpp.o
+.PHONY : code/text.o
+
+# target to build an object file
+code/text.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/text.cpp.o
+.PHONY : code/text.cpp.o
+
+code/text.i: code/text.cpp.i
+.PHONY : code/text.i
+
+# target to preprocess a source file
+code/text.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/text.cpp.i
+.PHONY : code/text.cpp.i
+
+code/text.s: code/text.cpp.s
+.PHONY : code/text.s
+
+# target to generate assembly for a file
+code/text.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/text.cpp.s
+.PHONY : code/text.cpp.s
 
 code/texture.o: code/texture.cpp.o
 .PHONY : code/texture.o
@@ -479,6 +527,9 @@ help:
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/player.o"
+	@echo "... code/player.i"
+	@echo "... code/player.s"
 	@echo "... code/random.o"
 	@echo "... code/random.i"
 	@echo "... code/random.s"
@@ -491,6 +542,9 @@ help:
 	@echo "... code/stb_image.o"
 	@echo "... code/stb_image.i"
 	@echo "... code/stb_image.s"
+	@echo "... code/text.o"
+	@echo "... code/text.i"
+	@echo "... code/text.s"
 	@echo "... code/texture.o"
 	@echo "... code/texture.i"
 	@echo "... code/texture.s"

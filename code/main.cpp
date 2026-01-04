@@ -1,10 +1,10 @@
-#include <iostream>
 #include "game.h"
 
 int main()
 {
+    GLFWwindow* win = Window::GetWindow(800, 600, "FruitCatch");
     Game game;
-    while(!glfwWindowShouldClose(game.gameWindow.GetWindow()))
+    while(!glfwWindowShouldClose(Window::GetWindow()))
     {
         game.Run();
     }

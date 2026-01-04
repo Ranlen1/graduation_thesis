@@ -1,6 +1,7 @@
 #include "window.h"
-
 #include <iostream>
+
+Window *Window::instance = nullptr;
 
 Window::Window(int width, int height, const char* name)
 {
@@ -26,13 +27,24 @@ Window::Window(int width, int height, const char* name)
 
 Window::~Window()
 {
-    glfwDestroyWindow(_window);
+    if(_window)
+        glfwDestroyWindow(_window);
     glfwTerminate();
 }
 
-GLFWwindow *Window::GetWindow()
+GLFWwindow *Window::GetWindow(int width, int height, const char *name)
 {
-    return _window;
+    if(instance == nullptr)
+    {
+        instance = new Window(width, height, name);
+        if(!instance->_window)
+        {
+            std::cerr << "neudlelalo se window" << std::endl;
+            std::exit(-1);
+        }
+    }
+        
+    return instance->_window;
 }
 
 void Window::framebufferSizeCallback(GLFWwindow *window, int width, int height)

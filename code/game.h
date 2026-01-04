@@ -10,8 +10,6 @@ enum class gameState {
 class Game
 {
 public:
-    Window gameWindow;
-
 private:
     gameState _gameState;
     GameMenu _gameMenu;
@@ -20,12 +18,9 @@ public:
     Game();
 
     void SetGameState(gameState state);
-
     void DrawGameMenu();
-
     void Run();
 private:
     void shouldWindowClose();
-
     bool leftButtonPressed();
 };

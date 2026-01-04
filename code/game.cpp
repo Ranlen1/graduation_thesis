@@ -4,7 +4,7 @@
 #include "stb_image.h"
 
 Game::Game()
-    : gameWindow(800, 600, "FruitCatch"), _gameState(gameState::Menu)
+    : _gameState(gameState::Menu)
 {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -30,26 +30,23 @@ void Game::Run()
     shouldWindowClose();
     glClear(GL_COLOR_BUFFER_BIT);
 
-    if(_gameMenu.PlayButtonClicked(gameWindow.GetWindow()) && leftButtonPressed())
+    if(_gameMenu.PlayButtonClicked(Window::GetWindow()) && leftButtonPressed())
         SetGameState(gameState::Running);
 
     DrawGameMenu();
 
-    glfwSwapBuffers(gameWindow.GetWindow());
+    glfwSwapBuffers(Window::GetWindow());
     glfwPollEvents();
 }
 
 void Game::shouldWindowClose()
 {
-    if(glfwGetKey(gameWindow.GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(gameWindow.GetWindow(), true);
+    if(glfwGetKey(Window::GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(Window::GetWindow(), true);
 }
 
 bool Game::leftButtonPressed()
 {
-    if(glfwGetMouseButton(gameWindow.GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
-        return true;
-    else
-        return false;
+    return glfwGetMouseButton(Window::GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 }
 

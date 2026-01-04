@@ -28,6 +28,8 @@ add_executable(main
     code/rendering_functions.cpp
     code/fruit.cpp
     code/random.cpp
+    code/text.cpp
+    code/player.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)
