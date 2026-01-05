@@ -142,6 +142,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+code/collision_detection.o: code/collision_detection.cpp.o
+.PHONY : code/collision_detection.o
+
+# target to build an object file
+code/collision_detection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/collision_detection.cpp.o
+.PHONY : code/collision_detection.cpp.o
+
+code/collision_detection.i: code/collision_detection.cpp.i
+.PHONY : code/collision_detection.i
+
+# target to preprocess a source file
+code/collision_detection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/collision_detection.cpp.i
+.PHONY : code/collision_detection.cpp.i
+
+code/collision_detection.s: code/collision_detection.cpp.s
+.PHONY : code/collision_detection.s
+
+# target to generate assembly for a file
+code/collision_detection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/collision_detection.cpp.s
+.PHONY : code/collision_detection.cpp.s
+
 code/fruit.o: code/fruit.cpp.o
 .PHONY : code/fruit.o
 
@@ -512,6 +536,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... glad"
 	@echo "... main"
+	@echo "... code/collision_detection.o"
+	@echo "... code/collision_detection.i"
+	@echo "... code/collision_detection.s"
 	@echo "... code/fruit.o"
 	@echo "... code/fruit.i"
 	@echo "... code/fruit.s"

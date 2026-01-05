@@ -3,6 +3,9 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 
+std::deque<fruitAttributes> Fruit::fruitList;
+std::map<fruitType, std::pair<double, double>> Fruit::_spawnIntervalRange;
+
 Fruit::Fruit()
     : _currentTime(glfwGetTime()), _lastTimeMoved(glfwGetTime()), _lastCoconutSpawnIntervalDecrease(glfwGetTime())
 {
@@ -64,3 +67,8 @@ void Fruit::Delete()
     }
 }
 
+void Fruit::GameRestart()
+{
+    fruitList.clear();
+    _spawnIntervalRange[fruitType::coconut] = {5.0, 7.0};
+}

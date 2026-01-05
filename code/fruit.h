@@ -23,13 +23,13 @@ struct fruitAttributes
 class Fruit
 {
 public:
-    std::deque<fruitAttributes> fruitList;
+    static std::deque<fruitAttributes> fruitList;
+    static std::map<fruitType, std::pair<double, double>> _spawnIntervalRange;
 private:
     Random random;
     double _currentTime, _lastTimeMoved, _lastCoconutSpawnIntervalDecrease;
     std::map<fruitType, double> _lastSpawnTime;
     std::map<fruitType, double> _spawnInterval;
-    std::map<fruitType, std::pair<double, double>> _spawnIntervalRange;
     std::map<fruitType, std::pair<double, double>> _speedIntervalRange;
 
 public:
@@ -38,4 +38,5 @@ public:
     void Move();
     void Spawn();
     void Delete();
+    void GameRestart();
 };

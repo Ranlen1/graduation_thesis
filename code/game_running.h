@@ -6,6 +6,7 @@
 #include "stb_image.h"
 #include "text.h"
 #include "player.h"
+#include "collision_detection.h"
 
 class GameRunning
 {
@@ -16,6 +17,7 @@ private:
     Fruit _fruit;
     Text _text;
     Player _player;
+    CollisionDetection _collisionDetection;
 
     float _lastTime, _currentTime;
     

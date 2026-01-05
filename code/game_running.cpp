@@ -17,8 +17,6 @@ GameRunning::GameRunning()
     textShaderBinding(_textVAO, _textVBO, leftTextVertices, leftTextVerticesSize, rightTextVertices, rightTextVerticesSize);
     rectangleShaderBinding(_playerVAO, _playerVBO, playerVertices, playButtonVerticesSize);
 
-    _text.GameRestart(); //nevim jestli to bude fungovat
-
     std::string vertexCode = loadShaderSource("../resources/shaders/rectangle.vs");
     std::string fragmentCode = loadShaderSource("../resources/shaders/rectangle.fs");
     _backgroundShader.Compile(vertexCode.c_str(), fragmentCode.c_str());
@@ -53,6 +51,12 @@ GameRunning::~GameRunning()
 
 void GameRunning::Draw()
 {
+    _fruit.Move();
+    _fruit.Spawn();
+    _fruit.Delete();
+    _player.Move();
+    _collisionDetection.CheckCollision();
+
     _backgroundShader.Use();
     _backgroundShader.SetInteger("myTexture", 0);
     glActiveTexture(GL_TEXTURE0);
@@ -64,8 +68,6 @@ void GameRunning::Draw()
     _counterBoxTexture.Bind();
     glBindVertexArray(_counterBoxVAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
-
-    _text.TextUpdate();
 
     _textShader.Use();
     _textShader.SetInteger("myTexture", 0);
@@ -88,10 +90,6 @@ void GameRunning::Draw()
         glDrawArrays(GL_TRIANGLES, 6, 6);
     }
 
-    _fruit.Move();
-    _fruit.Spawn();
-    _fruit.Delete();
-
     _fruitShader.Use();
     _fruitShader.SetInteger("myTexture", 0);
     glBindVertexArray(_fruitVAO);
@@ -107,7 +105,6 @@ void GameRunning::Draw()
     }
 
     glBindVertexArray(_playerVAO);
-    _player.Move();
     _playerTexture.Bind();
     _fruitShader.SetMatrix4("transform", _player.GetMovementMat());
     glDrawArrays(GL_TRIANGLES, 0, 6);

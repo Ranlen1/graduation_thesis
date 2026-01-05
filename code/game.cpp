@@ -20,9 +20,14 @@ void Game::SetGameState(gameState state)
 void Game::DrawGameMenu()
 {
     if(_gameState == gameState::Menu)
-       _gameMenu.Draw();
-    else if(_gameState == gameState::Running)
-      _gameRunning.Draw();  
+        _gameMenu.Draw();
+    else if(_text.GameEnded())
+    {
+        SetGameState(gameState::Menu);
+        _gameMenu.Draw();
+    }
+    else
+        _gameRunning.Draw();  
 }
 
 void Game::Run()
@@ -31,7 +36,12 @@ void Game::Run()
     glClear(GL_COLOR_BUFFER_BIT);
 
     if(_gameMenu.PlayButtonClicked(Window::GetWindow()) && leftButtonPressed())
+    {
         SetGameState(gameState::Running);
+        _fruit.GameRestart();
+        _text.GameRestart();
+        _player.GameRestart();
+    }
 
     DrawGameMenu();
 

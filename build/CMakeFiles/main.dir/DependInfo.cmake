@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ranlen/maturitni_prace/code/collision_detection.cpp" "CMakeFiles/main.dir/code/collision_detection.cpp.o" "gcc" "CMakeFiles/main.dir/code/collision_detection.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/fruit.cpp" "CMakeFiles/main.dir/code/fruit.cpp.o" "gcc" "CMakeFiles/main.dir/code/fruit.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/game.cpp" "CMakeFiles/main.dir/code/game.cpp.o" "gcc" "CMakeFiles/main.dir/code/game.cpp.o.d"
   "/home/ranlen/maturitni_prace/code/game_menu.cpp" "CMakeFiles/main.dir/code/game_menu.cpp.o" "gcc" "CMakeFiles/main.dir/code/game_menu.cpp.o.d"

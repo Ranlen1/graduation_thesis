@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/link.d"
+  "CMakeFiles/main.dir/code/collision_detection.cpp.o"
+  "CMakeFiles/main.dir/code/collision_detection.cpp.o.d"
   "CMakeFiles/main.dir/code/fruit.cpp.o"
   "CMakeFiles/main.dir/code/fruit.cpp.o.d"
   "CMakeFiles/main.dir/code/game.cpp.o"

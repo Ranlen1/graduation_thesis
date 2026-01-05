@@ -5,8 +5,11 @@
 
 #include "string"
 
+int Text::_score;
+int Text::_hp;
+bool Text::_gameEnded;
+
 Text::Text()
-    : _score(0), _hp(100), _highestScore(0)
 {
     _transfromValues = {0.125f, 0.075f, 0.175f, 0.025f, 0.125f, 0.225f};
     for(float i : _transfromValues)
@@ -16,25 +19,16 @@ Text::Text()
         _transfromVector.push_back(mat); 
     }
 
-    currentTime = glfwGetTime();
-    lastTime = glfwGetTime();
+    _hp = 3;
+    _score = 0;
+    _gameEnded = false;
 }
 
 void Text::GameRestart()
 {
     _score = 0;
-    _hp = 100;
-}
-
-void Text::TextUpdate()
-{
-    currentTime = glfwGetTime();
-    if(currentTime - lastTime > 1)
-    {
-        _score ++;
-        _hp --;
-        lastTime = currentTime;
-    }
+    _hp = 3;
+    _gameEnded = false;
 }
 
 std::vector<textureNumber> Text::GetLeftTextUniforms()
@@ -71,4 +65,22 @@ std::vector<textureNumber> Text::GetRightTextUniforms()
     for(int i = 0; i < numberOfDigits; ++i)
         uniforms.push_back({_transfromVector[numberOfDigits+i-1+extraOne], (numberInString[i] - '0') /10.0f});
     return uniforms;
+}
+
+void Text::RemoveHP()
+{
+    if(_hp > 1)
+        _hp --;
+    else
+        _gameEnded = true;
+}
+
+void Text::AddPoint()
+{
+    _score ++;
+}
+
+bool Text::GameEnded()
+{
+    return _gameEnded;
 }

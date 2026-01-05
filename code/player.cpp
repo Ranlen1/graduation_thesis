@@ -2,6 +2,8 @@
 #include "window.h"
 #include <GLFW/glfw3.h>
 
+glm::mat4 Player::_playerMovement;
+
 Player::Player()
 {
     _playerMovement = glm::mat4(1.0f);
@@ -23,4 +25,9 @@ void Player::Move()
 glm::mat4 Player::GetMovementMat()
 {
     return _playerMovement;
+}
+
+void Player::GameRestart()
+{
+    _playerMovement[3][0] = 0.855f;
 }

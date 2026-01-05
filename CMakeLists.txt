@@ -30,6 +30,7 @@ add_executable(main
     code/random.cpp
     code/text.cpp
     code/player.cpp
+    code/collision_detection.cpp
 )
 
 target_link_libraries(main PRIVATE glad glfw glm OpenGL::GL)

@@ -88,5 +88,11 @@
   "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/player.cpp.o -c /home/ranlen/maturitni_prace/code/player.cpp",
   "file": "/home/ranlen/maturitni_prace/code/player.cpp",
   "output": "CMakeFiles/main.dir/code/player.cpp.o"
+},
+{
+  "directory": "/home/ranlen/maturitni_prace/build",
+  "command": "/usr/bin/c++  -I/home/ranlen/maturitni_prace/plugins/stb -I/home/ranlen/maturitni_prace/plugins/glad/include -std=gnu++17 -o CMakeFiles/main.dir/code/collision_detection.cpp.o -c /home/ranlen/maturitni_prace/code/collision_detection.cpp",
+  "file": "/home/ranlen/maturitni_prace/code/collision_detection.cpp",
+  "output": "CMakeFiles/main.dir/code/collision_detection.cpp.o"
 }
 ]
