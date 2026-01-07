@@ -7,7 +7,7 @@
 \usepackage{config}						  % Import stylu maturitní práce
 \author{René Čakan}                  % AUTOR PRÁCE
 \title{Programování grafické aplikace v C++}    % NÁZEV PRÁCE
-\date{14. února 2025}                 % DATUM ODEVZDÁNÍ PRÁCE
+\date{6. února 2026}                 % DATUM ODEVZDÁNÍ PRÁCE
 \vedouci{Dr. rer. nat. Michal Kočer} % VEDOUCÍ PRÁCE
 \place{V Českých Budějovicích}
 \skolnirok{2025/2026}                  % ŠKOLNí ROK
@@ -42,7 +42,6 @@
 \chapter{Programovací jazyky}
 			
 \section{Programovací jazyk C}
-
     C je středněúrovňový programovací jazyk, tedy jazyk, který je podobou blízko strojovému kódu,
     ale má už prvky vyššího programovacího jazyka jako jsou funkce, datové struktury nebo to že je
     strukturovaný. Je kompilovaný a statický, což znamená, že se program musí nejdříve přeložit do
@@ -383,7 +382,7 @@ int main()
     \cite{programming_massively_parallel_processors, memory_hierarchy_of_gpu, memory_types_of_gpu}
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{GPU_architecture.png}
-        \caption{Typická architektura NVIDIA GPU \cite{gpu_image_source}}
+        \caption{Typická architektura NVIDIA \gls{gpu} \cite{gpu_image_source}}
     \end{figure}
 
 \subsection{Paralelismus}
@@ -637,12 +636,78 @@ int main()
 \chapter{OpengGL}
 
 \section{Historie OpenGL}
+Open GL je povazovano za aplikacni programovaci rozhrani (API), ktera uzivatelum poskytuje sadu
+funkci, kterou muzeme pouzivat k manipulaci s grafickou karou. Specifikaci pro OpenGL dela spolecnost
+Khronos Group, ktera urcuje jake funkce existuji a jak se budou chovat. Pote kazda spolecnost
+implementuje OpenGL API pro svuj druh grafickych karet.
+\cite{learn_opengl}
 
 \section{OpenGL pipeline}
+Graficka pipeline je velmi podobrna obecne graficke pipeline, kterou jsem popisoval v predchozi
+kapitole. Uzivatel je schopen kontrolovat programovatelne faze pipeline, tedy vertexovym a
+fragmentovym shaderem. Casti jako rasterizace jsou nemenne a jsou definovane v API.
+\cite{learn_opengl}
 
 \section{Shadery}
+\subsection{Co to je shader}
+Shader je maly program, ktery bezi na \gls{gpu}. Tyto programy se spousteji pro konkretni cast
+graficke pipeline. Shadery premenuji vstupy a prevadeji je na vystupy potrebne pro nasledujici faze.
+Starsi verze OpenGL meli defaultni shadery, ale v novejsich verzich je uzivatel povinen vytvorit
+zakladni shadery, aby \gls{gpu} neco vykreslila. Shadery jsou od sebe izolovane a komunikuji spolu
+pouze pomoci vstupu a vystupu. Shaderu je vice druhu a dva zakladni jsou vertex a fragment shader.
+Shadery se kompiluji a linkuji a nasledne ukladaji do pameti \gls{gpu} jako soucast shader programu.
+To je objekt ktery je vysledna slinkvovana verze vice shaderu. Shader programu muze mit uzivatel vice
+a pro kazdy objekt si muze vybrat jiny, podle toho jake shadery na nej chce pouzit.
+\cite{learn_opengl}
+
+\subsection{Vertex shader}
+Zakladni ucel vertex shaderu je zpracovavani vrcholu objektu. Do vertex shaderu vztupuji atributy
+vrcholu, jako barvy nebo 3D souradnice bodu v modelovem prostoru. Vertex shader provadi transformace
+techto souradnic do svetoveho, kameroveho a nasledne clip prostoru pomoci transformacnich matic.
+Vztupni data se ukladaji do pameti \gls{gpu} pomoci Vertex Buffer Objektu \gls{vbo}. Ten v sobe
+dokaze ulozit velke mnozstvi dat, diky cemuz jich posilame vice najednou a vyuzivame vysokou
+propustnost \gls{gpu}. Kdyz jsou data ulozena v \gls{gpu}, vertex shader k nim ma primy pristup.
+\cite{learn_opengl}
+
+\subsection{Fragment shader}
+Ucelem fragment shaderu je vypocitavani barevneho
+vystupu pro pixely. Barvy se v OpenGL definuji 4D vektorem s floaty od 0.0 do 1.0. Tyto cisla udavaji
+silu barev cervena, zelena a modra (RGB). Posledni cilso udava alfa hodnotu, tedy jak moc kombinace
+danych tri barev bude pruhledna. Ve fragment shaderu take dochazi k texturovani a ruznym efektum jako
+odlesky, stinovani atd.
+\cite{learn_opengl}
+
+\subsection{Buffery a linkování}
+Vztupni data vertex shaderu se ukladaji do pameti \gls{gpu} pomoci Vertex Buffer Objektu \gls{vbo}.
+Ten v sobe dokaze ulozit velke mnozstvi dat, diky cemuz jich posilame vice najednou a vyuzivame
+vysokou propustnost \gls{gpu}. Tyto data jsou pak jednoduse pristupna pro vertex shader, ktery s nimi
+v \gls{gpu} pracuje. Nasledne se propojuji vertex attributy. To udava, jak jsou vztupni data linknuta
+k promennym uvnitr vertex shaderu. Dalsim dulezitym objektem je Vertex Array Object, do ktereho se
+uklada jak jsou data v VBO usporadana a jak se maji propojit s vertex shadery. 
+\cite{learn_opengl} 
+
+Shadery se kompiluji a linkuji a nasledne ukladaji do pameti \gls{gpu} jako soucast shader programu.
+To je objekt ktery je vysledna slinkvovana verze vsech shaderu. Linkovani shaderu propojuje vystupy
+jednoho shaderu s vstupy druheho. Shader programu muze mit uzivatel vice a pro kazdy objekt si muze
+vybrat jiny, podle toho jake shadery na nej chce pouzit.
+\cite{learn_opengl}
+
+\subsection{GLSL}
+Shadery se pisi v programovacim jazyce OpenGL Shading Language \gls{glsl}, ktery je podobny jazyku C.
+\gls{glsl} je specificky navrzen pro praci s grafikou a obsahuje uzite funkce na manipulaci s vektory
+a maticemi. Pokud jsou na sebe linknute dva shadery, vystupy z prvniho shaderu se prenesou do druheho
+shaderu. Promene ovsem musi mit identicky typ a velikost. Dalsi duleztiou funkci jsou uniformy, coz
+jsou globalni promene pro vsechny shadery uvnitr jednoho shader programu. V uniformach se casto
+uchovavaji matice a dalsi konstanty.
+\cite{learn_opengl}
 
 \section{Textury}
+Textura je obrazek pouzivany k pridavani detailu k objektu. Pro kazdy vrchol objektu priradime
+souradnici textury, ktera urcuje jaka cast textury odpovida danemu vrcholu. Souradnice textury se
+ukladaji do vertex atributu. Textura se pak aplikuje ve fragment shaderu na kazdy fragment objektu,
+cimz se promitne. Je take mozno mit puvodni barvu objektu s jednou nebo vice texturami na jednom
+objektu. Nasledne se barvy a textury pomerove mixuji podle nastavenych alpha hodnot.
+\cite{learn_opengl}
 
 \chapter{to do}
     mozna pridat trochu historie compileru u C a CPP
@@ -668,27 +733,16 @@ int main()
 
 \section{stb\_image}
 
-\chapter{Grafika a zvuk}
-
-\section{Aseprite}
-
-\section{Bosca Ceoil}
-
-\chapter{Herní scény}
-
-\section{Scéna hlavního menu}
-
-\section{Scéna pozastavené hry}
-
-\section{Scéna hry}
-
 \chapter{Herní mechaniky}
+
+\section{Generátor čísel}
 
 \section{Generování objektů}
 
 \section{Pohyb hráče}
 
 \section{Detekce kolize}
+
 
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
