@@ -636,7 +636,7 @@ int main()
 \chapter{OpengGL}
 
 \section{Historie OpenGL}
-Open GL je povazovano za aplikacni programovaci rozhrani (API), ktera uzivatelum poskytuje sadu
+Open GL je povazovano za Application Programming Interface \gls{api}, ktera uzivatelum poskytuje sadu
 funkci, kterou muzeme pouzivat k manipulaci s grafickou karou. Specifikaci pro OpenGL dela spolecnost
 Khronos Group, ktera urcuje jake funkce existuji a jak se budou chovat. Pote kazda spolecnost
 implementuje OpenGL API pro svuj druh grafickych karet.
@@ -664,9 +664,7 @@ a pro kazdy objekt si muze vybrat jiny, podle toho jake shadery na nej chce pouz
 Zakladni ucel vertex shaderu je zpracovavani vrcholu objektu. Do vertex shaderu vztupuji atributy
 vrcholu, jako barvy nebo 3D souradnice bodu v modelovem prostoru. Vertex shader provadi transformace
 techto souradnic do svetoveho, kameroveho a nasledne clip prostoru pomoci transformacnich matic.
-Vztupni data se ukladaji do pameti \gls{gpu} pomoci Vertex Buffer Objektu \gls{vbo}. Ten v sobe
-dokaze ulozit velke mnozstvi dat, diky cemuz jich posilame vice najednou a vyuzivame vysokou
-propustnost \gls{gpu}. Kdyz jsou data ulozena v \gls{gpu}, vertex shader k nim ma primy pristup.
+Vztupni data jsou ulozena v \gls{gpu}, kde k nim ma vertex shader primy pristup.
 \cite{learn_opengl}
 
 \subsection{Fragment shader}
@@ -682,8 +680,8 @@ Vztupni data vertex shaderu se ukladaji do pameti \gls{gpu} pomoci Vertex Buffer
 Ten v sobe dokaze ulozit velke mnozstvi dat, diky cemuz jich posilame vice najednou a vyuzivame
 vysokou propustnost \gls{gpu}. Tyto data jsou pak jednoduse pristupna pro vertex shader, ktery s nimi
 v \gls{gpu} pracuje. Nasledne se propojuji vertex attributy. To udava, jak jsou vztupni data linknuta
-k promennym uvnitr vertex shaderu. Dalsim dulezitym objektem je Vertex Array Object, do ktereho se
-uklada jak jsou data v VBO usporadana a jak se maji propojit s vertex shadery. 
+k promennym uvnitr vertex shaderu. Dalsim dulezitym objektem je Vertex Array Object \gls{vao}, do
+ktereho se uklada jak jsou data v VBO usporadana a jak se maji propojit s vertex shadery. 
 \cite{learn_opengl} 
 
 Shadery se kompiluji a linkuji a nasledne ukladaji do pameti \gls{gpu} jako soucast shader programu.
@@ -724,22 +722,82 @@ objektu. Nasledne se barvy a textury pomerove mixuji podle nastavenych alpha hod
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
 \part{Vývoj hry v OpenGL} % název praktické části (nenechávejte název Praktická část)
+\chapter{Architektura hry}
+Pro vytvareni sve hry jsem si vybral OpenGL, protoze je to nizkourovnove \gls{api}, jehoz pouziti
+vyzaduje zakladni porozumeni graficke pipeline. Jako programovaci jazyk jsem si vybral C++, protoze
+je pro C knihovnu dobre kompatibilni, ale pritom mohu vyuzivat prvky objektoveho programovani, ktere
+jsou ve vyvoji hry uzitecne.
 
-\chapter{Použité knihovny}
+Moje hra ma dva zakladni stavy. Prvnim z nich je menu, ve kterem je uzivatel pri prvnim zapnuti hry.
+Po kliknuti tlacitka play se uzivatel presouva do druheho stavu bezici hry. Tento stav bezi, dokud
+uzivateli nedojdou vsechny zivoty a nasledne je presunut zpet do herniho menu. Hra je tvorena vetsim
+poctem filu, ktere nize vysvetlim.
+
+\begin{itemize}
+    \item main.cpp - Vytvari herni okno a spousti hlavni smycky.
+    \item window.cpp - Inicializuje GLFW a spravuje okno aplikace.
+    \item game.cpp - Ridi prepinani hernich stavu a resetuje promene pri restaru hry. 
+    \item game\_menu.cpp - Renderuje menu stav a predava informace do hlavniho herniho menu zda byla
+        hra spustena.
+    \item game\_running.cpp - Renderuje stav, kdyz hra bezi a vola funkce pro objekty ve hre.
+    \item shader.cpp - Spravuje shadery, tedy kompilaci, linkovani, aktivaci a nastavovani uniformu.
+    \item rendering\_function.cpp - Poskituje funkce pro nacitani shaderu a propojovanim vztupnich dat
+        s \gls{vbo} a \gls{vao}.
+    \item texture.cpp - Spravuje vytvareni, aktivaci a nastaveni parametru textur.
+    \item vertices.cpp - Uchovava vztupni data jako souradnice objektu a textur.
+    \item fruit.cpp - Spravuje tvoreni, pohyb a mazani ovoce.
+    \item player.cpp - Spravuje pohyb hrace.
+    \item text.cpp - Spravuje vytvareni a updatovani textu na pocitani zivotu a bodu.
+    \item collision\_detection.cpp - Zjistuje zda dochazi ke kolizi hrace s ovocem a pripadne vola
+        update zivotu a skore.
+    \item random.cpp - Vytvari nahodne doubly a floaty.
+\end{itemize}
+
+\chapter{Použité programy a knihovny}
+\section{CMake}
+CMake je program, ktery generuje nativni soubory build systemu pro ruzne platformy. Do textoveho
+souboru CMakeLists.txt se zapisuji zdrojove soubory, path ke knihovnam ktery program pouziva a 
+take configuraci verze C++, kterou chce uzivatel pouzivat. CMake tyto informace preda compileru, takze
+uzivatel nemusi vypisovat pro kazdou compilaci vsechny dependencies sveho programu. 
+Dalsi vyhodou je, ze build vytvoreny pomoci CMake muze fungovat napric platformami.
+\cite{software_developement_with_cmake}
 
 \section{GLAD}
+GLAD je knihovna, ktera generuje loader na zaklade oficialni specifikace OpenGL. Od verze OpenGL 1.1
+nejsou moderni funkce primo v systemu, takze nejdou importovat do programu jako knihova,
+ale jsou implementovany v ovladacich grafickych karet. Kvuli tomu by kompiler nebyl schopen najit
+deklarace techto OpenGL funkci. Kvuli tomu se vyuzivaji loadery jako GLAD, ktere nactou tyto
+funkce a jake header je vlozi do C++ programu.
+\cite{opengl_loading_library}
 
 \section{GLFW}
+GLFW je knihovna urcena pro vyvoj aplikaci vyuzivajici OpenGL nebo Vulkan. Hlavnim ucelem GLFW je
+otevirani, sprava a vlastnosti oken. Pro kazde okno je vytvoren kontext, ktery obsahuje stav grafiky
+spojeny pro dane okno. \gls{gpu} pri vykreslovani cerpa z kontextu uchovany stav, ktery funguje
+jako prostrednik mezi programem a \gls{gpu}. Dalsi dulezitou funkci je zpracovavani vstupu
+uzivatele jako stisk klavesy ci mysi, cimz je program schopen reagovat na interakce uzivatele s oknem.
+\cite{glfw_introduction}
+
+\section{GLM}
+GLM je matematicka knihovna urcena pro graficky software. GLM poskytuje funke a tridy implementovane
+stejnymy nazvy a funkcemi jako \gls{glsl}, coz usnadnuje praci s shaderama. GLM se
+prevazne pouziva na praci s maticemi a obsahuje funkce pro operace s nimi, coz ulehcuje transformace
+objektu jako posun ci rotaci. GLM take obsahuje generator nahodnych cisel nebo kvaterniony, ktere
+slouzi k provadeni rotaci ve 3D prostoru.
+\cite{opengl_mathematics}
 
 \section{stb\_image}
+Knihovna stb\_image je jednoduch knihovna pro nacitani obrazku. Dokaze zpracovat vetsinu beznych
+formatu obrazku jako PNG nebo JPG. Tyto obrazky uklada jako surova data do pamert. Pro kazdy
+pixel jsou ulozena 3 cisla pri pouzivani RGB nebo 4 cisla pri RGBA.
 
 \chapter{Herní mechaniky}
 
 \section{Generátor čísel}
 
-\section{Generování objektů}
+\section{Generování ovoce}
 
-\section{Pohyb hráče}
+\section{Generovani textu}
 
 \section{Detekce kolize}
 
