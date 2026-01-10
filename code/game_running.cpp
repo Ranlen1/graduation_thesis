@@ -96,7 +96,7 @@ void GameRunning::Draw()
 
     for(auto &fruit : _fruit.fruitList)
     {
-        if(fruit.type == fruitType::apple)
+        if(fruit.type == FruitType::apple)
             _appleTexture.Bind();
         else
             _coconutTexture.Bind();

@@ -12,7 +12,7 @@ void CollisionDetection::CheckCollision()
     for(auto fruit = _fruit.fruitList.begin(); fruit != _fruit.fruitList.end(); )
     {
         _mat = fruit->transform;
-        if(fruit->type == fruitType::apple)
+        if(fruit->type == FruitType::apple)
         {
             _fruitAX = -389.0f/400.0f + _mat[3][0];
             _fruitBX = -347.0f/400.0f + _mat[3][0];

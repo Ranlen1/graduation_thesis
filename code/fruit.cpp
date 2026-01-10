@@ -4,19 +4,19 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 std::deque<fruitAttributes> Fruit::fruitList;
-std::map<fruitType, std::pair<double, double>> Fruit::_spawnIntervalRange;
+std::map<FruitType, std::pair<double, double>> Fruit::_spawnIntervalRange;
 
 Fruit::Fruit()
     : _currentTime(glfwGetTime()), _lastTimeMoved(glfwGetTime()), _lastCoconutSpawnIntervalDecrease(glfwGetTime())
 {
-    _spawnIntervalRange[fruitType::apple] = {2.5, 4.5};
-    _spawnIntervalRange[fruitType::coconut] = {5.0, 7.0};
-    _spawnInterval[fruitType::apple] = random.GenerateDouble(_spawnIntervalRange[fruitType::apple].first, _spawnIntervalRange[fruitType::apple].second);
-    _spawnInterval[fruitType::coconut] = random.GenerateDouble(_spawnIntervalRange[fruitType::coconut].first, _spawnIntervalRange[fruitType::coconut].second);
-    _lastSpawnTime[fruitType::apple] = 0.0;
-    _lastSpawnTime[fruitType::coconut] = 0.0;
-    _speedIntervalRange[fruitType::apple] = {0.35, 0.65};
-    _speedIntervalRange[fruitType::coconut] = {0.40, 0.7};
+    _spawnIntervalRange[FruitType::apple] = {2.5, 4.5};
+    _spawnIntervalRange[FruitType::coconut] = {5.0, 7.0};
+    _spawnInterval[FruitType::apple] = random.GenerateDouble(_spawnIntervalRange[FruitType::apple].first, _spawnIntervalRange[FruitType::apple].second);
+    _spawnInterval[FruitType::coconut] = random.GenerateDouble(_spawnIntervalRange[FruitType::coconut].first, _spawnIntervalRange[FruitType::coconut].second);
+    _lastSpawnTime[FruitType::apple] = 0.0;
+    _lastSpawnTime[FruitType::coconut] = 0.0;
+    _speedIntervalRange[FruitType::apple] = {0.35, 0.65};
+    _speedIntervalRange[FruitType::coconut] = {0.40, 0.7};
 }
 
 void Fruit::Move()
@@ -32,7 +32,7 @@ void Fruit::Move()
 void Fruit::Spawn()
 {
     _currentTime = glfwGetTime();
-    for(fruitType type : {fruitType::apple, fruitType::coconut})
+    for(FruitType type : {FruitType::apple, FruitType::coconut})
     {
 
         if(_currentTime - _lastSpawnTime[type] > _spawnInterval[type])
@@ -45,10 +45,10 @@ void Fruit::Spawn()
         _spawnInterval[type] = random.GenerateDouble(_spawnIntervalRange[type].first, _spawnIntervalRange[type].second);
         }
     }
-    if(_currentTime - _lastCoconutSpawnIntervalDecrease >= 3 && _spawnIntervalRange[fruitType::coconut].first > 0.3)
+    if(_currentTime - _lastCoconutSpawnIntervalDecrease >= 3 && _spawnIntervalRange[FruitType::coconut].first > 0.3)
     {
-        _spawnIntervalRange[fruitType::coconut].first  -= 0.25;
-        _spawnIntervalRange[fruitType::coconut].second -= 0.35;
+        _spawnIntervalRange[FruitType::coconut].first  -= 0.25;
+        _spawnIntervalRange[FruitType::coconut].second -= 0.35;
         _lastCoconutSpawnIntervalDecrease = _currentTime;
     }
 }
@@ -70,5 +70,5 @@ void Fruit::Delete()
 void Fruit::GameRestart()
 {
     fruitList.clear();
-    _spawnIntervalRange[fruitType::coconut] = {5.0, 7.0};
+    _spawnIntervalRange[FruitType::coconut] = {5.0, 7.0};
 }

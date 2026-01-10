@@ -185,7 +185,7 @@ int main()
     
 \clearpage
 \chapter{Počitačová grafika}			
-\section{Historie počítačové grafiky}
+\section{Historie počítačové grafiky (tuto sekci mozna uplne smazu, proto neni dodelana)}
     Není úplně jasné, který počítač jako první využíval počítačovou grafiku, ale začnu počítačem
     Small-Scale Experimental Machine (\gls{ssem}). 
     Tento počítač byl vytvořen v roce 1948 na Manchesterské
@@ -220,10 +220,6 @@ int main()
     zachytávalo světlo z obrazovky. Poloha pera se poté poslala do počítače a na daném místě se
     vybarvil bod. Druhou rukou ovládal uživatel box s přibližně 40 tlačítky, které měly funkce jako
     mazaní, zoomování či ukládání. Tím vznikl první počítač s interaktivní počítačovou grafikou.
-    \begin{figure}
-        \includegraphics[width=\linewidth]{sketchpad.jpg}
-        \caption{Skatchpad Ivana Sutherlanda \cite{vision_and_reality_of_hypertext_and_graphical_user_interfaces}}
-    \end{figure}
     \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system, a_critical_history_of_computer_graphics_and_animation, vision_and_reality_of_hypertext_and_graphical_user_interfaces}
 
 
@@ -729,9 +725,11 @@ je pro C knihovnu dobre kompatibilni, ale pritom mohu vyuzivat prvky objektoveho
 jsou ve vyvoji hry uzitecne.
 
 Moje hra ma dva zakladni stavy. Prvnim z nich je menu, ve kterem je uzivatel pri prvnim zapnuti hry.
-Po kliknuti tlacitka play se uzivatel presouva do druheho stavu bezici hry. Tento stav bezi, dokud
+Po kliknuti tlacitka play se uzivatel presouva do druheho stavu bezici hry. Pri behu hry ja cilem
+hracem pohybovat kosikem a sbirat jablka, coz mi pridava skore. Zaorven je cilem hracem vyhybat se
+padajicimi kokosum, ktere hracovi odebiraji zivoty. Tento stav bezi, dokud
 uzivateli nedojdou vsechny zivoty a nasledne je presunut zpet do herniho menu. Hra je tvorena vetsim
-poctem filu, ktere nize vysvetlim.
+poctem souboru, ktere nize vysvetlim.
 
 \begin{itemize}
     \item main.cpp - Vytvari herni okno a spousti hlavni smycky.
@@ -792,15 +790,55 @@ formatu obrazku jako PNG nebo JPG. Tyto obrazky uklada jako surova data do pamer
 pixel jsou ulozena 3 cisla pri pouzivani RGB nebo 4 cisla pri RGBA.
 
 \chapter{Herní mechaniky}
-
 \section{Generátor čísel}
-
+Por mou hru jsem potreboval nejaky generator nahodnych cisel pro pocatecni x souradnici ovoce nebo
+pro rychlost jakou bude padat. Moje class vyuziva pseudonahodny generator mt19937. Tento generator
+po dodani seedu vygeneruje nahodnou sekvenci cisel. Pro vytvoreni seedu pouzijeme funkci 
+random\_device, ktera vygeneruje nahodne cislo z nahodnych parametru systemu. Generovani cisel
+podle parametru systemu je nahodnejsi, ale tento proces je pomerne pomaly, a proto se vyuziva
+jen na generovani seedu. Pro vytvoreni cisla z nejakeho rozmezi se pouziva funkce uniform\_real\_distribution. Ten vydeli kazde vygenerovane cislo tim nejvetsim moznym vygenerovanym cislem, cimz vytvori
+cislo v rozmezi od 0 do 1. Nasledne se rozmezi ktere chceme vytvorit premapuje na rozmezi od 0 do 1.
+\cite{cppreference}
 \section{Generování ovoce}
+Pro generovani a praci s ovocem jsem si vytvoril dve pomocne struktury.
+\begin{lstlisting}[caption={pomocne struktury}]
+enum class FruitType
+{
+    apple = 0, coconut = 1
+};
 
-\section{Generovani textu}
+struct fruitAttributes
+{
+    FruitType type;
+    glm::mat4 transform;
+    float speed;
+};
+\end{lstlisting}
+Fruit type slouzi k tomu, aby se priradila spravna textura k danemu ovoci a aby se pri kolizi pridal
+bod nebo odebral zivot. Ve fruitAttributes jsou vsechny potrebne parametry pro kazde ovoce pohromade,
+takze se snimi lepe pracuje. Pote si vytvorim deque, ve kterem si ukladam vsechno ovoce, ktere je
+na obrazovce. Pri vytvareni ovoce vygeneruju nahodnou rychlost a matici, ve ktere je nahodne posunuti
+v x souradnici. Pro mazani a kolize nasledne vzdy jen iteruju skrz vsechno ovoce, a zjistuju zda
+se dostala pod hranu obrazovky a nebo kolidovali s kosikem.
+\section{Vykreslovaní čísel}
+Pro pocitani skore a zivotu jsem si vytvoril classu pro vykreslovani cisel. Protoze cisla ktera
+potrebuji vykreslit mohou mit libovolnou hodnotu, nevyplati se pro kazde cislo vytvaret samostatnou
+texturu. Misto toho jsem vyuzil techniku zvanou texture atlas. Tato technika vytvari jednu velkou
+texturu s cislicemi od 0 do 9. Kazda cifra vykreslovaneho cisla je samostatny objekt, a je mu
+prirazena cast textury s odpovidajici cislici.
+Aby byla cislica spravne vycentrovana, musi se kazdemu objektu priradit transformaci matice. Pozice
+jednotlive cislice zavisi na celkove delce vykreslovaneho cisla a take na pozici dane cisfry v cisle.
+V shaderu se pomoci posunu texturovych souradnic urcuje, jaka cast textury se ma vykreslit na objekt.
 
 \section{Detekce kolize}
-
+Pro detekci kolizi jsou vyuzil Axis-Aligned Bounding Box (AABB) collsion detekci. Kazdy objekt
+je reprezentovan dvjici bodu(horni levy roh a dolni pravy roh), ktere urcuji obdelnik zarovnany s
+osami. Kolize se zjistuje porovnanim intervalu obou obdelniku na osach X a Y. Pokud dojde u abou
+os k prekryvu, objekty mezi sebou koliduji.
+\begin{figure}[H]
+        \includegraphics[width=\linewidth]{collisions_overlap.png}
+        \caption{AABB collision detection \cite{real_time_rendering}}
+\end{figure}
 
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}

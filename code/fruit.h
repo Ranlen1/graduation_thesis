@@ -8,14 +8,14 @@
 
 #include "random.h"
 
-enum class fruitType
+enum class FruitType
 {
     apple = 0, coconut = 1
 };
 
 struct fruitAttributes
 {
-    fruitType type;
+    FruitType type;
     glm::mat4 transform;
     float speed;
 };
@@ -24,13 +24,13 @@ class Fruit
 {
 public:
     static std::deque<fruitAttributes> fruitList;
-    static std::map<fruitType, std::pair<double, double>> _spawnIntervalRange;
+    static std::map<FruitType, std::pair<double, double>> _spawnIntervalRange;
 private:
     Random random;
     double _currentTime, _lastTimeMoved, _lastCoconutSpawnIntervalDecrease;
-    std::map<fruitType, double> _lastSpawnTime;
-    std::map<fruitType, double> _spawnInterval;
-    std::map<fruitType, std::pair<double, double>> _speedIntervalRange;
+    std::map<FruitType, double> _lastSpawnTime;
+    std::map<FruitType, double> _spawnInterval;
+    std::map<FruitType, std::pair<double, double>> _speedIntervalRange;
 
 public:
     Fruit();
