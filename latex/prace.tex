@@ -185,129 +185,6 @@ int main()
     
 \clearpage
 \chapter{Počitačová grafika}			
-\section{Historie počítačové grafiky (tuto sekci mozna uplne smazu, proto neni dodelana)}
-    Není úplně jasné, který počítač jako první využíval počítačovou grafiku, ale začnu počítačem
-    Small-Scale Experimental Machine (\gls{ssem}). 
-    Tento počítač byl vytvořen v roce 1948 na Manchesterské
-    univerzitě a jeho tvůrci byli Frederic C. Williams, Tom Kilburn a Geoff Tootill. Tento počítač
-    byl první počítač s uloženým programem, tedy počítač, který měl svůj program uložen ve stejné
-    paměti jako data, se kterými počítač pracoval. Data uchovával na katodové trubici (\gls{crt}),
-    které se později začalo říkat Williamsova trubice. Tato trubice si dokázala pamatovat až 2048
-    bitů, které byly uchovávány jako elektrické náboje. Součástí trubice byl i displej, který na
-    svém fosforovém povrchu promítal oblasti s nábojem. Takto vznikl první počítač s digitálním
-    displejem.
-    \cite{history_of_the_gpu_new_developments, the_manchester_ssem}
-
-    Dalším zajímavým počítačem byl Whirlwind. Americký Office of Naval Research a U.S. Air Force
-    chtěli vytvořit počítač, ve kterém by dokázal
-    běžet letecký simulátor. Tak tedy v roce 1947 začal Jay Forrester pracovat v laboratořích MIT
-    na projektu Whirlwind. Při práci vyvinul Forrester paměť s náhodným přístupem (\gls{ram}),
-    tvořenou magnetickými jádrami, skrz které proudil koincidenční proud. Počítač byl dokončen
-    v roce 1951. Využíval \gls{crt} na zobrazování výsledků podobně jako \gls{ssem} a
-    dokázal na svém displeji řešit rovnice,
-    později i simulovat karetní hru blackjack. Následně se projekt Whirlwind stal součástí projektu
-    Semi-Automatic Ground Environment (SAGE). Ten měl za úkol vytvořit počítačový systém, který by
-    pomocí radarů dokázal odhalovat letadla a řídit obranné síly proti případným letadlům. Projekt
-    SAGE byl jeden z prvních systémů, které využívaly interaktivní ovládání pomocí klávesnice či
-    speciálního světelného pera. Pokud bylo perem namířeno na ikonu letadla, zachytilo světlo
-    z displeje a počítač zobrazil informace o daném letadle jako rychlost a směr jeho letu.
-    Další počítač, který navazoval
-    na projekt Whirlwind a SAGE, byl počítač TX-2, který byl vytvořen Wesem Clarkem na MIT. Ten byl
-    na rozdíl od Whirlwindu tranzistorový. Zajímavým projektem, který tento počítač umožnil, byl
-    Sketchpad vytvořen Ivanem Sutherlandem. Tento program byl první, který umožnil interaktivně
-    kreslit na obrazovku. Obrazovka byla velká 7x7 palců s rastrem 1024x1024 bodů
-    a psalo se na ní perem, které
-    zachytávalo světlo z obrazovky. Poloha pera se poté poslala do počítače a na daném místě se
-    vybarvil bod. Druhou rukou ovládal uživatel box s přibližně 40 tlačítky, které měly funkce jako
-    mazaní, zoomování či ukládání. Tím vznikl první počítač s interaktivní počítačovou grafikou.
-    \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system, a_critical_history_of_computer_graphics_and_animation, vision_and_reality_of_hypertext_and_graphical_user_interfaces}
-
-    Společně s vývojem počítačové grafiky začaly vznikat i první videohry. Hra Spacewar! byla
-    jedna z prvních, která se rozšířila po laboratoř9ch na amerických univerzitách. Hru 
-    vytvořil na MIT Steve Russell a jeho přátelé v roce 1962. Hra byla vytvořena pro dva hráče,
-    každý ovládal svou loď a jeho cílem bylo sestřelit loď protihráče. Lodě byly ovládány speciálním
-    boxem, který se dá považovat za předchůdce moderních herních kontrolerů. Hra běžela na počítači
-    PDP-1, který namísto rasterové grafiky využíval grafiku vektorovou.
-    Věci vykreslené na osciloskopu byly definované matematickou funkcí.
-    Díky tomu, že vektorová grafika nebyla tolik náročná na \gls{cpu}
-    jako rasterová, mohla ve hře být hvězda, která svojí gravitací působila na lodě.
-    \cite{spacewar, vector_graphics, spacewar_controllers}
-
-    S postupným vývojem počítačů se začaly vytvářet i grafické algoritmy. Jedním z nich je
-    Bresenhamův algoritmus. Vytvořil ho Jack Elton Bresenham v roce 1962 v International
-    Business Machines Corporation (IBM). Tento algoritmus se používá ke kreslení úsečky mezi dvěma
-    body. Jelikož počítačová obrazovka je rozdělena na pixely, pokud daná úsečka není vodorovná ani
-    svislá, nelze ji vykreslit přesně. Algoritmus determinuje, jaký z dvojice
-    pixelů se více blíží funkci požadované úsečky a tento pixel vybarví. Dalším zajímavým algoritmem
-    je ray casting. První obrázek byl vytvořen v roce 1968. Tento algoritmus funguje tak, že
-    nejdříve uživatel definuje objekty, které chce mít ve své scéně jako matematické rovnice. Pro
-    každý objekt se definuje model osvětlení, což udává jakou má barvu a jak
-    se od něj světlo odráží. Poté se z pohledu kamery vyšle na každý pixel na obrazovce paprsek. Ten
-    putuje, dokud se nezastaví o nějaký námi vytvořený objekt. Následně se z každého místa zastavení
-    vyšle stínový paprsek do zdroje světla. Pokud cestou tento paprsek potká nějaký jiný objekt, daný
-    objekt blokuje světlo, takže tento bod bude ve stínu.
-    \cite{history_of_the_gpu_new_developments, bresenhams_line_algorithm_in_computer_graphics, ray_tracing}
-
-    V průběhu 70. let se vyvíjely a vylepšovaly renderovací algoritmy. Jedním z problémů, který 
-    bylo potřeba vyřešit, byl hidden surface determination problem. 
-    Renderování částí objektů, které nejsou z pohledu
-    kamery vidět zbytečně zatěžuje \gls{cpu}.
-    Tento problém řeší více rozdílných algoritmů, jako Z-buffer
-    algorithm, Painter\'s algorithm nebo Binary Space Partitioning. Nejpopulárnější z nich je
-    Z-buffer algoritmus vytvořen Wolfgangem Straßerem v roce 1974. Depth buffer uchovává 
-    nejmenší dosud naleznutou hloubku a pokud se přidá nový fragment na daný pixel, algoritmus
-    porovná obě hloubky a pokud je blíže kameře, depth buffer se přepíše na novou hloubku.
-    Další významný pokrok byl v oblasti shadingu. Doposud se využíval k barvení flat shading,
-    takže každý polygon měl svojí vlastní barvu. V roce 1971 vytvořil Henri Gouraud gouraud shading.
-    Tato metoda ukládá barvu polygonů jen do vrcholu daného polygonu, a následně se vypočítává barva
-    každého pixelu váženým poměrem podle vzdálenosti od daného vrcholu. Dalším z důležitých techink
-    je Phong shading, kterou vytvořil Bui Tuong Phong v roce 1974. Por každý pixel se počítá, jak
-    na daný pixel dopadá světlo a jak se od něj odráží. To se následně aplikuje pro výhcozí barvu
-    polygonu. Tato technika je velice náročná a mohla se plně začít využívat až s rovojem \gls{gpu}.
-    Pokrok se udělal i v realističnosti povrchů. Pokud by povrch měl mýt nějaké výstupky čí hrbolky,
-    museli by býti dodány v popisu daného polygonu. Tento problém řeší technika zvaná Bump Mapping,
-    vytvořena Jamesem Blinnem v roce 1978. Vytvoří se texturová mapa, která určuje kde je vrcholek a
-    kde prohlubeň. Poté se ve fázi počítaní světla místa s vrcholekm udělají světlejší a místa s
-    prohlubní tmavější, což dodává efekt hrbolatého povrchu na uplně rovném polygonu.
-    \cite{hidden_surface_determination, z_buffer_algorithm, mastering_gourad_shading, what_is_phong, bump_mapping}
-
-    V 80. letech za začaly vytvářet první počítače, které byly dostupné pro veřejnost a začala
-    se využívat \gls{gpu} . Počítačová
-    grafika se začala využívat ve filmovém průmyslu. V roce 1982 vyšel film Tron, který první
-    masivně využíval CGI. Posun se udělal i v modelování vytvořením matematického modelu
-    Non-Uniform Rational B-Spline (NURBS). Tento model je schope z bodů a uzlu vytvořit 3D křivku
-    nebo plochu. Další důležitý model byl Cook-Torrancův, který popisuje bidirectional reflective
-    distribution function (BRDF). Tento model je podobný Phong shadingu, ale narozdíl od něj
-    dodržuje fyzikální korektnost. Odražené světlo nikdy nemůže přesahovat světlo dopadající, címž
-    se vyrendrovaná věc zdá realističtější. Dalším důležitým algoritmem je radiosity algororithm.
-    Tento lgoritmus počítá světlo polygonu součtem světla kolik vyzařuje a kolik světla příjmá od
-    ostatních polygonů. Narodíl ale od starších algoritmu všechny polygony také nějaké světlo
-    odrážejí, což je dáno povrchem polygonu. Toto odražené světlo se také počítá do celkového
-    osvícení ostatních polygonů. Významné zlepšení proběhlo u Ray Casting algoritmu. Paprsek se místo
-    toho, aby se o polygon zastavil, odrazí a algoritmus se znovu rekurzivně spustí pro tento
-    paprsek. Toto zlepšení umožňuje vidět v odraze jednoho polygonu polygon druhý.
-    \cite{real_time_rendering, putting_the_original_trons_special_effects_together, what_are_nurbs, theory_brdf, radiosity_algorithm}
-
-    V průběhu 90. let se významě vylepšovaly domácí počítače, které dokázali spustit i složitější
-    programy a hry. 3D grafika se stala populárnější a vznikal pro ni i software jako Blender nebo
-    3D Studio. Nevznikli žádné nové revoluční renderovací metody, ale díky zlepšení výkonu
-    počítačů se mohly začít využívat metody dříve vytvořené, které byly příliě náročné pro
-    tehdejší počítače. Velký pokrok zaznamenal filmový průmysl. Terminátor 2 použil CGI na
-    realistického humanoidního robota. V roce 1995 vydal Pixar první celovečerní plně počítačově
-    animovaný film toy strory. 90. léta jsou označována jako zlatý věk videoher. První z důležitých
-    her je Wolfenstein 3D. Tato hra využívá ray-casting, takže není 3D, ale vytváří iluzi 3D
-    prostoru. Další důležitou hrou je Doom. Tato hra byla 2.5D, tedy kombinovala prvky 2D a 3D. Zdi
-    a podlaha byly 3D modely, ale příšery byly 2D sprity, kterych bylo vice a ukazovaly se podle toho
-    pod jakým úhlem se hráč na příšeru koukal. První plně 3D hra bula Quake. Quake měl pokročilý
-    client-server multiplayer, takže bylo možno hrát ne jen na LAN, ale i přes internet. 3D modely
-    umožnili vývojářům přidat do hry 3. rozměr a tím i více patrové mapy či létející projektyly a
-    nepřátele.
-    \cite{a_timeline_of_3d_softwares, development_history, what_was_the_deal_with_doom, how_quake_multiplayer_works, quake_engine_analysis}
-
-    V novém tisíciletí se zlepšovalo vše, co se doposud vynalezlo. Renderovací algoritmy mohli býti
-    více realisticé kvůli zlepšení \gls{gpu}.
-    
-
 \section{Grafické karty}
 \subsection{CPU vs. GPU}
     Tradičně běžela většina apklikací sekvenčně, které běží na procesorech, které
@@ -465,6 +342,7 @@ int main()
     Místo toho se využívají transformace pomocí matic. Matice jsou obdélníková pole matematických
     výrazů. Souřadnice objektů se ukládají do 4D vektorů a transformace do 4x4 matic, které se mezi
     sebou vynásobí.
+    \cite{learn_opengl}
     $$
     \begin{pmatrix}
     m_{00} \cdot x + m_{01} \cdot y + m_{02} \cdot z + m_{03} \cdot w \\
@@ -695,14 +573,13 @@ objektu. Následně se barvy a textury poměrově mixují podle nastavených alp
 \chapter{to do}
     mozna pridat trochu historie compileru u C a CPP
 
-    celá část hirstorie počítačové grafiky je scuffed, chybí tam
-    části o gpu, a nejspis to bude potreba zkratit a udelat rozdeleni do subsectionu podle let
-
     kdyz introdusuju zkratku, dej ji velka pismena, at ctenar vi ze je to zkratka
 
     predelat pomlcky z - na tu dinvou co pouziva chat a chce ji pazi
 
     odendej vsechny cislovky z textu a nahrad je slovama
+
+    mozna pridat ukazku vertex a fragment shaderu
 
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
@@ -740,6 +617,11 @@ které níže vysvětlím.
         případně volá aktualizaci životů a skóre.
     \item \texttt{random.cpp} – Vytváří náhodné hodnoty typu double a float.
 \end{itemize}
+
+    \begin{figure}[H]
+        \includegraphics[width=\linewidth]{game_showcase.png}
+        \caption{Ukázka běžící hry} 
+    \end{figure}
 
 \chapter{Použité programy a knihovny}
 \section{CMake}
