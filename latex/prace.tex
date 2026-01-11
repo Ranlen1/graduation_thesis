@@ -222,6 +222,16 @@ int main()
     mazaní, zoomování či ukládání. Tím vznikl první počítač s interaktivní počítačovou grafikou.
     \cite{history_of_the_gpu_new_developments, milestones:whirldwind_computer, sage:semi-automatic_ground_environment_air_defense_system, a_critical_history_of_computer_graphics_and_animation, vision_and_reality_of_hypertext_and_graphical_user_interfaces}
 
+    Společně s vývojem počítačové grafiky začaly vznikat i první videohry. Hra Spacewar! byla
+    jedna z prvních, která se rozšířila po laboratoř9ch na amerických univerzitách. Hru 
+    vytvořil na MIT Steve Russell a jeho přátelé v roce 1962. Hra byla vytvořena pro dva hráče,
+    každý ovládal svou loď a jeho cílem bylo sestřelit loď protihráče. Lodě byly ovládány speciálním
+    boxem, který se dá považovat za předchůdce moderních herních kontrolerů. Hra běžela na počítači
+    PDP-1, který namísto rasterové grafiky využíval grafiku vektorovou.
+    Věci vykreslené na osciloskopu byly definované matematickou funkcí.
+    Díky tomu, že vektorová grafika nebyla tolik náročná na \gls{cpu}
+    jako rasterová, mohla ve hře být hvězda, která svojí gravitací působila na lodě.
+    \cite{spacewar, vector_graphics, spacewar_controllers}
 
     S postupným vývojem počítačů se začaly vytvářet i grafické algoritmy. Jedním z nich je
     Bresenhamův algoritmus. Vytvořil ho Jack Elton Bresenham v roce 1962 v International
@@ -297,16 +307,6 @@ int main()
     V novém tisíciletí se zlepšovalo vše, co se doposud vynalezlo. Renderovací algoritmy mohli býti
     více realisticé kvůli zlepšení \gls{gpu}.
     
-    Společně s vývojem počítačové grafiky začaly vznikat i první videohry. Hra Spacewar! byla
-    jedna z prvních, která se rozšířila po laboratoř9ch na amerických univerzitách. Hru 
-    vytvořil na MIT Steve Russell a jeho přátelé v roce 1962. Hra byla vytvořena pro dva hráče,
-    každý ovládal svou loď a jeho cílem bylo sestřelit loď protihráče. Lodě byly ovládány speciálním
-    boxem, který se dá považovat za předchůdce moderních herních kontrolerů. Hra běžela na počítači
-    PDP-1, který namísto rasterové grafiky využíval grafiku vektorovou.
-    Věci vykreslené na osciloskopu byly definované matematickou funkcí.
-    Díky tomu, že vektorová grafika nebyla tolik náročná na \gls{cpu}
-    jako rasterová, mohla ve hře být hvězda, která svojí gravitací působila na lodě.
-    \cite{spacewar, vector_graphics, spacewar_controllers}
 
 \section{Grafické karty}
 \subsection{CPU vs. GPU}
@@ -340,136 +340,131 @@ int main()
     propustnosti i pro velmi velký objem dat rychlé.
     \cite{programming_massively_parallel_processors}
 
-    Do roku 2007 se \gls{gpu} pouzival prevazne pro renderovani, ale v roce 2007 prisla NVIDIA s
-    programovacim modelem pro paralelni vypocty CUDA. Tento model umoznuje psat programy, ktere
-    bezi na \gls{gpu} a vyuzivaji \gls{cpu} na prenost dat a rizeni techto programu. 
-    Diky tomu mohli zacit vznikat aplikace, ktere normalne bezi na \gls{cpu}, ale pri potrebe
-    narocnejsich pocetnich operaci mohly bezet na \gls{gpu}, a tim
-    zvysit vykon. Pro ucel vysvetleni programovacich modelu pro paralelni vypocty budu vyuzivat
-    model CUDA, pricemz existuji i jine podobne modely jako OpenCL nebo SYCL.
+    Do roku 2007 se \gls{gpu} používalo převážně pro renderování, ale v roce 2007 přišla NVIDIA s
+    programovacím modelem pro paralelní výpočty CUDA. Tento model umožňuje psát programy, které běží
+    na \gls{gpu} a využívají \gls{cpu} na přenos dat a řízení těchto programů. Díky tomu mohly začít
+    vznikat aplikace, které normálně běží na \gls{cpu}, ale při potřebě náročnějších početních
+    operací mohly běžet na \gls{gpu}, a tím zvýšit výkon. Pro účel vysvětlení programovacích modelů
+    pro paralelní výpočty budu využívat model CUDA, přičemž existují i jiné podobné modely jako
+    OpenCL nebo SYCL. 
     \cite{programming_massively_parallel_processors}
 
 \subsection{Architektura a paměťová hierarchie GPU}
 
-    \gls{gpu} s podporou CUDA je organizovano do pole paralelnich streamovacich multiprocesoru
-    \gls{sm}. Kazdy \gls{sm} se sklada z nekolika streamovacich procesoru \gls{sp}, ktere jsou
-    zakladni vypocetni jednotkou, na ktere probihaji aritmeticke operace. Dalsi soucasti jsou ridici
-    jednotky, ktere nacitaji instrukce pro dany \gls{sm}. Ridici jednotky taky obsahuji malou
-    cache na instrukce, aby se pro ne meuselo porad sahat do \gls{ram}. Dale je unvintr \gls{sm} warp
-    scheduler, ktery ridi ktere zkupiny vlaken budou v kazdem cyklu pouzity.
+    \gls{gpu} s podporou CUDA je organizováno do pole paralelních streamovacích multiprocesorů
+    \gls{sm}. Každý \gls{sm} se skládá z několika streamovacích procesorů \gls{sp}, které jsou
+    základní výpočetní jednotkou, na které probíhají aritmetické operace. Další součástí jsou řídicí
+    jednotky, které načítají instrukce pro daný \gls{sm}. Řídicí jednotky také obsahují malou cache
+    na instrukce, aby se pro ně nemuselo pořád sahat do \gls{ram}. Dále je uvnitř \gls{sm} warp
+    scheduler, který řídí, které skupiny vláken budou v každém cyklu použity.
     \cite{programming_massively_parallel_processors}
 
-    Vetsina grafickych karet ma svoji vlastni dynamic random access memory \gls{dram}, ktere se rika
-    globalni pamet. V grafickych kartach je specificky typ \gls{dram} zvany \gls{vram}. Tato pamet ma
-    jednotky az desitky gigabytu. Dochazi v ni k vymene dat mezi host memory. Rychla vymena dat
-    mezi host memory a \gls{vram} je zarucena velkou propustnosti, ktera je zpusobena nacitanim
-    dat blokove namisto sekvencne a take posilanim vetsiho objemu dat najednou. \gls{vram} je zdilena
-    mezi vsemy \gls{sm}, ale pristup k ni je relativne pomaly. Dalsi pameti je shared memory, ktera
-    ma vetsinou desitky kilobajtu. Tuto pamet ma kazdy \gls{sm}, a kazdy \gls{sp} si do ni muze
-    sahat. V kazdem \gls{sm} se takze vyskytuje L1 cache, ktera slouzi k uchovavani dat, ze ktercyh se
-    nedavno cetlo nebo byla zmenena. Dale existuje L2 cache, ktera je vetsi nez L1 cache, a je
-    jedna pro vsechny \gls{sm}. Pouziva se pro uchovavani dat nedavno ziskana nebo poslana do
-    \gls{vram}. Cast \gls{vram} je take urcena pro dva jine typy pameti a to texture a constant
-    memory. Obe pameti maji k sobe prirazenou svoji
-    cache a jsou read-only. Tim ze jsou read-only, muzeme casto pouzivane hodnoty uchovavat v cachi
-    bez obavy z toho, ze by se dana promena mohla v prubehu zmenit. Nejmensi, ale take nejrychlejsi
-    casti pamety jsou register files. Tato pamet primo komunikuje s \gls{sp} a ukladaji se do ni
-    docasne promene a mezivypocty.
+    Většina grafických karet má svoji vlastní dynamic random access memory \gls{dram}, které se říká
+    globální paměť. V grafických kartách je specifický typ \gls{dram} zvaný \gls{vram}. Tato paměť má
+    jednotky až desítky gigabytů. Dochází v ní k výměně dat mezi host memory a \gls{vram}.Tato rychlá
+    výměna dat je zaručena velkou propustností, která je způsobena načítáním dat blokově namísto
+    sekvenčně a také posíláním většího objemu dat najednou. \gls{vram} je sdílena mezi všemi \gls{sm},
+    ale přístup k ní je relativně pomalý. Další pamětí je shared memory, která má většinou desítky
+    kilobajtů. Tuto paměť má každý \gls{sm} a každý \gls{sp} si do ní může sahat. V každém \gls{sm}
+    se také vyskytuje L1 cache, která slouží k uchovávání dat, ze kterých se nedávno četlo nebo byla
+    změněna. Dále existuje L2 cache, která je větší než L1 cache a je jedna pro všechny \gls{sm}.
+    Používá se pro uchovávání dat nedávno získaných nebo poslaných do \gls{vram}. Část \gls{vram} je
+    také určena pro dva jiné typy paměti, a to texture a constant memory. Obě paměti mají k sobě
+    přiřazenou svoji cache a jsou read-only. Tím, že jsou read-only, můžeme často používané hodnoty
+    uchovávat v cache bez obavy z toho, že by se daná proměnná mohla v průběhu změnit. Nejmenší, ale
+    také nejrychlejší částí paměti jsou register files. Tato paměť přímo komunikuje s \gls{sp} a
+    ukládají se do ní dočasné proměnné a mezivýpočty.
     \cite{programming_massively_parallel_processors, memory_hierarchy_of_gpu, memory_types_of_gpu}
+
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{GPU_architecture.png}
-        \caption{Typická architektura NVIDIA \gls{gpu} \cite{gpu_image_source}}
+        \caption{Typická architektura NVIDIA \gls{gpu} \cite{gpu_image_source}} 
     \end{figure}
 
 \subsection{Paralelismus}
-    Paralelismus je vypocetni technika, ktera umoznuje vykonavani vice operaci najednou. Paralelismus
-    se da rozdelit do dvou kategorii. Prvni z nich je ulohovy paralelismus. Tento typ nasleduje
-    Multiple Insturctions, Multiple Data (MIMD) model. Tento model rozdeli ruzne ulohy mezi vice
-    vlaken nebo i jader. Tento model se vyuziva, pokud na sobe nejsou ulohy zavisle. Pokud by se
-    napriklad chtela vypocitat suma arraye, muze kazde vlakno pocitat jednu polovinu a dva vysledky
-    secist. MIMD se vyuziva v simulacich nebo na webovych aplikacich.
+    Paralelismus je výpočetní technika, která umožňuje vykonávání více operací najednou. Paralelismus
+    se dá rozdělit do dvou kategorií. První z nich je úlohový paralelismus. Tento typ následuje
+    Multiple Instructions, Multiple Data (MIMD) model. Tento model rozdělí různé úlohy mezi více
+    vláken nebo i jader. Tento model se využívá, pokud na sobě nejsou úlohy závislé. Pokud by se
+    například chtěla vypočítat suma vectoru, může každé vlákno počítat jednu polovinu a oba výsledky
+    sečíst. MIMD se využívá v simulacích nebo ve webových aplikacích.
     \cite{programming_massively_parallel_processors, types_of_parallelism}
 
-    Druhou metodou je data paralelismus, ktery je definovan Single Instruction, Multiple Data (SIMD)
-    modelem. Tento model aplikuje jedno ulohu pro velke mnozstvi dat a vyuziva se v \gls{gpu}.
-    Pouziva ne napriklad pri nasobeni matic, kde se dana matice da rozdelit na mensi casti nebo
-    pri vykreslovani, kdy se jeden shader aplikuje pro kazdy pixel. V grafickych kartach se
-    jednotliva vlakna sdruzuji do warpu, ty dale do bloku, ktere planuje \gls{sm}. Do kazdeho warpu
-    jsou nactene stejne instrukce a postupne se se mu dodavaji data, na kterych dane instrukce
-    provadi. Diky tomu lze i velke mnozstvi dat zpracovat velmi rychle, protoze se dodavaji s velkou 
-    propustnosti a instrukce na nich jsou provadeny soucasne na velkem mnozstvi warpu.
+    Druhou metodou je datový paralelismus, který je definován Single Instruction, Multiple Data (SIMD)
+    modelem. Tento model aplikuje jednu úlohu pro velké množství dat a využívá se v \gls{gpu}.
+    Používá se například při násobení matic, kde se daná matice dá rozdělit na menší části, nebo při
+    vykreslování, kdy se jeden shader aplikuje pro každý pixel. V grafických kartách se jednotlivá
+    vlákna sdružují do warpů, ty dále do bloků, které plánuje \gls{sm}. Do každého warpu jsou načteny
+    stejné instrukce a postupně se mu dodávají data, na kterých dané instrukce provádí. Díky tomu lze
+    i velké množství dat zpracovat velmi rychle, protože se dodávají s velkou propustností a
+    instrukce na nich jsou prováděny současně na velkém množství warpů.
     \cite{programming_massively_parallel_processors, types_of_parallelism}
 
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{vlakna_v_sm.png}
-        \caption{Rozělení vláken do warpu v \gls{sm} \cite{programming_massively_parallel_processors}}
+        \caption{Rozdělení vláken do warpů v \gls{sm} \cite{programming_massively_parallel_processors}} 
     \end{figure}
+
 \section{Grafická zobrazovací pipeline}
-    Hlavni funkci graficke zobrazovaci pipeline je vyrenderovat dvourozmerny obraz z trojrozmernych
-    objektu, pozice virtualni kamery, zdroju svetla atd., ktery je schopen byt zobrazen 
-    na napriklad monitoru. Pipeline se sklada z
-    nekolika fazi. Tyto faze probihaji paralelne v ramci jednotlivych fazi, tedy jedna faze probiha
-    pro vice dat najednou, tak i mezi jednotlivymi fazemi, takze pro pruchodu jednoho bloku dat
-    jednou fazi prechazi do dalsi faze, i kdyz pro jina data jeste predchozi faze nemusi byt 
-    ukoncena. Hlavni ctyri faze jsou aplikacni faze, geometricke zpracovani, rasterizace a zpracovani
-    pixelu.
+    Hlavní funkcí grafické zobrazovací pipeline je vyrenderovat dvourozměrný obraz z trojrozměrných
+    objektů, pozice virtuální kamery, zdrojů světla atd., který je schopen být zobrazen například na
+    monitoru. Pipeline se skládá z několika fází. Tyto fáze probíhají paralelně jak v rámci
+    jednotlivých fází (tedy jedna fáze probíhá pro více dat najednou), tak i mezi jednotlivými
+    fázemi, takže po průchodu jednoho bloku dat jednou fází data přecházejí do další fáze, i když pro
+    jiná data ještě předchozí fáze nemusí být ukončena. Hlavní čtyři fáze jsou aplikační fáze,
+    geometrické zpracování, rasterizace a zpracování pixelů.
     \cite{real_time_rendering}
 
-    Aplikacni faze je rizena samotnou aplikaci a je vetsinou implementovana jako software bezici
-    na \gls{cpu}. Tato faze nema zadne podprvky, a proto muze bezet paralelne na ruznych jadrech.
-    V teto casti se zpracovavaji vztupy od uzivatele, ktere napriklad pozmenuji matici k posunuti,
-    otoceni nebo zmeny velkikosti ruznych objektu. V teto casti take dochazi detekce kolizi,
-    akceleracni algoritmy, fyzikalni simulace a dalsi vypocty, ktere pripravuji data pro dalsi
-    scenu.
+    Aplikační fáze je řízena samotnou aplikací a je většinou implementována jako software běžící na
+    \gls{cpu}. Tato fáze nemá žádné podprvky, a proto může běžet paralelně na různých jádrech. V této
+    části se zpracovávají vstupy od uživatele, které například pozměňují matici k posunutí, otočení
+    nebo změně velikosti různých objektů. V této části také dochází k detekci kolizí, akceleračním
+    algoritmům, fyzikální simulaci a dalším výpočtům, které připravují data pro další scénu.
     \cite{real_time_rendering}
 
-    Dalsi casti pipeliny je geometricke zpracovani. Ta jo zodpovedna za vetsinu operaci pro kazdy
-    trojuhelniky a vrcholy, ktere tvori objetky. Rozdeluje se na ctyri podfaze, vertex shading,
-    projekce, clipping a screen mapping. Vertex shading vypocitava pozici vrcholu a pripravuje jeho
-    data jako barvy a textury. Objekt je transformovan z modeloveho prostoru do svetovych souradnic,
-    tedy souradnic relevantni pro vsechny objekty ve scene. Dale se to transformuje do kameroveho
-    prosotru, ve kterym je kamera v bode nula. Pote dochazi k projekce, kdy dochazi k transformaci
-    z kameroveho prostoru do clip spacu, aby bylo mozne provezt clipping. Clipping urcuje, jaky
-    objekt se budou renderovat. 
-    Pokud by napriklad cely objekt byl mimo zorne pole sceny, neni renderovan,
-    aby zbytecne nezatezoval \gls{gpu}. Posledni casti je mapovani na obrazovku, ktera prevede
-    souradnice z clip spacu do souradnic obrazovky, pripravene pro rasterrizaci.
-    Soucasti vertex shadingu jsou take volitelne faze vertex zpracovani. Tessellation generuje
-    vhodne trojuhelniky pro zakrivene povrchy, aby vypadali
-    realisticneji. Geometry shader umoznuje podle potreby vytvaret nove vrcholy
-    z existujicich trojuhelniku nebo bodu, coz se pouziva napriklad u malych castic, aby byli
-    lepe videt na obrazovce, 
-    takze se z nej udela napriklad maly ctverec. Posledni volitelna faze je stream output,
-    ktera umoznuje namisto poslani vrcholu do dalsi faze ulozit vrcholy do bufferu, na kterych
-    \gls{cpu} muze delat dalsi vypocty ci simulace. 
+    Další částí pipeline je geometrické zpracování. Ta je zodpovědná za většinu operací pro každý
+    trojúhelník a vrcholy, které tvoří objekty. Rozděluje se na čtyři podfáze: vertex shading,
+    projekce, clipping a screen mapping. Vertex shading vypočítává pozici vrcholu a připravuje jeho
+    data, jako barvy a textury. Objekt je transformován z modelového prostoru do světových souřadnic,
+    tedy souřadnic relevantních pro všechny objekty ve scéně. Dále se transformuje do kamerového
+    prostoru, ve kterém je kamera v bodě nula. Poté dochází k projekci, kdy dochází k transformaci z
+    kamerového prostoru do clip spacu, aby bylo možné provést clipping. Clipping určuje, jaké objekty
+    se budou renderovat. Pokud by například celý objekt byl mimo zorné pole scény, není renderován,
+    aby zbytečně nezatěžoval \gls{gpu}. Poslední částí je mapování na obrazovku, které převede
+    souřadnice z clip spacu do souřadnic obrazovky připravených pro rasterizaci. Součástí vertex
+    shadingu jsou také volitelné fáze vertex zpracování. Tessellation generuje vhodné trojúhelníky
+    pro zakřivené povrchy, aby vypadaly realističtěji. Geometry shader umožňuje podle potřeby
+    vytvářet nové vrcholy z existujících trojúhelníků nebo bodů, což se používá například u malých
+    částic, aby byly lépe vidět na obrazovce, takže se z nich udělá například malý čtverec. Poslední
+    volitelná fáze je stream output, která umožňuje namísto poslání vrcholu do další fáze uložit
+    vrcholy do bufferu, na kterých \gls{cpu} může dělat další výpočty či simulace.
     \cite{real_time_rendering}
 
-    Nasledujici faze je restarizace, jejiz ucel je nalezt vsechny pixely uvnitr vykreslovaneho
-    trojuhelniku. Restarizace se deli na pripravu trojuhelniku a pruchod trojuhelnikem. Pri priprave
-    se vypocitavaji diferencialy, rovnice hran a jina podobna data, ktera jsou vyuzivana k zjistovani
-    zda dany pixel lezi uvnitr trojuhelniku. Pri pruchodu se zjistuje, zda stred pixelu lezi uvnitr
-    trojuhelniku a pokud ano, vytvori se pro dany pixel fragment. Vlastnosti, jako barva, hloubka atd.
-    jednotlivych fragmentu se ziskavaji interpolaci mezi vrcholy daneho trojuhelniku a
-    nasledne se ukladaji do specificych bufferu. Vysledne
-    fragmenty jsou nasledne predany do faze pixeloveho zpracovani.
+    Následující fáze je rasterizace, jejímž účelem je nalézt všechny pixely uvnitř vykreslovaného
+    trojúhelníku. Rasterizace se dělí na přípravu trojúhelníku a průchod trojúhelníkem. Při přípravě
+    se vypočítávají diferenciály, rovnice hran a jiná podobná data, která jsou využívána ke
+    zjišťování, zda daný pixel leží uvnitř trojúhelníku. Při průchodu se zjišťuje, zda střed pixelu
+    leží uvnitř trojúhelníku, a pokud ano, vytvoří se pro daný pixel fragment. Vlastnosti jako barva,
+    hloubka atd. jednotlivých fragmentů se získávají interpolací mezi vrcholy daného trojúhelníku a
+    následně se ukládají do specifických bufferů. Výsledné fragmenty jsou následně předány do fáze
+    pixelového zpracování.
     \cite{real_time_rendering}
 
-    Pixelove zpracovani se deli na pixelove stinovani a slucovani. Ve fazi pixeloveho stinovani
-    se provadeji vypocty stinovani jednotlivych pixelu z stinovacich dat. Vysledkem je jeden nebo
-    vice barevnych vystupu. V teto fazi se pouziva hodne specifickych
-    technik, jako napriklad texturovani.
-    Pixelove stinovani je narozdil od ostatnich fazi, ktere jsou dany architekturou \gls{gpu},
-    dano programovatelnymy jadry \gls{gpu}. Pri slucovani dochazi k kombinaci vyztupu pixeloveho
-    stinovani a ulozenych barev v bufferech. V teto fazi se take resi viditelnost, aby se
-    vykreslovalal pro dany pixel fragment s nejmensi hloubkou.
+    Pixelové zpracování se dělí na pixelové stínování a slučování. Ve fázi pixelového stínování se
+    provádějí výpočty stínování jednotlivých pixelů ze stínovacích dat. Výsledkem je jeden nebo více
+    barevných výstupů. V této fázi se používá hodně specifických technik, jako například texturování.
+    Pixelové stínování je na rozdíl od ostatních fází, které jsou dány architekturou \gls{gpu}, dáno
+    programovatelnými jádry \gls{gpu}. Při slučování dochází ke kombinaci výstupu pixelového
+    stínování a uložených barev v bufferech. V této fázi se také řeší viditelnost, aby se vykresloval
+    pro daný pixel fragment s nejmenší hloubkou.
     \cite{real_time_rendering}
 
 \section{Transformace}
-    V prubehu renderovani je casto potreba s objekty ruzne pohybovat. Mohli bychom pozmenovat
-    souradnice puvodnich vrcholu a opetovne konfigurovat jejich buffery, ale to je vypocetne naroce.
-    Misto toho se vyuzivaji transformace pomoci matic. Matice jsou obdelnikove pole matematickych
-    vyrazu. Souradnice objektu se ukladaji do 4D vektoru, a transformace do 4x4 matice, ktere se
-    mezi sebou vynasobi.
+    V průběhu renderování je často potřeba s objekty různě pohybovat. Mohli bychom pozměňovat
+    souřadnice původních vrcholů a opětovně konfigurovat jejich buffery, ale to je výpočetně náročné.
+    Místo toho se využívají transformace pomocí matic. Matice jsou obdélníková pole matematických
+    výrazů. Souřadnice objektů se ukládají do 4D vektorů a transformace do 4x4 matic, které se mezi
+    sebou vynásobí.
     $$
     \begin{pmatrix}
     m_{00} \cdot x + m_{01} \cdot y + m_{02} \cdot z + m_{03} \cdot w \\
@@ -492,11 +487,10 @@ int main()
     w
     \end{pmatrix}
     $$
-    Mezi zakladni operace patri translace, rotace a skalovani. Translace je operace, pri ktere se
-    k puvodnimu vektoru price jiny vektor, cimz se puvodni objekt posune.
-    Potrebujeme translacni hodnoty nasobit
-    slozkou w vektoru, ktera je nastavena na 1, aby neupravila tyto hodnoty. Proto pouzivame 4D
-    vektor, protoze s 3D vektorem by translace nebyla mozna.
+    Mezi základní operace patří translace, rotace a škálování. Translace je operace, při které se k
+    původnímu vektoru přičte jiný vektor, čímž se původní objekt posune. Potřebujeme translační
+    hodnoty násobit složkou w vektoru, která je nastavena na 1, aby neupravila tyto hodnoty. Proto
+    používáme 4D vektor, protože s 3D vektorem by translace nebyla možná.
     $$
     \begin{pmatrix}
     x + T_{x} \\
@@ -519,8 +513,8 @@ int main()
     1
     \end{pmatrix}
     $$
-    Dalsi operaci je skalovani. Pri teto operaci se dane souradnice nasobi konstantou, cimz se muze
-    dany objekt zmensit nebo zvetsit. 
+    Další operací je škálování. Při této operaci se dané souřadnice násobí konstantou, čímž se může
+    daný objekt zmenšit nebo zvětšit.
     $$
     \begin{pmatrix}
     S_{x} \cdot x \\
@@ -543,9 +537,8 @@ int main()
     1
     \end{pmatrix}
     $$
-    Posledni dulezita operace je otaceni. Pri teto operaci zavisi na tom, podle jake osy se ma
-    objekt otacet a o kolik radianu se ma otocit.
-
+    Poslední důležitá operace je otáčení. Při této operaci závisí na tom, podle jaké osy se má objekt
+    otáčet a o kolik radiánů se má otočit.
     Rotace podle osy X:
     $$
     \begin{pmatrix}
@@ -618,89 +611,85 @@ int main()
     \end{pmatrix}
     $$
 
-    Pri provadeni transformaci zalezi na poradi. Pokud je pro transformaci jednoho objektu vice
-    matic, pronasobi se matice mezi sebou, a pouziva se vysledna matice.
-    Pri tvoreni takove matice se ale postupuje v opacnem
-    poradi nasobeni. Pokud by jsme pro vektor V chteli
-    udelat operace a, b a c, tak to lze udelat nasledovne:
+    Při provádění transformací záleží na pořadí. Pokud je pro transformaci jednoho objektu více matic,
+    pronásobí se matice mezi sebou a používá se výsledná matice. Při tvoření takové matice se ale
+    postupuje v opačném pořadí násobení. Pokud bychom pro vektor V chtěli udělat operace a, b a c,
+    tak to lze udělat následovně:
     $$ \mathbf{V'} = \mathbf{C} \cdot (\mathbf{B} \cdot (\mathbf{A} \cdot \mathbf{V})) $$
     nebo
     $$ \mathbf{M} = \mathbf{C} \cdot \mathbf{B} \cdot \mathbf{A} $$
     $$ \mathbf{V'} = \mathbf{M} \cdot \mathbf{V} $$
 
-
-\chapter{OpengGL}
-
+\chapter{OpenGL}
 \section{Historie OpenGL}
-Open GL je povazovano za Application Programming Interface \gls{api}, ktera uzivatelum poskytuje sadu
-funkci, kterou muzeme pouzivat k manipulaci s grafickou karou. Specifikaci pro OpenGL dela spolecnost
-Khronos Group, ktera urcuje jake funkce existuji a jak se budou chovat. Pote kazda spolecnost
-implementuje OpenGL API pro svuj druh grafickych karet.
+OpenGL je považováno za Application Programming Interface \gls{api}, které uživatelům poskytuje sadu
+funkcí, kterou můžeme používat k manipulaci s grafickou kartou. Specifikaci pro OpenGL tvoří
+společnost Khronos Group, která určuje, jaké funkce existují a jak se budou chovat. Poté každá
+společnost implementuje OpenGL API pro svůj druh grafických karet.
 \cite{learn_opengl}
 
 \section{OpenGL pipeline}
-Graficka pipeline je velmi podobrna obecne graficke pipeline, kterou jsem popisoval v predchozi
-kapitole. Uzivatel je schopen kontrolovat programovatelne faze pipeline, tedy vertexovym a
-fragmentovym shaderem. Casti jako rasterizace jsou nemenne a jsou definovane v API.
+Grafická pipeline je velmi podobná obecné grafické pipeline, kterou jsem popisoval v předchozí
+kapitole. Uživatel je schopen kontrolovat programovatelné fáze pipeline, tedy vertexový a fragmentový
+shader. Části jako rasterizace jsou neměnné a jsou definované v API.
 \cite{learn_opengl}
 
 \section{Shadery}
 \subsection{Co to je shader}
-Shader je maly program, ktery bezi na \gls{gpu}. Tyto programy se spousteji pro konkretni cast
-graficke pipeline. Shadery premenuji vstupy a prevadeji je na vystupy potrebne pro nasledujici faze.
-Starsi verze OpenGL meli defaultni shadery, ale v novejsich verzich je uzivatel povinen vytvorit
-zakladni shadery, aby \gls{gpu} neco vykreslila. Shadery jsou od sebe izolovane a komunikuji spolu
-pouze pomoci vstupu a vystupu. Shaderu je vice druhu a dva zakladni jsou vertex a fragment shader.
-Shadery se kompiluji a linkuji a nasledne ukladaji do pameti \gls{gpu} jako soucast shader programu.
-To je objekt ktery je vysledna slinkvovana verze vice shaderu. Shader programu muze mit uzivatel vice
-a pro kazdy objekt si muze vybrat jiny, podle toho jake shadery na nej chce pouzit.
+Shader je malý program, který běží na \gls{gpu}. Tyto programy se spouštějí pro konkrétní část
+grafické pipeline. Shadery přeměňují vstupy a převádějí je na výstupy potřebné pro následující fáze.
+Starší verze OpenGL měly defaultní shadery, ale v novějších verzích je uživatel povinen vytvořit
+základní shadery, aby \gls{gpu} něco vykreslila. Shadery jsou od sebe izolované a komunikují spolu
+pouze pomocí vstupů a výstupů. Shaderů je více druhů a dva základní jsou vertex a fragment shader.
+Shadery se kompilují a linkují a následně ukládají do paměti \gls{gpu} jako součást shader programu.
+To je objekt, který je výslednou slinkovanou verzí více shaderů. Shader programů může mít uživatel
+více a pro každý objekt si může vybrat jiný podle toho, jaké shadery na něj chce použít.
 \cite{learn_opengl}
 
 \subsection{Vertex shader}
-Zakladni ucel vertex shaderu je zpracovavani vrcholu objektu. Do vertex shaderu vztupuji atributy
-vrcholu, jako barvy nebo 3D souradnice bodu v modelovem prostoru. Vertex shader provadi transformace
-techto souradnic do svetoveho, kameroveho a nasledne clip prostoru pomoci transformacnich matic.
-Vztupni data jsou ulozena v \gls{gpu}, kde k nim ma vertex shader primy pristup.
+Základní účel vertex shaderu je zpracovávání vrcholů objektu. Do vertex shaderu vstupují atributy
+vrcholů, jako barvy nebo 3D souřadnice bodů v modelovém prostoru. Vertex shader provádí transformace
+těchto souřadnic do světového, kamerového a následně clip prostoru pomocí transformačních matic.
+Vstupní data jsou uložena v \gls{gpu}, kde k nim má vertex shader přímý přístup.
 \cite{learn_opengl}
 
 \subsection{Fragment shader}
-Ucelem fragment shaderu je vypocitavani barevneho
-vystupu pro pixely. Barvy se v OpenGL definuji 4D vektorem s floaty od 0.0 do 1.0. Tyto cisla udavaji
-silu barev cervena, zelena a modra (RGB). Posledni cilso udava alfa hodnotu, tedy jak moc kombinace
-danych tri barev bude pruhledna. Ve fragment shaderu take dochazi k texturovani a ruznym efektum jako
-odlesky, stinovani atd.
+Účelem fragment shaderu je vypočítávání barevného výstupu pro pixely. Barvy se v OpenGL definují 4D
+vektorem s floaty od 0.0 do 1.0. Tato čísla udávají sílu barev červená, zelená a modrá (RGB).
+Poslední číslo udává alfa hodnotu, tedy jak moc kombinace daných tří barev bude průhledná. Ve
+fragment shaderu také dochází k texturování a různým efektům, jako jsou odlesky, stínování atd.
 \cite{learn_opengl}
 
 \subsection{Buffery a linkování}
-Vztupni data vertex shaderu se ukladaji do pameti \gls{gpu} pomoci Vertex Buffer Objektu \gls{vbo}.
-Ten v sobe dokaze ulozit velke mnozstvi dat, diky cemuz jich posilame vice najednou a vyuzivame
-vysokou propustnost \gls{gpu}. Tyto data jsou pak jednoduse pristupna pro vertex shader, ktery s nimi
-v \gls{gpu} pracuje. Nasledne se propojuji vertex attributy. To udava, jak jsou vztupni data linknuta
-k promennym uvnitr vertex shaderu. Dalsim dulezitym objektem je Vertex Array Object \gls{vao}, do
-ktereho se uklada jak jsou data v VBO usporadana a jak se maji propojit s vertex shadery. 
-\cite{learn_opengl} 
+Vstupní data vertex shaderu se ukládají do paměti \gls{gpu} pomocí Vertex Buffer Objektu \gls{vbo}.
+Ten v sobě dokáže uložit velké množství dat, díky čemuž jich posíláme více najednou a využíváme
+vysokou propustnost \gls{gpu}. Tato data jsou pak jednoduše přístupná pro vertex shader, který s nimi
+v \gls{gpu} pracuje. Následně se propojují vertex atributy. To udává, jak jsou vstupní data linknuta
+k proměnným uvnitř vertex shaderu. Dalším důležitým objektem je Vertex Array Object \gls{vao}, do
+kterého se ukládá, jak jsou data v VBO uspořádána a jak se mají propojit s vertex shadery.
+\cite{learn_opengl}
 
-Shadery se kompiluji a linkuji a nasledne ukladaji do pameti \gls{gpu} jako soucast shader programu.
-To je objekt ktery je vysledna slinkvovana verze vsech shaderu. Linkovani shaderu propojuje vystupy
-jednoho shaderu s vstupy druheho. Shader programu muze mit uzivatel vice a pro kazdy objekt si muze
-vybrat jiny, podle toho jake shadery na nej chce pouzit.
+Shadery se kompilují a linkují a následně ukládají do pameti \gls{gpu} jako součást shader programu.
+To je objekt, který je výslednou slinkovanou verzí všech shaderů. Linkování shaderů propojuje výstupy
+jednoho shaderu se vstupy druhého. Shader programů může mít uživatel více a pro každý objekt si může
+vybrat jiný podle toho, jaké shadery na něj chce použít.
 \cite{learn_opengl}
 
 \subsection{GLSL}
-Shadery se pisi v programovacim jazyce OpenGL Shading Language \gls{glsl}, ktery je podobny jazyku C.
-\gls{glsl} je specificky navrzen pro praci s grafikou a obsahuje uzite funkce na manipulaci s vektory
-a maticemi. Pokud jsou na sebe linknute dva shadery, vystupy z prvniho shaderu se prenesou do druheho
-shaderu. Promene ovsem musi mit identicky typ a velikost. Dalsi duleztiou funkci jsou uniformy, coz
-jsou globalni promene pro vsechny shadery uvnitr jednoho shader programu. V uniformach se casto
-uchovavaji matice a dalsi konstanty.
+Shadery se píší v programovacím jazyce OpenGL Shading Language \gls{glsl}, který je podobný jazyku C.
+\gls{glsl} je specificky navržen pro práci s grafikou a obsahuje užitečné funkce na manipulaci s
+vektory a maticemi. Pokud jsou na sebe linknuté dva shadery, výstupy z prvního shaderu se přenesou do
+druhého shaderu. Proměnné ovšem musí mít identický typ a velikost. Další důležitou funkcí jsou
+uniformy, což jsou globální proměnné pro všechny shadery uvnitř jednoho shader programu. V uniformách
+se často uchovávají matice a další konstanty.
 \cite{learn_opengl}
 
 \section{Textury}
-Textura je obrazek pouzivany k pridavani detailu k objektu. Pro kazdy vrchol objektu priradime
-souradnici textury, ktera urcuje jaka cast textury odpovida danemu vrcholu. Souradnice textury se
-ukladaji do vertex atributu. Textura se pak aplikuje ve fragment shaderu na kazdy fragment objektu,
-cimz se promitne. Je take mozno mit puvodni barvu objektu s jednou nebo vice texturami na jednom
-objektu. Nasledne se barvy a textury pomerove mixuji podle nastavenych alpha hodnot.
+Textura je obrázek používaný k přidávání detailů k objektu. Pro každý vrchol objektu přiřadíme
+souřadnici textury, která určuje, jaká část textury odpovídá danému vrcholu. Souřadnice textury se
+ukládají do vertex atributů. Textura se pak aplikuje ve fragment shaderu na každý fragment objektu,
+čímž se promítne. Je také možno mít původní barvu objektu s jednou nebo více texturami na jednom
+objektu. Následně se barvy a textury poměrově mixují podle nastavených alpha hodnot.
 \cite{learn_opengl}
 
 \chapter{to do}
@@ -719,88 +708,94 @@ objektu. Nasledne se barvy a textury pomerove mixuji podle nastavenych alpha hod
 \clearpage
 \part{Vývoj hry v OpenGL} % název praktické části (nenechávejte název Praktická část)
 \chapter{Architektura hry}
-Pro vytvareni sve hry jsem si vybral OpenGL, protoze je to nizkourovnove \gls{api}, jehoz pouziti
-vyzaduje zakladni porozumeni graficke pipeline. Jako programovaci jazyk jsem si vybral C++, protoze
-je pro C knihovnu dobre kompatibilni, ale pritom mohu vyuzivat prvky objektoveho programovani, ktere
-jsou ve vyvoji hry uzitecne.
+Pro vytváření své hry jsem si vybral OpenGL, protože je to nízkoúrovňové \gls{api}, jehož použití
+vyžaduje základní porozumění grafické pipeline. Jako programovací jazyk jsem si vybral C++, protože
+je s C knihovnami dobře kompatibilní, ale přitom mohu využívat prvky objektově orientovaného
+programování, které jsou ve vývoji hry užitečné.
 
-Moje hra ma dva zakladni stavy. Prvnim z nich je menu, ve kterem je uzivatel pri prvnim zapnuti hry.
-Po kliknuti tlacitka play se uzivatel presouva do druheho stavu bezici hry. Pri behu hry ja cilem
-hracem pohybovat kosikem a sbirat jablka, coz mi pridava skore. Zaorven je cilem hracem vyhybat se
-padajicimi kokosum, ktere hracovi odebiraji zivoty. Tento stav bezi, dokud
-uzivateli nedojdou vsechny zivoty a nasledne je presunut zpet do herniho menu. Hra je tvorena vetsim
-poctem souboru, ktere nize vysvetlim.
+Moje hra má dva základní stavy. Prvním z nich je menu, ve kterém se uživatel nachází při prvním
+zapnutí hry. Po kliknutí na tlačítko „Play“ se uživatel přesouvá do druhého stavu běžící hry. Při
+běhu hry je cílem hráče pohybovat košíkem a sbírat jablka, což přidává skóre. Zároveň je cílem hráče
+vyhýbat se padajícím kokosům, které hráči odebírají životy. Tento stav běží, dokud uživateli nedojdou
+všechny životy, a následně je přesunut zpět do herního menu. Hra je tvořena větším počtem souborů,
+které níže vysvětlím.
 
 \begin{itemize}
-    \item main.cpp - Vytvari herni okno a spousti hlavni smycky.
-    \item window.cpp - Inicializuje GLFW a spravuje okno aplikace.
-    \item game.cpp - Ridi prepinani hernich stavu a resetuje promene pri restaru hry. 
-    \item game\_menu.cpp - Renderuje menu stav a predava informace do hlavniho herniho menu zda byla
-        hra spustena.
-    \item game\_running.cpp - Renderuje stav, kdyz hra bezi a vola funkce pro objekty ve hre.
-    \item shader.cpp - Spravuje shadery, tedy kompilaci, linkovani, aktivaci a nastavovani uniformu.
-    \item rendering\_function.cpp - Poskituje funkce pro nacitani shaderu a propojovanim vztupnich dat
-        s \gls{vbo} a \gls{vao}.
-    \item texture.cpp - Spravuje vytvareni, aktivaci a nastaveni parametru textur.
-    \item vertices.cpp - Uchovava vztupni data jako souradnice objektu a textur.
-    \item fruit.cpp - Spravuje tvoreni, pohyb a mazani ovoce.
-    \item player.cpp - Spravuje pohyb hrace.
-    \item text.cpp - Spravuje vytvareni a updatovani textu na pocitani zivotu a bodu.
-    \item collision\_detection.cpp - Zjistuje zda dochazi ke kolizi hrace s ovocem a pripadne vola
-        update zivotu a skore.
-    \item random.cpp - Vytvari nahodne doubly a floaty.
+    \item \texttt{main.cpp} – Vytváří herní okno a spouští hlavní smyčky.
+    \item \texttt{window.cpp} – Inicializuje GLFW a spravuje okno aplikace.
+    \item \texttt{game.cpp} – Řídí přepínání herních stavů a resetuje proměnné při restartu hry.
+    \item \texttt{game\_menu.cpp} – Renderuje stav menu a předává informaci do hlavní herní logiky,
+        zda byla hra spuštěna.
+    \item \texttt{game\_running.cpp} – Renderuje stav, kdy hra běží, a volá funkce pro objekty ve hře.
+    \item \texttt{shader.cpp} – Spravuje shadery, tedy kompilaci, linkování, aktivaci a nastavování
+        uniforem.
+    \item \texttt{rendering\_function.cpp} – Poskytuje funkce pro načítání shaderů a propojování
+        vstupních dat s \gls{vbo} a \gls{vao}.
+    \item \texttt{texture.cpp} – Spravuje vytváření, aktivaci a nastavení parametrů textur.
+    \item \texttt{vertices.cpp} – Uchovává vstupní data, jako jsou souřadnice objektů a textur.
+    \item \texttt{fruit.cpp} – Spravuje tvoření, pohyb a mazání ovoce. 
+    \item \texttt{player.cpp} – Spravuje pohyb hráče.
+    \item \texttt{text.cpp} – Spravuje vytváření a aktualizaci textu pro počítání životů a bodů.
+    \item \texttt{collision\_detection.cpp} – Zjišťuje, zda dochází ke kolizi hráče s ovocem, a
+        případně volá aktualizaci životů a skóre.
+    \item \texttt{random.cpp} – Vytváří náhodné hodnoty typu double a float.
 \end{itemize}
 
 \chapter{Použité programy a knihovny}
 \section{CMake}
-CMake je program, ktery generuje nativni soubory build systemu pro ruzne platformy. Do textoveho
-souboru CMakeLists.txt se zapisuji zdrojove soubory, path ke knihovnam ktery program pouziva a 
-take configuraci verze C++, kterou chce uzivatel pouzivat. CMake tyto informace preda compileru, takze
-uzivatel nemusi vypisovat pro kazdou compilaci vsechny dependencies sveho programu. 
-Dalsi vyhodou je, ze build vytvoreny pomoci CMake muze fungovat napric platformami.
+CMake je program, který generuje nativní soubory build systému pro různé platformy. Do textového
+souboru \texttt{CMakeLists.txt} se zapisují zdrojové soubory, cesty ke knihovnám, které program
+používá, a také konfigurace verze C++, kterou chce uživatel používat. CMake tyto informace předá
+compileru, takže uživatel nemusí vypisovat pro každou kompilaci všechny dependencies svého programu.
+Další výhodou je, že build vytvořený pomocí CMake může fungovat napříč platformami.
 \cite{software_developement_with_cmake}
 
 \section{GLAD}
-GLAD je knihovna, ktera generuje loader na zaklade oficialni specifikace OpenGL. Od verze OpenGL 1.1
-nejsou moderni funkce primo v systemu, takze nejdou importovat do programu jako knihova,
-ale jsou implementovany v ovladacich grafickych karet. Kvuli tomu by kompiler nebyl schopen najit
-deklarace techto OpenGL funkci. Kvuli tomu se vyuzivaji loadery jako GLAD, ktere nactou tyto
-funkce a jake header je vlozi do C++ programu.
+GLAD je knihovna, která generuje loader na základě oficiální specifikace OpenGL. Od
+verze OpenGL 1.1 nejsou moderní funkce přímo v systému, takže nejdou importovat do programu jako
+knihovna, ale jsou implementovány v ovladačích grafických karet. Kvůli tomu by kompilátor nebyl
+schopen najít deklarace těchto OpenGL funkcí. Proto se využívají loadery jako GLAD, které načtou tyto
+funkce a skrze hlavičkový soubor je vloží do C++ programu.
 \cite{opengl_loading_library}
 
 \section{GLFW}
-GLFW je knihovna urcena pro vyvoj aplikaci vyuzivajici OpenGL nebo Vulkan. Hlavnim ucelem GLFW je
-otevirani, sprava a vlastnosti oken. Pro kazde okno je vytvoren kontext, ktery obsahuje stav grafiky
-spojeny pro dane okno. \gls{gpu} pri vykreslovani cerpa z kontextu uchovany stav, ktery funguje
-jako prostrednik mezi programem a \gls{gpu}. Dalsi dulezitou funkci je zpracovavani vstupu
-uzivatele jako stisk klavesy ci mysi, cimz je program schopen reagovat na interakce uzivatele s oknem.
+GLFW je knihovna určená pro vývoj aplikací využívajících OpenGL nebo Vulkan. Hlavním
+účelem GLFW je otevírání, správa a nastavení vlastností oken. Pro každé okno je vytvořen kontext,
+který obsahuje stav grafiky spojený s daným oknem. \gls{gpu} při vykreslování čerpá z kontextu
+uchovaný stav, který funguje jako prostředník mezi programem a \gls{gpu}. Další důležitou funkcí je
+zpracovávání vstupů uživatele, jako je stisk klávesy či myši, čímž je program schopen reagovat na
+interakce uživatele s oknem.
 \cite{glfw_introduction}
 
 \section{GLM}
-GLM je matematicka knihovna urcena pro graficky software. GLM poskytuje funke a tridy implementovane
-stejnymy nazvy a funkcemi jako \gls{glsl}, coz usnadnuje praci s shaderama. GLM se
-prevazne pouziva na praci s maticemi a obsahuje funkce pro operace s nimi, coz ulehcuje transformace
-objektu jako posun ci rotaci. GLM take obsahuje generator nahodnych cisel nebo kvaterniony, ktere
-slouzi k provadeni rotaci ve 3D prostoru.
+GLM je matematická knihovna určená pro grafický software. GLM poskytuje funkce a třídy implementované
+se stejnými názvy a funkcemi jako \gls{glsl}, což usnadňuje práci se shadery. GLM se převážně používá
+pro práci s maticemi a obsahuje funkce pro operace s nimi, což ulehčuje transformace objektů, jako je
+posun či rotace. GLM také obsahuje generátor náhodných čísel nebo kvaterniony, které slouží k
+provádění rotací ve 3D prostoru.
 \cite{opengl_mathematics}
 
 \section{stb\_image}
-Knihovna stb\_image je jednoduch knihovna pro nacitani obrazku. Dokaze zpracovat vetsinu beznych
-formatu obrazku jako PNG nebo JPG. Tyto obrazky uklada jako surova data do pamert. Pro kazdy
-pixel jsou ulozena 3 cisla pri pouzivani RGB nebo 4 cisla pri RGBA.
+Knihovna stb\_image je jednoduchá knihovna pro načítání obrázků. Dokáže zpracovat většinu běžných
+formátů obrázků, jako jsou PNG nebo JPG. Tyto obrázky ukládá jako syrová data do paměti. Pro každý
+pixel jsou uložena 3 čísla při používání RGB nebo 4 čísla při RGBA.
+\cite{image_loading}
 
 \chapter{Herní mechaniky}
 \section{Generátor čísel}
-Por mou hru jsem potreboval nejaky generator nahodnych cisel pro pocatecni x souradnici ovoce nebo
-pro rychlost jakou bude padat. Moje class vyuziva pseudonahodny generator mt19937. Tento generator
-po dodani seedu vygeneruje nahodnou sekvenci cisel. Pro vytvoreni seedu pouzijeme funkci 
-random\_device, ktera vygeneruje nahodne cislo z nahodnych parametru systemu. Generovani cisel
-podle parametru systemu je nahodnejsi, ale tento proces je pomerne pomaly, a proto se vyuziva
-jen na generovani seedu. Pro vytvoreni cisla z nejakeho rozmezi se pouziva funkce uniform\_real\_distribution. Ten vydeli kazde vygenerovane cislo tim nejvetsim moznym vygenerovanym cislem, cimz vytvori
-cislo v rozmezi od 0 do 1. Nasledne se rozmezi ktere chceme vytvorit premapuje na rozmezi od 0 do 1.
+Pro mou hru jsem potřeboval nějaký generátor náhodných čísel pro počáteční x souřadnici ovoce nebo
+pro rychlost, jakou bude padat. Moje classa využívá pseudonáhodný generátor mt19937. Tento
+generátor po dodání seedu vygeneruje náhodnou sekvenci čísel. Pro vytvoření seedu používám funkci
+random\_device, která vygeneruje náhodné číslo z náhodných parametrů systému. Generování čísel podle
+parametrů systému je náhodnější, ale tento proces je poměrně pomalý, a proto se využívá jen na
+generování seedu. Pro vytvoření čísla z nějakého rozmezí se používá funkce
+uniform\_real\_distribution. Ta vydělí každé vygenerované číslo tím největším možným vygenerovaným
+číslem, čímž vytvoří číslo v rozmezí od 0 do 1. Následně se rozmezí, které chceme vytvořit, přemapuje
+na rozmezí od 0 do 1.
 \cite{cppreference}
+
 \section{Generování ovoce}
-Pro generovani a praci s ovocem jsem si vytvoril dve pomocne struktury.
+Pro generování a práci s ovocem jsem si vytvořil dvě pomocné struktury.
 \begin{lstlisting}[caption={pomocne struktury}]
 enum class FruitType
 {
@@ -814,27 +809,28 @@ struct fruitAttributes
     float speed;
 };
 \end{lstlisting}
-Fruit type slouzi k tomu, aby se priradila spravna textura k danemu ovoci a aby se pri kolizi pridal
-bod nebo odebral zivot. Ve fruitAttributes jsou vsechny potrebne parametry pro kazde ovoce pohromade,
-takze se snimi lepe pracuje. Pote si vytvorim deque, ve kterem si ukladam vsechno ovoce, ktere je
-na obrazovce. Pri vytvareni ovoce vygeneruju nahodnou rychlost a matici, ve ktere je nahodne posunuti
-v x souradnici. Pro mazani a kolize nasledne vzdy jen iteruju skrz vsechno ovoce, a zjistuju zda
-se dostala pod hranu obrazovky a nebo kolidovali s kosikem.
-\section{Vykreslovaní čísel}
-Pro pocitani skore a zivotu jsem si vytvoril classu pro vykreslovani cisel. Protoze cisla ktera
-potrebuji vykreslit mohou mit libovolnou hodnotu, nevyplati se pro kazde cislo vytvaret samostatnou
-texturu. Misto toho jsem vyuzil techniku zvanou texture atlas. Tato technika vytvari jednu velkou
-texturu s cislicemi od 0 do 9. Kazda cifra vykreslovaneho cisla je samostatny objekt, a je mu
-prirazena cast textury s odpovidajici cislici.
-Aby byla cislica spravne vycentrovana, musi se kazdemu objektu priradit transformaci matice. Pozice
-jednotlive cislice zavisi na celkove delce vykreslovaneho cisla a take na pozici dane cisfry v cisle.
-V shaderu se pomoci posunu texturovych souradnic urcuje, jaka cast textury se ma vykreslit na objekt.
+FruitType slouží k tomu, aby se přiřadila správná textura k danému ovoci a aby se při kolizi přidal
+bod nebo odebral život. Ve fruitAttributes jsou všechny potřebné parametry pro každé ovoce pohromadě,
+takže se s nimi lépe pracuje. Poté si vytvořím deque, do kterého si ukládám všechno ovoce, které je
+na obrazovce. Při vytváření ovoce vygeneruji náhodnou rychlost a matici, ve které je náhodné posunutí
+v souřadnici x. Pro mazání a kolize následně vždy jen iteruji skrz všechno ovoce a zjišťuji, zda se
+dostalo pod hranu obrazovky nebo zda kolidovalo s košíkem.
 
-\section{Detekce kolize}
-Pro detekci kolizi jsou vyuzil Axis-Aligned Bounding Box (AABB) collsion detekci. Kazdy objekt
-je reprezentovan dvjici bodu(horni levy roh a dolni pravy roh), ktere urcuji obdelnik zarovnany s
-osami. Kolize se zjistuje porovnanim intervalu obou obdelniku na osach X a Y. Pokud dojde u abou
-os k prekryvu, objekty mezi sebou koliduji.
+\section{Vykreslování čísel}
+Pro počítání skóre a životů jsem si vytvořil třídu pro vykreslování čísel. Protože čísla, která
+potřebuji vykreslit, mohou mít libovolnou hodnotu, nevyplatí se pro každé číslo vytvářet samostatnou
+texturu. Místo toho jsem využil techniku zvanou texture atlas. Tato technika využívá jednu velkou
+texturu s číslicemi od 0 do 9. Každá cifra vykreslovaného čísla je samostatný objekt a je mu
+přiřazena část textury s odpovídající číslicí. Aby byla číslice správně vycentrovaná, musí se každému
+objektu přiřadit transformační matice. Pozice jednotlivé číslice závisí na celkové délce
+vykreslovaného čísla a také na pozici dané cifry v čísle. V shaderu se pomocí posunu texturových
+souřadnic určuje, jaká část textury se má vykreslit na daný objekt.
+
+\section{Detekce kolize} Pro detekci kolizí jsem využil Axis\-Aligned Bounding Box (AABB) detekci.
+Každý objekt je reprezentován dvojicí bodů (horní levý roh a dolní pravý roh), které určují obdélník
+zarovnaný s osami. Kolize se zjišťuje porovnáním intervalů obou obdélníků na osách X a Y. Pokud dojde
+u obou os k překryvu, objekty mezi sebou kolidují.
+
 \begin{figure}[H]
         \includegraphics[width=\linewidth]{collisions_overlap.png}
         \caption{AABB collision detection \cite{real_time_rendering}}
