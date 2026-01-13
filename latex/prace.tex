@@ -66,14 +66,14 @@
     které jazyk zlepšovaly a modernizovali. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
     nedávno schválena a teď se implementuje do kompilátorů. V součastnosti mezi nejpoužívanější
     kompilátory patří GCC, Clang a MSVC. Jelikož bylo C velice populární,
-    ovlivnilo řadu jiných programovacích jazyků, jako C\+\+, C\#, Java, Rust, Go atd.
+    ovlivnilo řadu jiných programovacích jazyků, jako C++, C\#, Java, Rust, Go atd.
     \cite{the_c_book:_featuring_the_ansi_c_standart, c_a_reference_manual,
     programming_in_c, the_c_programming_language}
 
     C je univerzální programovací jazyk, má tedy širokou škálu využití. Jeho první využití bylo k
     napsání UNIXu, který později ovlivnil operační systémy jako Linux, macOS, iOS a Android.
     Používá se v programování softwaru s omezenou pamětí a výkonem, jako je firmware aut či v
-    zařízeních chytrých domácností. Dále se využívá pro tvoření kompilátorů a interpreterů jako je
+    zařízeních chytrých domácností. Dále se využívá pro tvoření interpreterů a kompilátorů jako je
     GCC nebo interpreter Pythonu. Také jsou v něm napsané systémové databáze MySQL a Oracle
     Database. Kvůli jeho rychlosti jsou v něm napsané knihovny pro jiné programovací jazyky jako je
     NumPy, OpenGL či GLFW.
@@ -128,7 +128,7 @@ int class(int new, int bool);
 \end{lstlisting}
     V C tento kód vytvoří funkci class, která vrací int a má dva parametry new a bool. V C++ jsou ale
     class, new a bool klíčová slova, která nelze použít v názvu proměnných a funkcí. Pokud chce
-    programátor napsat C kód, který se bude jednoduše v C++ programech,
+    programátor napsat C kód, který lze používat v C++ programech,
     doporučuje se programovat v C tak, aby daný C kód byl podmnožinou C++.
     \cite{the_cpp_programming_language, programming_principles_and_practice_using_cpp}
 
@@ -138,7 +138,7 @@ int class(int new, int bool);
     objektově orientované programování
     velmi užitečné, ale Simula 67 byl příliš pomalý pro větší projekty. Rozhodl
     se vytvořit nadmnožinu jazyka C, která by umožňovala objektově orientované programování a zároveň
-    si zachoval rychlost C, s názvem C with Classes. V roce 1982 byl Stroustrup se stavem C with
+    si zachovala rychlost C, s názvem C with Classes. V roce 1982 byl Stroustrup se stavem C with
     Classes zklamán. Nepřišlo mu, že oproti C přináší významné zlepšení a rozhodl se jazyk dále
     vylepšovat nad rámec objektově orientovaného programováni. V roce 1983 byl jazyk přejmenován z
     C with Classes na C++. Dále bylo C++ v roce 1985 oficiálně 
@@ -187,41 +187,42 @@ int main()
 \chapter{Počitačová grafika}			
 \section{Grafické karty}
 \subsection{CPU vs. GPU}
-    Tradičně běžela většina apklikací sekvenčně, které běží na procesorech, které
-    mají centrální výpočetní jednotku a provádí instrukce
-    jednu po druhé \gls{cpu}. V průběhu 20. století se výkon \gls{cpu} významě zlepšoval až na
-    bilion operací za sekundu, čímž se mohli zlepšévat grafické aplikace a využívat náročnější
+    Tradičně běžela většina apklikací sekvenčně na procesorech s centrální výpočetní jednotkou
+    (\gls{cpu}), která provádí instrukce 
+    jednu po druhé. V průběhu 20. století se výkon \gls{cpu} významě zlepšoval až na
+    bilion operací za sekundu, čímž se mohly zlepšévat grafické aplikace a využívat náročnější
     funkce. Na přelomu tisíceletí se ale vývoj začal zpomalovat, kvůli problému se spotřebou
     energie a odvodem tepla. Proto výrobci začali vytvářet \gls{cpu} s více jádry, ale ani to nebylo
-    dostatečně výkonné na složíté výpočti, a proto už v sedmdesátých a osmdesátých
-    letech začali vznikat počítače které nepracovali sekvenčně, ale paralelně. V devadesátých
-    letech se
-    začali vytvářet mikroprocesory, které se soustředili na paralelní výpočty \gls{gpu}. V průběhu
-    let se počet jader z jednotek dostal na tisíce, což vytvořilo prostor pro inovaci v grafice.
+    dostatečně výkonné na složíté výpočti, a proto už v 70. a 80.
+    letech začaly vznikat počítače, které nepracovali sekvenčně, ale paralelně. V 90.
+    letech se začali vytvářet mikroprocesory, které se soustředily na paralelní výpočty (\gls{gpu}).
+    V průběhu let se počet jader v \gls{gpu} dostal z jednotek na tisíce, což vytvořilo prostor pro
+    inovaci v grafice a tvorbě softwaru. 
     \cite{programming_massively_parallel_processors}
 
     Prvně bylo \gls{gpu} pouze v počítačích specializovaných pro 3D hry a vizualizace, ale postupně
-    se stala součástí každého počítače. \gls{gpu} a \gls{cpu} se používá v různých případech kvůli
+    se stala součástí většiny počítačů. \gls{gpu} a \gls{cpu} se používá v různých případech kvůli
     rozdílné architektuře. \gls{cpu} má jednotky až desítky jader a umí dělat jeden krok extrémě
     rychle kvůli sekvenčnímu zapojení.
-    Velká část čipu je určena pro cachi, tedý malu pamět, kam se ukládají data která budou 
-    pravděpodobně v budoucnisti potřeba, takže není potřeba komunikovat neustále s \gls{ram}.
-    Část čipu je také pro control logiku, která dokáže instrukce z jednoho vlákna dělat paralelně
-    nebo na jiném sekvenčním pořadí, ale zachovat sekvenčnost celého procesu. \gls{cpu} má také
-    menší propustnost paměti než \gls{gpu}, proto jsou cache-friendly programy výrazně rychlejší.
-    Narozdíl od toho má \gls{gpu} stovky až tisíce jader.
-    Kontrolní logika a cache jsou v jádru menší a jednodužší, 
-    takže velmi pomalu reaguje na
-    události a po dokončení operaí se většinou data vrací zpět do virtual random access memory
-    \gls{vram}, což je díky velké
-    propustnosti i pro velmi velký objem dat rychlé.
+    Velká část čipu je určena pro cachi, tedý malu pamět, kam se ukládají data, která budou 
+    pravděpodobně v budoucnosti potřeba. Díky tomu není třeba tak často komunikovat s pamětí s
+    náhodným přístupem (\gls{ram}).
+    Část čipu je také určena pro jednotku řídící logiku, která umožňuje provádět instrukce ve vláknech
+    paralelně nebo v jiném sekvenčním pořadí, a přitom zachovat sekvenčnost celého procesu.
+    \gls{cpu} má také menší propustnost paměti než \gls{gpu}, proto jsou programy s optimalizovaným
+    přístupem do cache
+    výrazně rychlejší. Narozdíl od toho má \gls{gpu} stovky až tisíce jader.
+    Jednotka řídící logiku a cache jsou v jádru menší a jednodužší, 
+    takže reagují pomaleji na
+    události. Po dokončení operací se většinou data vrací zpět do video \gls{ram} (\gls{vram}), což
+    je díky velké propustnosti i pro velmi velký objem dat rychlé.
     \cite{programming_massively_parallel_processors}
 
     Do roku 2007 se \gls{gpu} používalo převážně pro renderování, ale v roce 2007 přišla NVIDIA s
     programovacím modelem pro paralelní výpočty CUDA. Tento model umožňuje psát programy, které běží
     na \gls{gpu} a využívají \gls{cpu} na přenos dat a řízení těchto programů. Díky tomu mohly začít
-    vznikat aplikace, které normálně běží na \gls{cpu}, ale při potřebě náročnějších početních
-    operací mohly běžet na \gls{gpu}, a tím zvýšit výkon. Pro účel vysvětlení programovacích modelů
+    vznikat aplikace, které běží na \gls{cpu}, ale při potřebě náročnějších početních
+    operací mohou běžet na \gls{gpu}, a tím zvýšit výkon. Pro účel vysvětlení programovacích modelů
     pro paralelní výpočty budu využívat model CUDA, přičemž existují i jiné podobné modely jako
     OpenCL nebo SYCL. 
     \cite{programming_massively_parallel_processors}
