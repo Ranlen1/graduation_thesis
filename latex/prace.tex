@@ -18,15 +18,26 @@
 \pagenumbering{roman}                   % číslování stránek římskými číslicemi
 	\mytitlepage						% Vygenerování titulní strany
 	
-	\prohlaseni{
+	\prohlaseni
+    {
 		Prohlašuji, že jsem tuto práci vypracoval samostatně s vyznačením všech použitých pramenů.
 	}	
 	
-	\abstrakt{
-	}{
+	\abstrakt
+    {
+       Tato práce se zaměřuje na základní vysvětlení počítačové grafiky. Zaobírá se architekturou
+       grafických karet a fungováním grafické zobrazovací pipeline. Dále popisuje fungování knihovny
+       OpenGL a jazyky C a C++, ve kterých se s ní často pracuje. V praktické části jsem
+       naprogramoval hru pomocí OpenGL v C++.
 	}
-	
-	\podekovani{
+    {
+            počítačová grafika, grafická karta, grafická pipeline, OpenGL, C++
+    }
+	\podekovani
+    {
+        Rád bych poděkoval Dr. rer. nat. Michalu Kočerovi za rady a připomínky při vedení mé
+        maturitní práce. Děkuji také své rodině a přátelům, kteří byli mojí emoční podporou.
+
 	}
 	
    {\tableofcontents\newpage}			% Obsah
@@ -34,16 +45,29 @@
 \addtocounter{page}{1}		% Posunutí countru stránek
 \pagenumbering{arabic}		% Číslování stránek arabskými číslicemi
 \chapter*{Úvod}     % úvod práce 
+    Počítačová grafika je poměrně rozsáhlá oblast informatiky, která má širokou škálu uplatnění jako
+    vývoj videoher nebo aplikací s grafickým uživatelským rozhraním.
+    Většina programátorů využívá pro vývoj vysoce abstraktní knihovny nebo herní enginy jako
+    Pygame, Unity či Unreal Engine. Vytváření výsledného produktu je výrazně 
+    jednodušší, avšak samotný proces vykreslování je skryt v kódu dané knihovny či herního enginu.
+    I když jsou tyto knihovny a herní enginy vysoce optimalizované, nesprávné využívání funkcí
+    kvůli neúplnému porozumění vnitřních procesů může vést k zhoršení výkonu aplikace.
+    Cílem této práce je vysvětlení základních principů počítačové grafiky.
+
+    První část práce vysvětluje fungování grafických karet a grafické zobrazovací pipeline.
+    Dále popisuje fungování grafické knihovny OpenGL a představuje programovací
+    jazyky C a C++, které jsou s touto knihovnou často používány. Druhá část popisuje fungování
+    jednoduché hry napsané v C++, která využívá knihovnu OpenGL.
 \addcontentsline{toc}{chapter}{Úvod}
 
 %%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
-\part{Teorie k vývoji hry v OpenGL}  % název teoretické části (nenechávejte Teoretická část)
+\part{Teorie pro vývoji hry v OpenGL}  % název teoretické části (nenechávejte Teoretická část)
 	
 \chapter{Programovací jazyky}
 			
 \section{Programovací jazyk C}
-    C je středněúrovňový programovací jazyk, tedy jazyk, který je podobou blízko strojovému kódu,
-    ale má už prvky vyššího programovacího jazyka jako jsou funkce, datové struktury nebo to že je
+    C je středněúrovňový programovací jazyk. Je podobou blízko strojovému kódu,
+    ale už má prvky vyššího programovacího jazyka jako jsou funkce, datové struktury nebo to, že je
     strukturovaný. Je kompilovaný a statický, což znamená, že se program musí nejdříve přeložit do
     strojového kódu a až pak se může spustit. Datové typy jsou známy v čase kompilace, proto všechny
     proměnné musí být v kódu deklarovány, jelikož vkládání vstupních dat do programu probíhá až při
@@ -134,7 +158,7 @@ int class(int new, int bool);
 
     C++ bylo vytvořeno Bjarnem Stroustrupem v roce 1979 v AT\&T Bell Labs. Před 
     vytvořením C++ pracoval Stroustrup s programovacím jazykem Simula 67, který byl
-    objektově orientovaný a sloužil primárně k vytváření simulací. Stroustupovi přišlo
+    objektově orientovaný a sloužil primárně k vytváření simulací. Stroustrupovi přišlo
     objektově orientované programování
     velmi užitečné, ale Simula 67 byl příliš pomalý pro větší projekty. Rozhodl
     se vytvořit nadmnožinu jazyka C, která by umožňovala objektově orientované programování a zároveň
@@ -187,13 +211,13 @@ int main()
 \chapter{Počitačová grafika}			
 \section{Grafické karty}
 \subsection{CPU vs. GPU}
-    Tradičně běžela většina apklikací sekvenčně na procesorech s centrální výpočetní jednotkou
+    Tradičně běžela většina aplikací sekvenčně na procesorech s centrální výpočetní jednotkou
     (\gls{cpu}), která provádí instrukce 
-    jednu po druhé. V průběhu 20. století se výkon \gls{cpu} významě zlepšoval až na
-    bilion operací za sekundu, čímž se mohly zlepšévat grafické aplikace a využívat náročnější
+    jednu po druhé. V průběhu 20. století se výkon \gls{cpu} významně zlepšoval až na
+    bilion operací za sekundu, čímž se mohly zlepšovat grafické aplikace a využívat náročnější
     funkce. Na přelomu tisíceletí se ale vývoj začal zpomalovat, kvůli problému se spotřebou
     energie a odvodem tepla. Proto výrobci začali vytvářet \gls{cpu} s více jádry, ale ani to nebylo
-    dostatečně výkonné na složíté výpočti, a proto už v 70. a 80.
+    dostatečně výkonné na složíté výpočty, a proto už v 70. a 80.
     letech začaly vznikat počítače, které nepracovali sekvenčně, ale paralelně. V 90.
     letech se začali vytvářet mikroprocesory, které se soustředily na paralelní výpočty (\gls{gpu}).
     V průběhu let se počet jader v \gls{gpu} dostal z jednotek na tisíce, což vytvořilo prostor pro
@@ -202,9 +226,9 @@ int main()
 
     Prvně bylo \gls{gpu} pouze v počítačích specializovaných pro 3D hry a vizualizace, ale postupně
     se stala součástí většiny počítačů. \gls{gpu} a \gls{cpu} se používá v různých případech kvůli
-    rozdílné architektuře. \gls{cpu} má jednotky až desítky jader a umí dělat jeden krok extrémě
+    rozdílné architektuře. \gls{cpu} má jednotky až desítky jader a umí dělat jeden krok extrémně
     rychle kvůli sekvenčnímu zapojení.
-    Velká část čipu je určena pro cachi, tedý malu pamět, kam se ukládají data, která budou 
+    Velká část čipu je určena pro cache, tedy malou pamět, kam se ukládají data, která budou 
     pravděpodobně v budoucnosti potřeba. Díky tomu není třeba tak často komunikovat s pamětí s
     náhodným přístupem (\gls{ram}).
     Část čipu je také určena pro řídící jednotku, která umožňuje provádět instrukce ve vláknech
@@ -428,7 +452,7 @@ int main()
     \begin{pmatrix}
     x \\
     \cos \theta \cdot y - \sin \theta \cdot z \\
-    \cos \theta \cdot y + \cos \theta \cdot z \\
+    \sin \theta \cdot y + \cos \theta \cdot z \\
     1
     \end{pmatrix}
     =
@@ -552,7 +576,7 @@ k proměnným uvnitř vertex shaderu. Dalším důležitým objektem je Vertex A
 kterého se ukládá, jak jsou data v VBO uspořádána a jak se mají propojit s vertex shadery.
 \cite{learn_opengl}
 
-Shadery se kompilují a linkují a následně ukládají do pameti \gls{gpu} jako součást shader programu.
+Shadery se kompilují a linkují a následně ukládají do paměti \gls{gpu} jako součást shader programu.
 To je objekt, který je výslednou verzí všech shaderů po linkování. Linkování shaderů propojuje výstupy
 jednoho shaderu se vstupy druhého. Uživatel může mít více shader programů a pro každý objekt si
 vybrat ten, který obsahuje požadované shadery.
@@ -606,15 +630,8 @@ objektu. Následně se barvy a textury poměrově mixují podle nastavených alf
 \cite{learn_opengl}
 
 \chapter{to do}
-    mozna pridat trochu historie kompileru u C a CPP
-
-    kdyz introdusuju zkratku, dej ji velka pismena, at ctenar vi ze je to zkratka
-
     predelat pomlcky z - na tu dinvou co pouziva chat a chce ji pazi
-
-    odendej vsechny cislovky z textu a nahrad je slovama
-
-    mozna pridat ukazku vertex a fragment shaderu
+    pouziti texttt funkce pro nazev funkci a podobnych veci
 
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
@@ -757,6 +774,22 @@ u obou os k překryvu, objekty mezi sebou kolidují.
 
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
+Cílem první části práce bylo čtenáři přiblížit fungování grafických karet a grafické zobrazovací
+pipeline. Dále byly popsány principy grafické knihovny OpenGL a programovacích jazyků C a C++.
+Rozsah práce neumožňuje popsat fungování OpenGL tak dopodrobna, aby byl čtenář schopen
+naprogramovat vlastní aplikaci. Pro hlubší porozumění dané knihovny lze využít knihu Learn
+OpenGL.
+
+V druhé části práce je popsána vytvořená hra v jazyce C++. Hra využívá teorii z předchozí kapitoly
+a základní OpenGL funkce jako práce s shadery a texturami, převádění souřadnic skrz různé souřadnicové
+systémy a práci s transformačními maticemi.
+
+Vzhledem k složitosti jazyka C++ kód není plně optimalizovaný, avšak pro hru takto malého
+rozsahu je výkon dostačující.
+
+Hra by se dala rozšířit například přidáním více typů ovoce nebo zobrazováním hráči nejvýše
+dosaženého skóre v menu, ale pro účely demonstrace popsané teorie je rozsáhlost dostačující.
+
 \addcontentsline{toc}{chapter}{Závěr}  % přidá do TOC
 	
 \nocite{*}
@@ -764,17 +797,13 @@ u obou os k překryvu, objekty mezi sebou kolidují.
 \addcontentsline{toc}{chapter}{Bibliografie}
 \printglossary[title={Zkratky}]		% Vytvoří seznam zkratek
 \listoffigures						% Vytvoří seznam obrázků
-\listoftables						% Vytvoří seznam tabulek
 
 %%%%%%%%%%%%% PŘÍLOHY - APPENDIX 	
 \begin{appendices}
-	\chapter{Fotky z pokusů}	
-	\lipsum[1]
     	%\pitem{Fotky z pokusů}
     	%\eitem{Vlastní program}
     	%\eitem{Dokumentace}
     	%\eitem{Testovací data}
-	\chapter{Příloha další }
 \end{appendices}
 %%%%%%%%%%%%%%%
 \end{document}
