@@ -9,8 +9,10 @@ private:
     float _currentTime;
 public:
     Player();
+    //Tato funkce spravuje pohyb hráče
     void Move();
     glm::mat4 GetMovementMat();
 
+    //Tato funkce resetuje hru
     void GameRestart();
 };

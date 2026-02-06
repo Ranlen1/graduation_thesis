@@ -1,4 +1,5 @@
 #pragma once
+//Tato třída incializuje GLFW, GLAD a nastavuje parametry okna
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "stb_image.h"
 
+//funkgování těchto funkcí je střídmě popsáno v header filu
 Game::Game()
     : _gameState(gameState::Menu)
 {
@@ -17,7 +18,7 @@ void Game::SetGameState(gameState state)
     _gameState = state;
 }
 
-void Game::DrawGameMenu()
+void Game::DrawGame()
 {
     if(_gameState == gameState::Menu)
         _gameMenu.Draw();
@@ -43,7 +44,7 @@ void Game::Run()
         _player.GameRestart();
     }
 
-    DrawGameMenu();
+    DrawGame();
 
     glfwSwapBuffers(Window::GetWindow());
     glfwPollEvents();

@@ -25,9 +25,9 @@
 	
 	\abstrakt
     {
-       Tato práce se zaměřuje na základní vysvětlení počítačové grafiky. Zaobírá se architekturou
+       Tato práce se zaměřuje na základní vysvětlení počítačové grafiky. Zabývá se architekturou
        grafických karet a fungováním grafické zobrazovací pipeline. Dále popisuje fungování knihovny
-       OpenGL a jazyky C a C++, ve kterých se s ní často pracuje. V praktické části jsem
+       OpenGL a programovací jazyky C a C++, ve kterých se s ní často pracuje. V~praktické části jsem
        naprogramoval hru pomocí OpenGL v C++.
 	}
     {
@@ -45,10 +45,11 @@
 \addtocounter{page}{1}		% Posunutí countru stránek
 \pagenumbering{arabic}		% Číslování stránek arabskými číslicemi
 \chapter*{Úvod}     % úvod práce 
-    Počítačová grafika je poměrně rozsáhlá oblast informatiky, která má širokou škálu uplatnění jako
-    vývoj videoher nebo aplikací s grafickým uživatelským rozhraním.
+    Počítačová grafika je poměrně rozsáhlá oblast informatiky, která má širokou škálu uplatnění, jako
+    je vývoj videoher nebo aplikací s grafickým uživatelským rozhraním.
     Většina programátorů využívá pro vývoj vysoce abstraktní knihovny nebo herní enginy jako
-    Pygame, Unity či Unreal Engine. Vytváření výsledného produktu je výrazně 
+    \textit{Pygame}, \textit{Unity} či \textit{Unreal Engine}. Vytváření výsledného produktu je díky
+    tomu výrazně 
     jednodušší, avšak samotný proces vykreslování je skryt v kódu dané knihovny či herního enginu.
     I když jsou tyto knihovny a herní enginy vysoce optimalizované, nesprávné využívání funkcí
     kvůli neúplnému porozumění vnitřních procesů může vést k zhoršení výkonu aplikace.
@@ -61,35 +62,35 @@
 \addcontentsline{toc}{chapter}{Úvod}
 
 %%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
-\part{Teorie pro vývoji hry v OpenGL}  % název teoretické části (nenechávejte Teoretická část)
+\part{Teorie pro vývoj hry v OpenGL}  % název teoretické části (nenechávejte Teoretická část)
 	
 \chapter{Programovací jazyky}
 			
 \section{Programovací jazyk C}
-    C je středněúrovňový programovací jazyk. Je podobou blízko strojovému kódu,
+    C je středněúrovňový programovací jazyk. Je svou podobou blízký strojovému kódu,
     ale už má prvky vyššího programovacího jazyka jako jsou funkce, datové struktury nebo to, že je
     strukturovaný. Je kompilovaný a statický, což znamená, že se program musí nejdříve přeložit do
-    strojového kódu a až pak se může spustit. Datové typy jsou známy v čase kompilace, proto všechny
-    proměnné musí být v kódu deklarovány, jelikož vkládání vstupních dat do programu probíhá až při
+    strojového kódu a až pak se může spustit. Datové typy jsou známy v čase kompilace, proto musí být
+    všechny proměnné v kódu deklarovány, jelikož vkládání vstupních dat do programu probíhá až při
     běhu programu. Programuje se v něm strukturovaně a procedurálně, tedy kód se píše pomocí
-    řídících struktur (if, while, for atd.) a pomocí funkcí, které umožňují používat části
+    řídicích struktur (if, while, for atd.) a pomocí funkcí, které umožňují používat části
     kódu vícekrát. C nemá automatický správce paměti, takže je potřeba uvolňovat paměť manuálně. C
     má střídmou standardní knihovnu, která obsahuje základní matematické operace a funkce pro
     práci s pamětí a soubory, takže jakékoliv složitější datové struktury či funkce si člověk musí
-    naprogramovat sám. Tato strohost a blízkost ke strojovému kódu z C dělá jeden z nejrychlejších
+    naprogramovat sám. Tato strohost a blízkost ke strojovému kódu z~C~dělá jeden z nejrychlejších
     programovacích jazyků.
     \cite{programming_in_c, the_c_programming_language, features_of_C,
     low-level_midlvel_and_high-level_language, structured_programming}
 
-    C bylo vytvořeno Dennisem Ritchiem na počátku 70. let 20. století v AT\&T Bell Labs 
+    C bylo vytvořeno Dennisem Ritchiem na počátku 70. let 20. století v AT\&T Bell Labs. 
     Jeho předchůdci byly jazyky ALGOL, CPL, BCPL a B. Jeho prvotním účelem bylo
     přepsat operační systém UNIX do použitelnějšího jazyka než Assembly a B. Už koncem 70. let bylo
     C populární, ale nebylo standardizované a vznikalo mnoho různých variant. Na začátku 80. let
     tedy American National Standards Institute (ANSI) zahájil práci na formální standardizované
-    verzi. Tu dokončili v roce 1989 a je známa pod jménem C89. V průběhu let vycházely další verze,
-    které jazyk zlepšovaly a modernizovali. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
-    nedávno schválena a teď se implementuje do kompilátorů. V součastnosti mezi nejpoužívanější
-    kompilátory patří GCC, Clang a MSVC. Jelikož bylo C velice populární,
+    verzi. Tu dokončil v roce 1989 a je známa pod jménem C89. V průběhu let vycházely další verze,
+    které jazyk zlepšovaly a modernizovaly. Nejdůležitější verze byly C99, C11 a C17. Norma C23 byla
+    nedávno schválena a teď se implementuje do kompilátorů. V současnosti mezi nejpoužívanější
+    kompilátory patří \textit{GCC}, \textit{Clang} a \textit{MSVC}. Jelikož bylo C velice populární,
     ovlivnilo řadu jiných programovacích jazyků, jako C++, C\#, Java, Rust, Go atd.
     \cite{the_c_book:_featuring_the_ansi_c_standart, c_a_reference_manual,
     programming_in_c, the_c_programming_language}
@@ -98,14 +99,15 @@
     napsání UNIXu, který později ovlivnil operační systémy jako Linux, macOS, iOS a Android.
     Používá se v programování softwaru s omezenou pamětí a výkonem, jako je firmware aut či v
     zařízeních chytrých domácností. Dále se využívá pro tvoření interpreterů a kompilátorů jako je
-    GCC nebo interpreter Pythonu. Také jsou v něm napsané systémové databáze MySQL a Oracle
-    Database. Kvůli jeho rychlosti jsou v něm napsané knihovny pro jiné programovací jazyky jako je
-    NumPy, OpenGL či GLFW.
+    \textit{GCC} nebo interpreter Pythonu. Také jsou v něm napsané systémové databáze \textit{MySQL} a 
+    \textit{Oracle Database}.
+    Kvůli jeho rychlosti jsou v něm napsané knihovny pro jiné programovací jazyky jako je
+    \textit{NumPy}, OpenGL či \textit{GLFW}.
     \cite{the_c_book:_featuring_the_ansi_c_standart, programming_in_c,
     top_applications_of_c_programming}
 
-    Jednoduchý program, který načte ze vstupu počet čísel, která chce uživatel setřídit. Následně
-    daná čísla načte a vytiskne je seřazená:
+    Zde je jednoduchý program, který načte ze vstupu počet čísel, která chce uživatel setřídit.
+    Následně daná čísla načte a vytiskne je seřazená:
 
 \begin{lstlisting}[caption={sort\_n\_numbers.c}]
 #include <stdio.h>
@@ -138,19 +140,20 @@ int main(void)
 \section{Programovací jazyk C++}
     Programovací jazyk C++ je v mnoha ohledech podobný jazyku C. Je stejně jako C středně\-úrovňový,
     kompilovaný, statický, má datové typy známé v době kompilace a nemá automatický správce
-    paměti. V C++ se také programuje strukturovaně a procedurálně, ale na rozdíl od C, také umožňuje
+    paměti. V C++ se také programuje strukturovaně a procedurálně, ale na rozdíl od C,~také umožňuje
     programovat objektově. Objektové programování umožňuje používat objekty, které jsou instance
     tříd. Tyto třídy umožňují dědičnost, polymorfismus a zapouzdření, což
     dělá kód přehlednější a usnadňuje budoucí rozšiřování a debuggování. 
     Dalším rozdílem je standardní knihovna, kterou má C++ rozsáhlejší.
-    Obsahuje nové kontejnery jako vector, map, a priority\_queue, které jsou tvořeny pokročilejšími
-    datovými strukturami jako binární vyhledávací strom nebo heap. Dále obsahuje nové algoritmy,
-    například sort, find nebo count. Kvůli velké podobnosti C a C++ se často může C kód používat v
-    C++, ale není tomu tak vždy. Například tento kód:
+    Obsahuje nové kontejnery jako \texttt{vector}, \texttt{map} a \texttt{priority\_queue}, které jsou tvořeny pokročilejšími
+    datovými strukturami jako binární vyhledávací strom nebo \texttt{heap}. Dále obsahuje nové algoritmy,
+    například \texttt{sort}, \texttt{find} nebo \texttt{count}. Kvůli velké podobnosti C a C++ se
+    často může C kód používat v~C++, ale není tomu tak vždy. Například tento kód:
 \begin{lstlisting}[caption={incompatibility\_example.c}]
 int class(int new, int bool); 
 \end{lstlisting}
-    V C tento kód vytvoří funkci class, která vrací int a má dva parametry new a bool. V C++ jsou ale
+    V C tento kód vytvoří funkci \texttt{class}, která vrací int a má dva parametry \texttt{new} a
+    \texttt{bool}. V C++ jsou ale
     class, new a bool klíčová slova, která nelze použít v názvu proměnných a funkcí. Pokud chce
     programátor napsat C kód, který lze používat v C++ programech,
     doporučuje se programovat v C tak, aby daný C kód byl podmnožinou C++.
@@ -163,19 +166,19 @@ int class(int new, int bool);
     velmi užitečné, ale Simula 67 byl příliš pomalý pro větší projekty. Rozhodl
     se vytvořit nadmnožinu jazyka C, která by umožňovala objektově orientované programování a zároveň
     si zachovala rychlost C, s názvem C with Classes. V roce 1982 byl Stroustrup se stavem C with
-    Classes zklamán. Nepřišlo mu, že oproti C přináší významné zlepšení a rozhodl se jazyk dále
-    vylepšovat nad rámec objektově orientovaného programováni. V roce 1983 byl jazyk přejmenován z
+    Classes zklamán. Nepřišlo mu, že oproti C přináší významné zlepšení a~rozhodl se jazyk dále
+    vylepšovat nad rámec objektově orientovaného programování. V roce 1983 byl jazyk přejmenován z
     C with Classes na C++. Dále bylo C++ v roce 1985 oficiálně 
     vydáno a začalo se používat komerčně. V roce 1998 byla
     vydána první standardizovaná verze s jménem C++98. Další významné verze, které jazyk
     modernizovaly a přidávaly mu nové funkce, byly C++03, C++11, C++14, C++17, C++20 a
-    nejnovější verze C++23. C++ se kompiluje pomocí stejných kompilátorů jako C, tedy GCC, Clang
-    a MSVC.
+    nejnovější verze C++23. C++ se kompiluje pomocí stejných kompilátorů jako C, tedy \textit{GCC},
+    \textit{Clang} a \textit{MSVC}.
     \cite{programming_principles_and_practice_using_cpp, design_and_evolution_cpp, history_of_cpp, cpp_computer_language}
 
     C++ je stejně jako C univerzální programovací jazyk, a využívá se v široké škále odvětví. První
-    využití je ve videoherním průmyslu. V C++ jsou napsané populární hrací enginy jako Unity nebo
-    Unreal Engine. Dále se v něm vytváří aplikace jako Photoshop nebo Blender. Využívá se v částech
+    využití je ve videoherním průmyslu. V C++ jsou napsané populární herní enginy jako \textit{Unity} nebo
+    \textit{Unreal Engine}. Dále se v něm vytváří aplikace jako \textit{Photoshop} nebo \textit{Blender}. Využívá se v částech
     operačních systémů jako Apple macOS nebo Microsoft Windows OS. Dále se využívá při vytváření 
     internetových prohlížečů, například Firefox nebo Google Chrome. C++ se využívá i ve vědě,
     například v CERNu nebo v NASA. 
@@ -217,58 +220,58 @@ int main()
     bilion operací za sekundu, čímž se mohly zlepšovat grafické aplikace a využívat náročnější
     funkce. Na přelomu tisíceletí se ale vývoj začal zpomalovat, kvůli problému se spotřebou
     energie a odvodem tepla. Proto výrobci začali vytvářet \gls{cpu} s více jádry, ale ani to nebylo
-    dostatečně výkonné na složíté výpočty, a proto už v 70. a 80.
-    letech začaly vznikat počítače, které nepracovali sekvenčně, ale paralelně. V 90.
-    letech se začali vytvářet mikroprocesory, které se soustředily na paralelní výpočty (\gls{gpu}).
+    dostatečně výkonné na složité výpočty, a proto už v 70. a 80.
+    letech začaly vznikat počítače, které nepracovaly sekvenčně, ale paralelně. V 90.
+    letech se začaly vytvářet mikroprocesory, které se soustředily na paralelní výpočty (\gls{gpu}).
     V průběhu let se počet jader v \gls{gpu} dostal z jednotek na tisíce, což vytvořilo prostor pro
-    inovaci v grafice a tvorbě softwaru. 
+    inovaci v grafice a~tvorbě softwaru. 
     \cite{programming_massively_parallel_processors}
 
     Prvně bylo \gls{gpu} pouze v počítačích specializovaných pro 3D hry a vizualizace, ale postupně
-    se stala součástí většiny počítačů. \gls{gpu} a \gls{cpu} se používá v různých případech kvůli
+    se stala součástí většiny počítačů. \gls{gpu} a \gls{cpu} se používají v~různých případech kvůli
     rozdílné architektuře. \gls{cpu} má jednotky až desítky jader a umí dělat jeden krok extrémně
     rychle kvůli sekvenčnímu zapojení.
-    Velká část čipu je určena pro cache, tedy malou pamět, kam se ukládají data, která budou 
+    Velká část čipu je určena pro cache, tedy malou paměť, kam se ukládají data, která budou 
     pravděpodobně v budoucnosti potřeba. Díky tomu není třeba tak často komunikovat s pamětí s
     náhodným přístupem (\gls{ram}).
     Část čipu je také určena pro řídící jednotku, která umožňuje provádět instrukce ve vláknech
-    paralelně nebo v jiném sekvenčním pořadí, a přitom zachovat sekvenčnost celého procesu.
+    paralelně nebo v~jiném sekvenčním pořadí, a přitom zachovat sekvenčnost celého procesu.
     \gls{cpu} má také menší propustnost paměti než \gls{gpu}, proto jsou programy s optimalizovaným
     přístupem do cache
-    výrazně rychlejší. Narozdíl od toho má \gls{gpu} stovky až tisíce jader.
-    Jednotka řídící logiku a cache jsou v jádru menší a jednodužší, 
+    výrazně rychlejší. Na rozdíl od toho má \gls{gpu} stovky až tisíce jader.
+    Jednotka řídící logiku a cache jsou v jádru menší a jednodušší, 
     takže reagují pomaleji na
     události. Po dokončení operací se většinou data vrací zpět do video \gls{ram} (\gls{vram}), což
     je díky velké propustnosti i pro velmi velký objem dat rychlé.
     \cite{programming_massively_parallel_processors}
 
     Do roku 2007 se \gls{gpu} používalo převážně pro vykreslování, ale v roce 2007 přišla NVIDIA s
-    programovacím modelem pro paralelní výpočty CUDA. Tento model umožňuje psát programy, které běží
+    programovacím modelem pro paralelní výpočty \textit{CUDA}. Tento model umožňuje psát programy, které běží
     na \gls{gpu} a využívají \gls{cpu} na přenos dat a řízení těchto programů. Díky tomu mohly začít
     vznikat aplikace, které běží na \gls{cpu}, ale při potřebě náročnějších početních
     operací mohou běžet na \gls{gpu}, a tím zvýšit výkon. Pro účel vysvětlení programovacích modelů
     pro paralelní výpočty budu využívat model CUDA, přičemž existují i jiné podobné modely jako
-    OpenCL nebo SYCL. 
+    \textit{OpenCL} nebo \textit{SYCL}. 
     \cite{programming_massively_parallel_processors}
 
 \subsection{Architektura a paměťová hierarchie GPU}
     \gls{gpu} s podporou CUDA je organizováno do pole paralelních streamovacích multiprocesorů
     (\gls{sm}). Každý \gls{sm} se skládá z několika streamovacích procesorů (\gls{sp}), které jsou
-    základní výpočetní jednotkou, na které probíhají aritmetické operace. Další součástí jsou řídicí
+    základní výpočetní jednotkou, na nichž probíhají aritmetické operace. Další součástí jsou řídicí
     jednotky, které načítají instrukce pro konkrétní \gls{sm}. Řídicí jednotky také obsahují malou
     instrukční cache, aby se pro instrukce nemuselo často přistupovat k \gls{vram}, což by
     zpomalovalo výpočetní cykly. Dále je uvnitř \gls{sm}
-    warp scheduler, který řídí, jaké skupiny vláken budou v každém výpočetním cyklu použity.
+    warp scheduler, který řídí, jaké skupiny vláken budou v~každém výpočetním cyklu použity.
     \cite{programming_massively_parallel_processors}
 
-    Většina grafických karet má svoji vlastní dynamickou \gls{ram} (\gls{dram}), ke které mají přístup
+    Většina grafických karet má vlastní dynamickou \gls{ram} (\gls{dram}), ke které mají přístup
     všechny \gls{sm} a nazývá se globální paměť. V grafických kartách se nachází specifický typ
     \gls{dram} zvaný \gls{vram}. Tato paměť má
     jednotky až desítky gigabytů a dochází v ní k výměně dat mezi systémovou pamětí a \gls{vram}.
     Velká propustnost této paměti je zajištěna blokovým načítáním dat namísto po jednotlivých bytech.
     Samotná operace výměny dat mezi systémovou pamětí je ale poměrně náročná, a proto existuje
     hierarchie menších pamětí, jejichž cílem je minimalizovat počet přístupů do systémové paměti.
-    Jedním takovým typem pamětí je sdílená paměť, která má většinou desítky
+    Jedním z těchto typů je sdílená paměť, která má většinou desítky
     kilobajtů. Tuto paměť má každý \gls{sm} a každý \gls{sp} k ní může přistupovat. V každém \gls{sm}
     se také vyskytuje L1 cache, která slouží k uchovávání dat, ze kterých se nedávno četlo nebo byla
     změněna. Dále existuje L2 cache, která je větší než L1 cache a je jedna pro všechny \gls{sm}.
@@ -282,14 +285,14 @@ int main()
 
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{GPU_architecture.png}
-        \caption{Typická architektura NVIDIA \gls{gpu} \cite{gpu_image_source}} 
+        \caption{Typická architektura \gls{gpu} \cite{gpu_architecture_explained}} 
     \end{figure}
 
 \subsection{Paralelismus}
     Paralelismus je výpočetní technika, která umožňuje vykonávání více operací najednou. Paralelismus
     se dá rozdělit do dvou kategorií. První z nich je úlohový paralelismus. Tento typ následuje
     Multiple Instructions, Multiple Data (MIMD) model. Tento model rozdělí různé úlohy mezi více
-    vláken nebo i jader. Tento model se využívá, pokud na sobě nejsou úlohy závislé. Pokud by se
+    vlákny nebo i jádry. Tento model se využívá, pokud na sobě nejsou úlohy závislé. Pokud by se
     například chtěla vypočítat suma pole s čísly, může každé vlákno počítat jednu polovinu a oba
     výsledky sečíst. MIMD se využívá v simulacích nebo ve webových aplikacích.
     \cite{programming_massively_parallel_processors, types_of_parallelism}
@@ -300,7 +303,7 @@ int main()
     vykreslování, kdy se jeden shader aplikuje pro každý pixel. V grafických kartách se jednotlivá
     vlákna sdružují do warpů, ty dále do bloků, které plánuje \gls{sm}. Do každého warpu jsou načteny
     stejné instrukce a postupně se mu dodávají data, na kterých dané instrukce provádí. Díky tomu lze
-    i velké množství dat zpracovat velmi rychle, protože se dodávají s velkou propustností a
+    i velké množství dat zpracovat velmi rychle, protože se dodávají s~velkou propustností a
     instrukce jsou na nich prováděny současně na velkém množství warpů.
     \cite{programming_massively_parallel_processors, types_of_parallelism}
 
@@ -335,8 +338,8 @@ int main()
     převede souřadnice z clip prostoru do souřadnic obrazovky připravených pro rasterizaci. Součástí
     vertex shadingu jsou také volitelné fáze vertex zpracování. Tessellation generuje vhodné
     trojúhelníky pro zakřivené povrchy, aby vypadaly realističtěji. Geometry shader umožňuje podle
-    potřeby vytvářet nové vrcholy z existujících trojúhelníků nebo bodů, což se používá například u
-    malých částic, aby byly lépe vidět na obrazovce, takže se z nich udělá například malý čtverec.
+    potřeby vytvářet nové vrcholy z existujících trojúhelníků nebo bodů. To se využívá například u
+    malých částic, které se rozšíří na malé čtverce, aby byly lépe vidět na obrazovce.
     Poslední volitelná fáze je stream output, která umožňuje namísto poslání vrcholu do další fáze
     uložit vrcholy do bufferu, na kterých \gls{cpu} může dělat další výpočty či simulace.
     \cite{real_time_rendering}
@@ -531,8 +534,8 @@ int main()
 
 \chapter{OpenGL}
 \section{Historie OpenGL}
-OpenGL je považováno za aplikační programovcí rozhraní (\gls{api}), které uživatelům poskytuje sadu
-funkcí, kterou mohou používat k manipulaci s grafickou kartou. Specifikaci pro OpenGL tvoří
+OpenGL je považováno za aplikační programovací rozhraní (\gls{api}), které uživatelům poskytuje sadu
+funkcí, které mohou používat k manipulaci s grafickou kartou. Specifikaci pro OpenGL tvoří
 společnost Khronos Group, která určuje, jaké funkce existují a jak se budou chovat. Poté každá
 společnost implementuje OpenGL API pro svůj druh grafických karet.
 \cite{learn_opengl}
@@ -548,8 +551,9 @@ Ostatní fáze jsou definovány \gls{api} a nelze je měnit.
 Shader je malý program, který běží na \gls{gpu}. Tyto programy se spouštějí pro konkrétní část
 grafické pipeline. Shadery přeměňují vstupy a převádějí je na výstupy potřebné pro následující fáze.
 Starší verze OpenGL měly výchozí shadery, ale v novějších verzích je uživatel povinen vytvořit
-základní shadery, aby \gls{gpu} něco vykreslilo. Shadery jsou od sebe izolované a komunikují spolu
-pouze pomocí vstupů a výstupů. Shaderů je více druhů a dva základní jsou vertex a fragment shader.
+základní shadery, aby \gls{gpu} mohlo něco vykreslit. Shadery jsou od sebe izolované a komunikují
+spolu pouze pomocí vstupů a výstupů. Shaderů je více druhů a dva základní jsou vertex a fragment
+shader.
 \cite{learn_opengl}
 
 \subsection{Vertex shader}
@@ -561,7 +565,7 @@ Vstupní data jsou uložena v \gls{gpu}, kde k nim má vertex shader přímý p�
 
 \subsection{Fragment shader}
 Účelem fragment shaderu je vypočítávání barevného výstupu pro pixely. Barvy se v OpenGL definují 4D
-vektorem s floaty od 0.0 do 1.0. Tato čísla udávají sílu barev červená, zelená a modrá (RGB).
+vektorem s floaty od 0.0 do 1.0. Tato čísla udávají sílu barev červená, zelená a~modrá (RGB).
 Poslední číslo udává alfa hodnotu, tedy jak moc bude kombinace daných tří barev průhledná. Ve
 fragment shaderu také dochází k texturování a různým efektům, jako jsou odlesky, stínování atd.
 \cite{learn_opengl}
@@ -585,7 +589,7 @@ vybrat ten, který obsahuje požadované shadery.
 \subsection{GLSL}
 Shadery se píší v programovacím jazyce OpenGL Shading Language \gls{glsl}, který je podobný jazyku C.
 \gls{glsl} je specificky navržen pro práci s grafikou a obsahuje užitečné funkce na manipulaci s
-vektory a maticemi. Pokud jsou na sebe propojené dva shadery, výstupy z prvního shaderu se přenesou do
+vektory a maticemi. Pokud jsou na sebe propojené dva shadery, výstupy z~prvního shaderu se přenesou do
 druhého. Proměnné ovšem musí mít identický typ a velikost. Další důležitou funkcí jsou
 uniformy, což jsou globální proměnné pro všechny shadery uvnitř jednoho shader programu. V uniformách
 se často uchovávají matice a další konstanty.
@@ -609,7 +613,6 @@ void main()
 
 \begin{lstlisting}[caption={fragment shader \texttt{fruit.fs}}]
 #version 330 core
-
 in vec2 TexCoords;
 out vec4 FragColor;
 uniform sampler2D myTexture;
@@ -623,21 +626,17 @@ void main()
 \section{Textury}
 Textura je obrázek používaný k přidávání detailů k objektu. Pro každý vrchol objektu přiřadíme
 souřadnici textury, která určuje, jaká část textury odpovídá danému vrcholu. Souřadnice textury se
-ukládají do vztupních dat spolu s pozicemi vrcholů.
+ukládají do vstupních dat spolu s pozicemi vrcholů.
 Textura se pak aplikuje ve fragment shaderu na každý fragment objektu,
 čímž se promítne. Je také možno mít původní barvu objektu s jednou nebo více texturami na jednom
 objektu. Následně se barvy a textury poměrově mixují podle nastavených alfa hodnot.
 \cite{learn_opengl}
 
-\chapter{to do}
-    predelat pomlcky z - na tu dinvou co pouziva chat a chce ji pazi
-    pouziti texttt funkce pro nazev funkci a podobnych veci
-
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \clearpage
 \part{Vývoj hry v OpenGL} % název praktické části (nenechávejte název Praktická část)
 \chapter{Architektura hry}
-Pro vytváření své hry jsem si vybral OpenGL, protože je to nízkoúrovňové \gls{api}, jehož použití
+Pro vytváření své hry jsem si vybral OpenGL, protože je to nízkoúrovňového \gls{api}, jehož použití
 vyžaduje základní porozumění grafické pipeline. Jako programovací jazyk jsem si vybral C++, protože
 je s C knihovnami dobře kompatibilní, ale přitom mohu využívat prvky objektově orientovaného
 programování, které jsou ve vývoji hry užitečné.
@@ -650,24 +649,23 @@ všechny životy, a následně je přesunut zpět do herního menu. Hra je tvoř
 které níže vysvětlím.
 
 \begin{itemize}
-    \item \texttt{main.cpp} – Vytváří herní okno a spouští hlavní smyčku.
-    \item \texttt{window.cpp} – Inicializuje GLFW a spravuje okno aplikace.
-    \item \texttt{game.cpp} – Řídí přepínání herních stavů a resetuje proměnné při restartu hry.
-    \item \texttt{game\_menu.cpp} – Renderuje stav menu a předává informaci do hlavní herní logiky,
-        zda byla hra spuštěna.
-    \item \texttt{game\_running.cpp} – Renderuje stav běžící hry a volá funkce pro objekty ve hře.
-    \item \texttt{shader.cpp} – Spravuje shadery, tedy kompilaci, linkování, aktivaci a nastavování
+    \item \texttt{main.cpp} -- Vytváří herní okno a spouští hlavní smyčku.
+    \item \texttt{window.cpp} -- Inicializuje GLFW a spravuje okno aplikace.
+    \item \texttt{game.cpp} -- Řídí přepínání herních stavů a resetuje proměnné při restartu hry.
+    \item \texttt{game\_menu.cpp} -- Vykresluje stav menu a předává informaci, zda byla hra spuštěna.
+    \item \texttt{game\_running.cpp} -- Vykresluje stav běžící hry a volá funkce pro objekty ve hře.
+    \item \texttt{shader.cpp} -- Spravuje shadery, tedy kompilaci, linkování, aktivaci a nastavování
         uniforem.
-    \item \texttt{rendering\_function.cpp} – Poskytuje funkce pro načítání shaderů a propojování
+    \item \texttt{rendering\_function.cpp} -- Poskytuje funkce pro načítání shaderů a propojování
         vstupních dat s \gls{vbo} a \gls{vao}.
-    \item \texttt{texture.cpp} – Spravuje vytváření, aktivaci a nastavení parametrů textur.
-    \item \texttt{vertices.cpp} – Uchovává vstupní data, jako jsou souřadnice objektů a textur.
-    \item \texttt{fruit.cpp} – Spravuje tvoření, pohyb a mazání ovoce. 
-    \item \texttt{player.cpp} – Spravuje pohyb hráče.
-    \item \texttt{text.cpp} – Spravuje vytváření a aktualizaci textu pro počítání životů a bodů.
-    \item \texttt{collision\_detection.cpp} – Zjišťuje, zda dochází ke kolizi hráče s ovocem, a
+    \item \texttt{texture.cpp} -- Spravuje vytváření, aktivaci a nastavení parametrů textur.
+    \item \texttt{vertices.cpp} -- Uchovává vstupní data, jako jsou souřadnice objektů a textur.
+    \item \texttt{fruit.cpp} -- Spravuje vytváření, pohyb a mazání ovoce. 
+    \item \texttt{player.cpp} -- Spravuje pohyb hráče.
+    \item \texttt{text.cpp} -- Spravuje vytváření a aktualizaci textu pro počítání životů a bodů.
+    \item \texttt{collision\_detection.cpp} -- Zjišťuje, zda dochází ke kolizi hráče s ovocem, a
         případně volá aktualizaci životů a skóre.
-    \item \texttt{random.cpp} – Vytváří náhodné čísla typu double a float.
+    \item \texttt{random.cpp} -- Vytváří náhodná čísla typu double a float.
 \end{itemize}
 
     \begin{figure}[H]
@@ -711,7 +709,7 @@ provádění rotací ve 3D prostoru.
 \cite{opengl_mathematics}
 
 \section{stb\_image}
-Knihovna stb\_image je jednoduchá knihovna pro načítání obrázků. Dokáže zpracovat většinu běžných
+Knihovna \textit{stb\_image} je jednoduchá knihovna pro načítání obrázků. Dokáže zpracovat většinu běžných
 formátů obrázků, jako jsou PNG nebo JPG. Tyto obrázky ukládá jako surová data do paměti. Pro každý
 pixel jsou uložena 3 čísla při používání RGB nebo 4 čísla při RGBA.
 \cite{image_loading}
@@ -724,9 +722,10 @@ generátor po dodání seedu vygeneruje náhodnou sekvenci čísel. Pro vytvoře
 random\_device, která vygeneruje náhodné číslo z náhodných parametrů systému. Generování čísel podle
 parametrů systému je náhodnější, ale tento proces je poměrně pomalý, a proto se využívá jen na
 generování seedu. Pro vytvoření čísla z nějakého rozmezí se používá funkce
-uniform\_real\_distribution. Ta vydělí každé vygenerované číslo tím největším možným vygenerovaným
-číslem, čímž vytvoří číslo v rozmezí od 0 do 1. Následně se rozmezí, které je potřeba vytvořit,
-přemapuje na rozmezí od 0 do 1.
+uniform\_real\_distribution. Ta převádí náhodně vygenerované číslo z generátoru na reálné číslo z
+požadovaného intervalu. Minimální hodnota generátoru odpovídá dolní hranici intervalu a maximální
+hodnota odpovídá horní hranici. Vygenerované číslo se následně přemapuje z intervalu generátoru do
+cílového intervalu.
 \cite{cppreference}
 
 \section{Generování ovoce}
@@ -744,11 +743,11 @@ struct fruitAttributes
     float speed;
 };
 \end{lstlisting}
-FruitType slouží k tomu, aby se přiřadila správná textura k danému ovoci a aby se vedělo, jaký efekt
-nastane při kolizi. Ve fruitAttributes jsou všechny potřebné parametry pro každé ovoce pohromadě,
+\texttt{FruitType} slouží k tomu, aby se přiřadila správná textura k danému ovoci a aby se vedělo, jaký efekt
+nastane při kolizi. Ve \texttt{fruitAttributes} jsou všechny potřebné parametry pro každé ovoce pohromadě,
 takže se s nimi lépe pracuje. Poté si vytvořím deque, do kterého si ukládám všechno ovoce, které je
 na obrazovce. Při vytváření ovoce vygeneruji náhodnou rychlost a matici, ve které je náhodná
-hodnotu posunutí
+hodnota posunutí
 ve směru osy X. Pro mazání a kolize následně vždy jen iteruji skrz všechno ovoce a zjišťuji, zda se
 dostalo pod hranu obrazovky nebo zda kolidovalo s košíkem.
 
@@ -756,13 +755,19 @@ dostalo pod hranu obrazovky nebo zda kolidovalo s košíkem.
 Pro počítání skóre a životů jsem si vytvořil třídu pro vykreslování čísel. Protože čísla, která
 potřebuji vykreslit, mohou mít libovolnou hodnotu, nevyplatí se pro každé číslo vytvářet samostatnou
 texturu. Místo toho jsem využil techniku zvanou texture atlas. Tato technika využívá jednu velkou
-texturu s číslicemi od 0 do 9. Každá cifra vykreslovaného čísla je samostatný objekt a je mu
+texturu s číslicemi od 0 do 9. Každá cifra vykreslovaného čísla je samostatný objekt, kterému je
 přiřazena část textury s odpovídající číslicí. Aby byla číslice správně vycentrovaná, musí se každému
 objektu přiřadit transformační matice. Pozice jednotlivé číslice závisí na celkové délce
 vykreslovaného čísla a také na pozici dané cifry v čísle. V shaderu se pomocí posunu texturových
 souřadnic určuje, jaká část textury se má vykreslit na daný objekt.
 
-\section{Detekce kolize} Pro detekci kolizí jsem využil Axis\-Aligned Bounding Box (AABB) detekci.
+\begin{figure}[H]
+        \includegraphics[width=\linewidth]{text.png}
+        \caption{Můj texture atlas pro vykreslování čísel}
+\end{figure}
+
+\section{Detekce kolize}
+Pro detekci kolizí jsem využil Axis\-Aligned Bounding Box (AABB) detekci.
 Každý objekt je reprezentován dvojicí bodů (horní levý roh a dolní pravý roh), které určují obdélník
 zarovnaný s osami. Kolize se zjišťuje porovnáním intervalů obou obdélníků na osách X a Y. Pokud dojde
 u obou os k překryvu, objekty mezi sebou kolidují.
@@ -780,8 +785,8 @@ Rozsah práce neumožňuje popsat fungování OpenGL tak dopodrobna, aby byl čt
 naprogramovat vlastní aplikaci. Pro hlubší porozumění dané knihovny lze využít knihu Learn
 OpenGL.
 
-V druhé části práce je popsána vytvořená hra v jazyce C++. Hra využívá teorii z předchozí kapitoly
-a základní OpenGL funkce jako práce s shadery a texturami, převádění souřadnic skrz různé souřadnicové
+V druhé části práce je popsána vytvořená hra v jazyce C++. Hra využívá teorii z předchozí části
+a základní OpenGL funkce pro práci s shadery a texturami, převádění souřadnic skrz různé souřadnicové
 systémy a práci s transformačními maticemi.
 
 Vzhledem k složitosti jazyka C++ kód není plně optimalizovaný, avšak pro hru takto malého
@@ -798,13 +803,8 @@ dosaženého skóre v menu, ale pro účely demonstrace popsané teorie je rozs�
 \printglossary[title={Zkratky}]		% Vytvoří seznam zkratek
 \listoffigures						% Vytvoří seznam obrázků
 
-%%%%%%%%%%%%% PŘÍLOHY - APPENDIX 	
-\begin{appendices}
-    	%\pitem{Fotky z pokusů}
-    	%\eitem{Vlastní program}
-    	%\eitem{Dokumentace}
-    	%\eitem{Testovací data}
-\end{appendices}
+\chapter*{Zdrojový kód}
+Všechen zdrojový kód použitý při tvorbě této práce je v přiloženém zip souboru.
 %%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%% KONEC %%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,10 +1,12 @@
 #include "collision_detection.h"
 
 CollisionDetection::CollisionDetection()
+//Zde ukládáme do proměnných Y souřadnice hraničních bodů hráče, protože se nemění
     : _playerAY(-282.0f/300.0f), _playerBY(-320.0f/300.0f)
 {}
 void CollisionDetection::CheckCollision()
 {
+//Zde se zjišťuje X souřadnice hraničních boudů hráče
     _mat = _player.GetMovementMat();
     _playerAX = -392.0f/400.0f + _mat[3][0];
     _playerBX = -272.0f/400.0f + _mat[3][0];
@@ -14,16 +16,19 @@ void CollisionDetection::CheckCollision()
         _mat = fruit->transform;
         if(fruit->type == FruitType::apple)
         {
+            //Ukládají se zde souřadnice hraničních boudů ovoce
             _fruitAX = -389.0f/400.0f + _mat[3][0];
             _fruitBX = -347.0f/400.0f + _mat[3][0];
             _fruitAY = 284.0f/300.0f + _mat[3][1];
             _fruitBY = 246.0f/300.0f + _mat[3][1];
 
+            //Zde zjišťujeme zda dochází k kolizi pomocí AABB metody.
             _collisionX = (_playerBX >= _fruitAX) && (_playerAX <= _fruitBX);
             _collisionY = (_playerBY <= _fruitAY) && (_playerAY >= _fruitBY);
 
             if(_collisionX && _collisionY)
             {
+                //Pokud nastane kolize, hráči se přičte život
                 _text.AddPoint();
                 fruit = _fruit.fruitList.erase(fruit);
             }
@@ -32,6 +37,7 @@ void CollisionDetection::CheckCollision()
         }
         else
         {
+            //Zde nastává to stejné, ale probýhá to pro kokos a ne jablko
             _fruitAX = -388.0f/400.0f + _mat[3][0];
             _fruitBX = -348.0f/400.0f + _mat[3][0];
             _fruitAY = 290.0f/300.0f + _mat[3][1];
@@ -42,6 +48,7 @@ void CollisionDetection::CheckCollision()
 
             if(_collisionX && _collisionY)
             {
+                //Pokud nastane kolize, hráči se odebere život
                 _text.RemoveHP();
                 fruit = _fruit.fruitList.erase(fruit);
             }

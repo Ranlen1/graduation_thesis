@@ -8,11 +8,13 @@
 
 #include "random.h"
 
+//Tento class urcuje typy ovoce ve hře
 enum class FruitType
 {
     apple = 0, coconut = 1
 };
 
+//Tento struct udržuje všechny potřebné attributy ovoce pohromadě
 struct fruitAttributes
 {
     FruitType type;
@@ -35,6 +37,7 @@ private:
 public:
     Fruit();
 
+    //Tyto funkce dělají následovně: Pohybují ovocem, vytvářejí ovoce, mažou ovoce a resetují hru
     void Move();
     void Spawn();
     void Delete();

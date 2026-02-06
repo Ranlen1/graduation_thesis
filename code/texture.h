@@ -17,7 +17,7 @@ public:
     Texture();
     ~Texture();
 
+    //Tyto funkce delaji nasledujici: nahrávají data do GPU a bindují texturu pro použití v shaderu
     void Generate(int textureWidth, int textureHeight, unsigned char *data);
-
     void Bind() const;
 };

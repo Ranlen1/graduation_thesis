@@ -13,10 +13,13 @@ public:
 
     Shader();
 
+    //Aktivuje shader program
     Shader &Use();
 
+    //Kompiluje vertex, fragment a geometry shader
     void Compile(const char *vertexSource, const char *fragmentSource, const char *geometrySource = nullptr);
         
+    //Funkce pro praci s uniformy
     void SetFloat(const char *name, float value, bool useShader = false);
     void SetInteger  (const char *name, int value, bool useShader = false);
     void SetVector2f (const char *name, float x, float y, bool useShader = false);

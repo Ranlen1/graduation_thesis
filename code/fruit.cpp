@@ -9,6 +9,8 @@ std::map<FruitType, std::pair<double, double>> Fruit::_spawnIntervalRange;
 Fruit::Fruit()
     : _currentTime(glfwGetTime()), _lastTimeMoved(glfwGetTime()), _lastCoconutSpawnIntervalDecrease(glfwGetTime())
 {
+    //V těchto promšnných se ukládají potřebná čísla pro určování rychlosti padajícího ovoce
+    //a toho, jak často se ovoce vytváří
     _spawnIntervalRange[FruitType::apple] = {2.5, 4.5};
     _spawnIntervalRange[FruitType::coconut] = {5.0, 7.0};
     _spawnInterval[FruitType::apple] = random.GenerateDouble(_spawnIntervalRange[FruitType::apple].first, _spawnIntervalRange[FruitType::apple].second);
@@ -31,6 +33,8 @@ void Fruit::Move()
 
 void Fruit::Spawn()
 {
+    //Tato funkce vytvoří ovoce vždy, když je rozdíl nynějšího času a času kdy se typ ovoce napsled
+    //vytvořil větší než časový interval pro vytvoření daného typu ovoce
     _currentTime = glfwGetTime();
     for(FruitType type : {FruitType::apple, FruitType::coconut})
     {
@@ -55,6 +59,7 @@ void Fruit::Spawn()
 
 void Fruit::Delete()
 {
+    //Ovoce se smaže pokud spadne pod okraj herního pole
     while(!fruitList.empty())
     {
         auto &fruit = fruitList.front();

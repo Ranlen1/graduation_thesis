@@ -25,5 +25,6 @@ public:
     GameRunning();
     ~GameRunning();
 
+    //Tato funkce vykresluje běžící hru
     void Draw();
 };

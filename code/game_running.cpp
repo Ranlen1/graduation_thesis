@@ -10,6 +10,8 @@
 
 GameRunning::GameRunning()
 {
+    
+    //zde probýha příprava na vykreslování jako kompilování, linkování atd.
     stbi_set_flip_vertically_on_load(true);
     rectangleShaderBinding(_backgroundVAO, _backgroundVBO, backgroundVertices, backgroundVerticesSize);
     rectangleShaderBinding(_fruitVAO, _fruitVBO, fruitVertices, fruitVerticesSize);
@@ -51,6 +53,7 @@ GameRunning::~GameRunning()
 
 void GameRunning::Draw()
 {
+    //Zde se volají funkce na updatováni herní logiky a také se zde vykresluje běžící hra
     _fruit.Move();
     _fruit.Spawn();
     _fruit.Delete();

@@ -1,4 +1,5 @@
 #pragma once
+//Tento file spravuje souradnice ruznych objektu
 
 #include <cstddef>
 

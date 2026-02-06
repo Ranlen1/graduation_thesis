@@ -12,6 +12,7 @@ Player::Player()
 
 void Player::Move()
 {
+    //Tato funkce posouvá hráče doleva či doprava podle toho, jak drží klávesy A a D
     float speed = 0.5f;
     float timeDiff = glfwGetTime() - _currentTime;
     _currentTime = glfwGetTime();

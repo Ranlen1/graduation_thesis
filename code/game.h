@@ -7,6 +7,7 @@
 #include "fruit.h"
 #include "player.h"
 
+//Tato třída uchovává možné stavy hry
 enum class gameState {
     Running = 0, Menu = 1
 };
@@ -23,8 +24,10 @@ private:
 public:
     Game();
 
+    //Tyto funkce dělají následovné: přepínají stav hry, volají funkce na vykreslování a poslední
+    //zjišťuje zda byla hra spuštěna
     void SetGameState(gameState state);
-    void DrawGameMenu();
+    void DrawGame();
     void Run();
 private:
     void shouldWindowClose();

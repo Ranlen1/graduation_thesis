@@ -2,6 +2,7 @@
 
 #include <random>
 
+//Tato třídá fugnuje jako generátor čísel
 class Random
 {
 private:

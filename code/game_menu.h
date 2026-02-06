@@ -17,8 +17,8 @@ public:
     GameMenu();
     ~GameMenu();
 
+    //Tyto funkce vykreslují herní menu a zjišťují, zda bylo zmáčknuto tlačítka na spuštění hry
     void Draw();
-
     bool PlayButtonClicked(GLFWwindow *window);
 };
 
